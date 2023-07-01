@@ -2,7 +2,7 @@
     {
         "codigo": "001",
         "nombre": "Barbie",
-        "año": "2023",
+        "anio": "2023",
         "direccion": ["Greta Gerwig"],
         "tipo": "Pelicula",
         "genero": ["Aventura", "Comedia", "Fantasia"],
@@ -15,7 +15,7 @@
     {
         "codigo": "002",
         "nombre": "Spider-Man: Cruzando el multiverso",
-        "año": "2023",
+        "anio": "2023",
         "direccion": ["Joaquim Dos Santos", "Kemp Powers", "Justin K. Thompson"],
         "tipo":"Pelicula",
         "genero":["Animacion","Accion","Aventura"],
@@ -28,7 +28,7 @@
     {
         "codigo":"003",
         "nombre":"La Sirenita",
-        "año":"2023",
+        "anio":"2023",
         "direccion":["Rob Marshall"],
         "tipo":"Pelicula",
         "genero":["Aventura","Familiar","Fantasia"],
@@ -42,7 +42,7 @@
     {
         "codigo":"004",
         "nombre":"Avatar: El sentido del agua",
-        "año" :"2022",
+        "anio" :"2022",
         "direccion":["James Cameron"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Fantasia"],
@@ -55,7 +55,7 @@
     {
         "codigo":"005",
         "nombre":"Interestelar",
-        "año":"2014",
+        "anio":"2014",
         "direccion":["Christopher Nolan"],
         "tipo":"Pelicula",
         "genero":["Aventura","Drama","Ciencia Ficcion"],
@@ -68,7 +68,7 @@
     {
         "codigo":"006",
         "nombre":"El lobo de Wall Street",
-        "año":"2013",
+        "anio":"2013",
         "direccion":["Martin Scorsese"],
         "tipo":"Pelicula",
         "genero":["Biografia","Crimen","Comedia"],
@@ -81,7 +81,7 @@
     {
         "codigo":"007",
         "nombre":"Transformers: El despertar de las bestias",
-        "año":"2023",
+        "anio":"2023",
         "direccion":["Steven Caple Jr"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Ciencia Ficcion"],
@@ -94,7 +94,7 @@
     {
         "codigo":"008",
         "nombre":"Rapidos y Furiosos X",
-        "año":"2023",
+        "anio":"2023",
         "direccion":["Louis Leterrier"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Crimen"],
@@ -107,7 +107,7 @@
     {
         "codigo":"009",
         "nombre":"Super Mario Bros.: La película",
-        "año":"2023",
+        "anio":"2023",
         "direccion":["Aaron Horvath","Michael Jelenic","Pierre Leduc"],
         "tipo":"Pelicula",
         "genero":["Animacion","Aventura","Comedia"],
@@ -120,7 +120,7 @@
     {
         "codigo":"010",
         "nombre":"Posesión infernal: El despertar",
-        "año":"2023",
+        "anio":"2023",
         "direccion":["Lee Cronin"],
         "tipo":"Pelicula",
         "genero":["Terror"],
@@ -133,7 +133,7 @@
     {
         "codigo":"011",
         "nombre":"Vesper",
-        "año":"2022",
+        "anio":"2022",
         "direccion":["Kristina Buozyte","Bruno Samper"],
         "tipo":"Pelicula",
         "genero":["Aventura","Drama","Ciencia Ficcion"],
@@ -146,7 +146,7 @@
     {
         "codigo":"012",
         "nombre":"Five Nights at Freddy's",
-        "año":"2023",
+        "anio":"2023",
         "direccion":["Emma Tammi"],
         "tipo":"Pelicula",
         "genero":["Terror"],
@@ -158,7 +158,7 @@
     },{
         "codigo":"013",
         "nombre":"Origen",
-        "año":"2010",
+        "anio":"2010",
         "direccion":["Christopher Nolan"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Ciencia Ficcion"],
@@ -170,7 +170,7 @@
     },{
         "codigo":"014",
         "nombre":"SKAM",
-        "año":"2015",
+        "anio":"2015",
         "direccion":["Julie Andem"],
         "tipo":"Serie",
         "genero":["Romance","Drama"],
