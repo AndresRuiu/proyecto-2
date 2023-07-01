@@ -18,6 +18,39 @@ a{
     font-size: 15px;
     position: absolute;
 }
+.nav-item{
+    margin-left: 45px;
+}
+
+.navbar-nav li a:hover {
+    cursor: pointer;
+    color: #FF6B00;
+  }
+
+.navbar a{
+    color: white;
+}
+
+.navbar .search{
+    background-color: transparent;
+    border: none;
+}
+
+.navbar #ingresar{
+    border-radius: 20.101px;
+    border: 2px solid #FF6B00;
+    background: rgba(217, 217, 217, 0.00);
+    margin-left: 15px;
+}
+
+.navbar #ingresar a{
+    padding: 8px;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+}
+
 
 .banner{
     display: flex;
@@ -42,3 +75,57 @@ a{
     margin: auto;
 }
 
+.textFastx {
+    position: absolute;
+    top: 300px;
+    margin-left: 30px;
+    z-index: 1;
+    color: white;
+  }
+
+.naranja{
+    color: #FF6B00;
+}
+
+#informacion{
+    display: flex;
+    color: white;
+    align-items: center;
+    max-width: 600px;
+}
+
+.anio p, .genero{
+    padding-top: 16px;
+}
+
+#informacion > * {
+    margin-right: 15px;
+}
+
+@media (max-width: 767px) {
+    .textFastx {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 10px;
+      }
+    
+    #informacion p, #informacion button {
+      font-size: 12px;
+    }
+  }
+
+.anio{
+    display: flex;
+    align-items: center;
+}
+
+.hd{
+    background-color: transparent;
+    color: white;
+}
+
+.anio > *{
+    margin-right: 8px;
+}
