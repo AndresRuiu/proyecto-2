@@ -39,9 +39,8 @@ fetch('../catalogo.json')
       instance.querySelector(".poster").src = pelicula.poster;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio[0];
-      instance.querySelector(".duracion").textContent = pelicula.duracion;
+      instance.querySelector(".duracion").textContent = pelicula.duracion + " min";
       instance.querySelector(".ranking").textContent = pelicula.ranking;
-      instance.querySelector(".hd").textContent = "HD"
       
       fragment.appendChild(instance);
     });

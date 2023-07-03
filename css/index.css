@@ -90,6 +90,7 @@ a{
   }
 
 @media (max-width: 767px) {
+
     .textFastx {
         display: flex;
         flex-direction: column;
@@ -118,11 +119,15 @@ a{
         flex: 0 0 auto;
     }
 
-    .card-title{
+    .card-title span{
         font-size: 2vw;
     }
     
-    .card-text{
+    .card-text span{
+        font-size: 2vw;
+    }
+
+    .col-3 .hd span{
         font-size: 2vw;
     }
 
@@ -148,8 +153,8 @@ a{
     margin-right: 15px;
 }
 
-.col-4 .hd{
-    font-size: 12px;
+.col-3 .hd{
+    font-size: 1vw;
 }
 
 .tipo{
