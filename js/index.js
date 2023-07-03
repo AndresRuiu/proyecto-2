@@ -28,7 +28,7 @@ fetch('../catalogo.json')
     
     const peliculasEstreno = peliculas.filter(pelicula => pelicula.anio.includes("proximamente"));
     
-    const template = document.querySelector("#pelicula-template-proximamente");
+    const template = document.querySelector("#pelicula-card-template");
     const container = document.querySelector("#peliculas-container-proximamente");
   
     const fragment = document.createDocumentFragment();

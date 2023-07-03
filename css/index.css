@@ -109,18 +109,18 @@ a{
       width: max-content;
     }
 
-    #peliculas-container{
+    #peliculas-container-proximamente{
         margin-left: 5px;
         margin-right: 5px;
     }
     
-    #peliculas-container {
+    #peliculas-container-proximamente {
         overflow-x: auto;
         display: flex;
         flex-wrap: nowrap;
     }
       
-    #pelicula-template .col-6 {
+    #pelicula-card-template .col-6 {
         flex: 0 0 auto;
     }
 
