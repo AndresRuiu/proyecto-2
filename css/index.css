@@ -64,7 +64,7 @@ a{
 
 .textFastx {
     position: absolute;
-    top: 350px;
+    top: 300px;
     margin-left: 30px;
     z-index: 1;
     color: white;
@@ -107,22 +107,27 @@ a{
         margin-left: 5px;
         margin-right: 5px;
     }
-
-    
-
-
     
     #peliculas-container {
         overflow-x: auto;
         display: flex;
         flex-wrap: nowrap;
-      }
+    }
       
-      #pelicula-template .col-6 {
+    #pelicula-template .col-6 {
         flex: 0 0 auto;
     }
 
-  }
+    .card-title{
+        font-size: 2vw;
+    }
+    
+    .card-text{
+        font-size: 2vw;
+    }
+
+}
+
 
 .anio, #play{
     display: flex;
@@ -137,14 +142,20 @@ a{
     background-color: transparent;
     color: white;
     border: black solid 2px;
+    border-radius: 5px;
     padding-left: 4px;
     padding-right: 4px;
     margin-right: 15px;
 }
 
+.col-4 .hd{
+    font-size: 12px;
+}
+
 .tipo{
     background-color: white;
     border: black solid 2px;
+    border-radius: 5px;
     color: black;
     padding-left: 4px;
     padding-right: 4px;
@@ -181,24 +192,24 @@ a{
 main{
     background-color: rgba(0, 0, 0, 0.47);
     backdrop-filter: blur(2px);
-    margin-top: 10px;
 }
 
 .card{
     background-color: transparent;
     color: white;
     border: none;
-    display: grif;
+    display: grid;
     grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
     gap: 32px;
+    margin-bottom: 5px;
 }
 
 .card-title{
-    font-size: 13px;
+    font-size: 1vw;
 }
 
 .card-text{
-    font-size: 10px;
+    font-size: 1vw;
 }
 
 .poster {
