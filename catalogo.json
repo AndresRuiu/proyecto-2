@@ -20,7 +20,7 @@
         "tipo":"Pelicula",
         "genero":["Animacion","Accion","Aventura"],
         "reparto":["Shameik Moore", "Hailee Steinfeld","Brian Tyree Henry"],
-        "poster":"http://www.impawards.com/2023/posters/spiderman_across_the_spiderverse_ver11.jpg",
+        "poster":"./img/posters/spiderman_across_the_spiderverse_ver11.jpg",
         "descripcion":"Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.",
         "ranking":"8,9",
         "duracion":"140"
@@ -33,7 +33,7 @@
         "tipo":"Pelicula",
         "genero":["Aventura","Familiar","Fantasia"],
         "reparto":["Halle Bailey", "Jonah Hauer-King","Melissa McCarthy"],
-        "poster":"http://www.impawards.com/2023/posters/little_mermaid_ver3_xlg.jpg",
+        "poster":"./img/posters/little_mermaid_ver3_xlg.jpg",
         "descripcion":"Una joven sirena hace un trato con una bruja marina para cambiar su hermosa voz por piernas humanas para poder descubrir el mundo sobre el agua e impresionar a un príncipe.",
         "ranking":"7,2",
         "duracion":"135"
@@ -73,7 +73,7 @@
         "tipo":"Pelicula",
         "genero":["Biografia","Crimen","Comedia"],
         "reparto":["Leonardo DiCaprio","Jonah Hill","Margot Robbie"],
-        "poster":"http://www.impawards.com/2013/posters/wolf_of_wall_street_ver3_xlg.jpg",
+        "poster":"",
         "descripcion":"Basado en la historia real de Jordan Belfort, desde su ascenso a convertirse en un adinerado agente de bolsa viviendo la gran vida hasta su caída, que involucra el crimen, la corrupción y el gobierno federal.",
         "ranking":"8,2",
         "duracion":"180"
@@ -86,7 +86,7 @@
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Ciencia Ficcion"],
         "reparto":["Anthony Ramos","Dominique Fishback","Luna Lauren Velez"],
-        "poster":"http://www.impawards.com/2023/posters/transformers_rise_of_the_beasts_ver11_xlg.jpg",
+        "poster":"./img/posters/transformers_rise_of_the_beasts_ver11_xlg.jpg",
         "descripcion":"Sigue durante los 90 a una nueva facción de los Transformers, los Maximals y como se unen a los Autobots como aliados en una batalla por el planeta Tierra.",
         "ranking":"6,5",
         "duracion":"127 "
@@ -99,7 +99,7 @@
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Crimen"],
         "reparto":["Vin Diesel","Michelle Rodriguez","Jason Statham"],
-        "poster":"http://www.impawards.com/2023/posters/fast_x_ver2_xlg.jpg",
+        "poster":"./img/posters/fast_x_ver2_xlg.jpg",
         "descripcion":"Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.",
         "ranking":"5,9",
         "duracion":"141"
@@ -112,7 +112,7 @@
         "tipo":"Pelicula",
         "genero":["Animacion","Aventura","Comedia"],
         "reparto":["Chris Pratt","Anya Taylor-Joy","Charlie Day"],
-        "poster":"http://www.impawards.com/2023/posters/super_mario_bros_the_movie_ver10_xlg.jpg",
+        "poster":"./img/posters/super_mario_bros_the_movie_ver10_xlg.jpg",
         "descripcion":"Un fontanero llamado Mario viaja a través de un laberinto subterráneo con su hermano, Luigi, tratando de salvar a una princesa capturada.",
         "ranking":"7,1",
         "duracion":"92"
