@@ -112,16 +112,26 @@ a{
     #peliculas-container-proximamente{
         margin-left: 5px;
         margin-right: 5px;
-    }
-    
-    #peliculas-container-proximamente {
         overflow-x: auto;
         display: flex;
         flex-wrap: nowrap;
     }
-      
-    #pelicula-card-template .col-6 {
+
+    #scroll-left,
+    #scroll-right {
+        display: none;
+    } 
+       
+    #pelicula-card-template{
         flex: 0 0 auto;
+    }
+
+    #peliculas-container-2023 .col-lg-3 {
+        width: 50% !important;
+    }
+
+    #peliculas-container-2023{
+        overflow-x: auto !important;
     }
 
     .card-title span{
@@ -229,6 +239,28 @@ main{
     box-shadow: 0px 0px 30px black;
 }
 
-
+#peliculas-container-2023 {
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+  }
   
+#peliculas-container-2023 .col-lg-3 {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 25%;
+    margin: 0px !important;
+}
+
+#scroll-left,
+#scroll-right {
+  background-color: transparent;
+  border: none;
+  width: 160px;
+  height: 50px;
+}
+
+
+
 
