@@ -47,7 +47,7 @@
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Fantasia"],
         "reparto":["Sam Worthington", "Zoe Saldana","Sigourney Weaver"],
-        "poster": "http://www.impawards.com/2022/posters/avatar_the_way_of_water_ver2_xlg.jpg",
+        "poster": "./img/posters/avatar_the_way_of_water_ver2_xlg (1).jpg",
         "descripcion":"Jake Sully vive con su nueva familia en el planeta de Pandora. Cuando una amenaza conocida regresa, Jake debe trabajar con Neytiri y el ejército de la raza na'vi para proteger su planeta.",
         "ranking":"7,6",
         "duracion":"192"
@@ -60,7 +60,7 @@
         "tipo":"Pelicula",
         "genero":["Aventura","Drama","Ciencia Ficcion"],
         "reparto":["Matthew McConaughey","Anne Hathaway","Jessica Chastain"],
-        "poster":"http://www.impawards.com/2014/posters/interstellar_ver2_xlg.jpg",
+        "poster":"./img/posters/interstellar_ver2_xlg (1).jpg",
         "descripcion":"Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de garantizar la supervivencia de la humanidad.",
         "ranking":"8,7",
         "duracion":"169"
@@ -73,7 +73,7 @@
         "tipo":"Pelicula",
         "genero":["Biografia","Crimen","Comedia"],
         "reparto":["Leonardo DiCaprio","Jonah Hill","Margot Robbie"],
-        "poster":"",
+        "poster":"./img/posters/wolf_of_wall_street_ver3_xlg (1).jpg",
         "descripcion":"Basado en la historia real de Jordan Belfort, desde su ascenso a convertirse en un adinerado agente de bolsa viviendo la gran vida hasta su caída, que involucra el crimen, la corrupción y el gobierno federal.",
         "ranking":"8,2",
         "duracion":"180"
@@ -163,7 +163,7 @@
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Ciencia Ficcion"],
         "reparto":["Leonardo DiCaprio","Joseph Gordon-Levitt","Elliot Page"],
-        "poster":"http://www.impawards.com/2010/posters/inception_ver3_xlg.jpg",
+        "poster":"./img/posters/inception_ver3_xlg (1).jpg",
         "descripcion":"A un ladrón que roba secretos corporativos a través del uso de la tecnología de compartir sueños, se le da la tarea de implantar una idea en la mente de un jefe de una gran empresa.",
         "ranking":"8,8",
         "duracion":"148"
@@ -175,7 +175,7 @@
         "tipo":"Serie",
         "genero":["Romance","Drama"],
         "reparto":["Josefine Frida Pettersen","Iman Meskini","Ulrikke Falch"],
-        "poster":"https://lh6.googleusercontent.com/9vPKL7zT3W4j9xvd4xAXZ2u5LDwBZiBUbqdRrvgLMDJIldZDUU8tuZRGo5EZcyL1quWDr3XsLNFCx4Xw4L_H4fyUVY0-uz_yhL9kyOTB-kmTaXUSv7-YyBh823FeSAsiqw=w1280",
+        "poster":"./img/posters/EmbeddedImage (1).jpg",
         "descripcion":"“Skam” (en español “Vergüenza”) es un drama adolescente noruego que gira en torno a los estudiantes de una escuela secundaria de Oslo.",
         "ranking":"8,6",
         "duracion":"43 Episodios"

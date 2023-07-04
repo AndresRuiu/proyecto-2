@@ -73,27 +73,64 @@ fetch('../catalogo.json')
   
     container.appendChild(fragment);
   }
+
+  async function cargarPeliculasAD() {
+    const response = await fetch('catalogo.json');
+    const peliculas = await response.json();
+    
+    const peliculasAD = peliculas.filter(pelicula => pelicula.genero.includes("Accion") || pelicula.genero.includes("Drama"));
+    
+    const template = document.querySelector("#pelicula-card-template");
+    const container = document.querySelector("#peliculas-container-AD");
+  
+    const fragment = document.createDocumentFragment();
+  
+    peliculasAD.forEach(pelicula => {
+      const instance = template.content.cloneNode(true);
+      
+      instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".nombre").textContent = pelicula.nombre;
+      instance.querySelector(".anio").textContent = pelicula.anio;
+      instance.querySelector(".duracion").textContent = pelicula.duracion + " min";
+      instance.querySelector(".ranking").textContent = pelicula.ranking;
+      
+      fragment.appendChild(instance);
+    });
+  
+    container.appendChild(fragment);
+}
   
   cargarPeliculasProximamente();
   cargarPeliculas2023()
+  cargarPeliculasAD()
   
   
-  const peliculasContainer = document.querySelector('#peliculas-container-2023');
-const scrollLeftButton = document.querySelector('#scroll-left');
-const scrollRightButton = document.querySelector('#scroll-right');
-
-scrollLeftButton.addEventListener('click', () => {
-  peliculasContainer.scroll({
-    left: peliculasContainer.scrollLeft - peliculasContainer.offsetWidth,
-    behavior: 'smooth'
+  const peliculasContainer2023 = document.querySelector('#peliculas-container-2023');
+  const peliculasContainerAD = document.querySelector('#peliculas-container-AD');
+  const scrollLeftButton = document.querySelector('#scroll-left');
+  const scrollRightButton = document.querySelector('#scroll-right');
+  
+  scrollLeftButton.addEventListener('click', () => {
+    peliculasContainer2023.scroll({
+      left: peliculasContainer2023.scrollLeft - peliculasContainer2023.offsetWidth,
+      behavior: 'smooth'
+    });
+    peliculasContainerAD.scroll({
+      left: peliculasContainerAD.scrollLeft - peliculasContainerAD.offsetWidth,
+      behavior: 'smooth'
+    });
   });
-});
-
-scrollRightButton.addEventListener('click', () => {
-  peliculasContainer.scroll({
-    left: peliculasContainer.scrollLeft + peliculasContainer.offsetWidth,
-    behavior: 'smooth'
+  
+  scrollRightButton.addEventListener('click', () => {
+    peliculasContainer2023.scroll({
+      left: peliculasContainer2023.scrollLeft + peliculasContainer2023.offsetWidth,
+      behavior: 'smooth'
+    });
+    peliculasContainerAD.scroll({
+      left: peliculasContainerAD.scrollLeft + peliculasContainerAD.offsetWidth,
+      behavior: 'smooth'
+    });
   });
-});
+  
 
   
