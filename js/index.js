@@ -1,3 +1,24 @@
+let aside = document.querySelector('#videoAside');
+let video = document.querySelector('video');
+let muteIcon = document.querySelector('#muteIcon');
+let unmuteIcon = document.querySelector('#unmuteIcon');
+aside.addEventListener('click', function () {
+    if (video.muted) {
+        video.muted = false;
+        muteIcon.style.display = 'none';
+        unmuteIcon.style.display = 'block';
+    } else {
+        video.muted = true;
+        muteIcon.style.display = 'block';
+        unmuteIcon.style.display = 'none';
+    }
+    setTimeout(function () {
+        muteIcon.style.display = 'none';
+        unmuteIcon.style.display = 'none';
+    }, 2000);
+});
+
+
 fetch('../catalogo.json')
 .then(response => response.json())
     .then(data => {
