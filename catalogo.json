@@ -1,6 +1,6 @@
 [
     {
-        "codigo": "001",
+        "id": "001",
         "nombre": "Barbie",
         "anio": ["2023", "proximamente"],
         "direccion": ["Greta Gerwig"],
@@ -8,12 +8,13 @@
         "genero": ["Aventura", "Comedia", "Fantasia"],
         "reparto": ["Margot Robbie", "Ryan Gosling", "Kingsley Ben-Adir"],
         "poster" :"./img/posters/barbie_ver28_xlg.jpg",
+        "pagina": "https://www.youtube.com/embed/gH2mRECr6y4",
         "descripcion":"Barbie vive en Barbie Land y luego sucede una historia.",
         "ranking":"-",
         "duracion":"114"
     },
     {
-        "codigo": "002",
+        "id": "002",
         "nombre": "Spider-Man: Cruzando el multiverso",
         "anio": "2023",
         "direccion": ["Joaquim Dos Santos", "Kemp Powers", "Justin K. Thompson"],
@@ -21,12 +22,13 @@
         "genero":["Animacion","Accion","Aventura"],
         "reparto":["Shameik Moore", "Hailee Steinfeld","Brian Tyree Henry"],
         "poster":"./img/posters/spiderman_across_the_spiderverse_ver11.jpg",
+        "pagina": "https://www.youtube.com/embed/oBmazlyP220",
         "descripcion":"Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.",
         "ranking":"8,9",
         "duracion":"140"
     },
     {
-        "codigo":"003",
+        "id":"003",
         "nombre":"La Sirenita",
         "anio":"2023",
         "direccion":["Rob Marshall"],
@@ -34,13 +36,14 @@
         "genero":["Aventura","Familiar","Fantasia"],
         "reparto":["Halle Bailey", "Jonah Hauer-King","Melissa McCarthy"],
         "poster":"./img/posters/little_mermaid_ver3_xlg.jpg",
+        "pagina": "",
         "descripcion":"Una joven sirena hace un trato con una bruja marina para cambiar su hermosa voz por piernas humanas para poder descubrir el mundo sobre el agua e impresionar a un príncipe.",
         "ranking":"7,2",
         "duracion":"135"
 
     },
     {
-        "codigo":"004",
+        "id":"004",
         "nombre":"Avatar: El sentido del agua",
         "anio" :"2022",
         "direccion":["James Cameron"],
@@ -48,12 +51,13 @@
         "genero":["Accion","Aventura","Fantasia"],
         "reparto":["Sam Worthington", "Zoe Saldana","Sigourney Weaver"],
         "poster": "./img/posters/avatar_the_way_of_water_ver2_xlg (1).jpg",
+        "pagina": "",
         "descripcion":"Jake Sully vive con su nueva familia en el planeta de Pandora. Cuando una amenaza conocida regresa, Jake debe trabajar con Neytiri y el ejército de la raza na'vi para proteger su planeta.",
         "ranking":"7,6",
         "duracion":"192"
     },
     {
-        "codigo":"005",
+        "id":"005",
         "nombre":"Interestelar",
         "anio":"2014",
         "direccion":["Christopher Nolan"],
@@ -61,12 +65,13 @@
         "genero":["Aventura","Drama","Ciencia Ficcion"],
         "reparto":["Matthew McConaughey","Anne Hathaway","Jessica Chastain"],
         "poster":"./img/posters/interstellar_ver2_xlg (1).jpg",
+        "pagina": "",
         "descripcion":"Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de garantizar la supervivencia de la humanidad.",
         "ranking":"8,7",
         "duracion":"169"
     },
     {
-        "codigo":"006",
+        "id":"006",
         "nombre":"El lobo de Wall Street",
         "anio":"2013",
         "direccion":["Martin Scorsese"],
@@ -74,12 +79,13 @@
         "genero":["Biografia","Crimen","Comedia"],
         "reparto":["Leonardo DiCaprio","Jonah Hill","Margot Robbie"],
         "poster":"./img/posters/wolf_of_wall_street_ver3_xlg (1).jpg",
+        "pagina": "",
         "descripcion":"Basado en la historia real de Jordan Belfort, desde su ascenso a convertirse en un adinerado agente de bolsa viviendo la gran vida hasta su caída, que involucra el crimen, la corrupción y el gobierno federal.",
         "ranking":"8,2",
         "duracion":"180"
     },
     {
-        "codigo":"007",
+        "id":"007",
         "nombre":"Transformers: El despertar de las bestias",
         "anio":"2023",
         "direccion":["Steven Caple Jr"],
@@ -87,12 +93,13 @@
         "genero":["Accion","Aventura","Ciencia Ficcion"],
         "reparto":["Anthony Ramos","Dominique Fishback","Luna Lauren Velez"],
         "poster":"./img/posters/transformers_rise_of_the_beasts_ver11_xlg.jpg",
+        "pagina": "",
         "descripcion":"Sigue durante los 90 a una nueva facción de los Transformers, los Maximals y como se unen a los Autobots como aliados en una batalla por el planeta Tierra.",
         "ranking":"6,5",
         "duracion":"127 "
     },
     {
-        "codigo":"008",
+        "id":"008",
         "nombre":"Rapidos y Furiosos X",
         "anio":"2023",
         "direccion":["Louis Leterrier"],
@@ -100,12 +107,13 @@
         "genero":["Accion","Aventura","Crimen"],
         "reparto":["Vin Diesel","Michelle Rodriguez","Jason Statham"],
         "poster":"./img/posters/fast_x_ver2_xlg.jpg",
+        "pagina": "",
         "descripcion":"Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.",
         "ranking":"5,9",
         "duracion":"141"
     },
     {
-        "codigo":"009",
+        "id":"009",
         "nombre":"Super Mario Bros.: La película",
         "anio":"2023",
         "direccion":["Aaron Horvath","Michael Jelenic","Pierre Leduc"],
@@ -113,12 +121,13 @@
         "genero":["Animacion","Aventura","Comedia"],
         "reparto":["Chris Pratt","Anya Taylor-Joy","Charlie Day"],
         "poster":"./img/posters/super_mario_bros_the_movie_ver10_xlg.jpg",
+        "pagina": "",
         "descripcion":"Un fontanero llamado Mario viaja a través de un laberinto subterráneo con su hermano, Luigi, tratando de salvar a una princesa capturada.",
         "ranking":"7,1",
         "duracion":"92"
     },
     {
-        "codigo":"010",
+        "id":"010",
         "nombre":"Posesión infernal: El despertar",
         "anio":["2023","proximamente"],
         "direccion":["Lee Cronin"],
@@ -126,12 +135,13 @@
         "genero":["Terror"],
         "reparto":["Mirabai Pease","Richard Crouchley","Anna-Maree Thomas"],
         "poster":"./img/posters/evil_dead_rise_xlg.jpg",
+        "pagina": "",
         "descripcion":"Beth visita a su hermana mayor, Ella, que está criando a 3 niños en un pequeño apartamento en Los Ángeles. Su reunión es muy corta cuando encuentran un libro demoníaco, The Necronomicon Ex-Mortis.",
         "ranking":"6,7",
         "duracion":"96"
     },
     {
-        "codigo":"011",
+        "id":"011",
         "nombre":"Vesper",
         "anio":["2022","proximamente"],
         "direccion":["Kristina Buozyte","Bruno Samper"],
@@ -139,12 +149,13 @@
         "genero":["Aventura","Drama","Ciencia Ficcion"],
         "reparto":["Raffiella Chapman","Eddie Marsan","Rosy McEwen"],
         "poster":"./img/posters/vesper_ver2_xlg.jpg",
+        "pagina": "",
         "descripcion":"Después del colapso del ecosistema de la Tierra, Vesper, una niña de 13 años que lucha por sobrevivir con su padre, conoce a una mujer con un secreto que la obligará a usar sus habilidades de bio-hackeo para luchar por tener un futuro.",
         "ranking":"5,9",
         "duracion":"114"
     },
     {
-        "codigo":"012",
+        "id":"012",
         "nombre":"Five Nights at Freddy's",
         "anio":["2023","proximamente"],
         "direccion":["Emma Tammi"],
@@ -152,11 +163,12 @@
         "genero":["Terror"],
         "reparto":["Josh Hutcherson","Matthew Lillard","Mary Stuart Masterson"],
         "poster":"./img/posters/five_nights_at_freddys_xlg.jpg",
+        "pagina": "",
         "descripcion":"Un guardia nocturno tiene que sobrevivir 5 noches en una pizzería. Los animatrónicos intentan comérselo cada noche.",
         "ranking": "-",
         "duracion": "-"
     },{
-        "codigo":"013",
+        "id":"013",
         "nombre":"Origen",
         "anio":"2010",
         "direccion":["Christopher Nolan"],
@@ -164,11 +176,12 @@
         "genero":["Accion","Aventura","Ciencia Ficcion"],
         "reparto":["Leonardo DiCaprio","Joseph Gordon-Levitt","Elliot Page"],
         "poster":"./img/posters/inception_ver3_xlg (1).jpg",
+        "pagina": "",
         "descripcion":"A un ladrón que roba secretos corporativos a través del uso de la tecnología de compartir sueños, se le da la tarea de implantar una idea en la mente de un jefe de una gran empresa.",
         "ranking":"8,8",
         "duracion":"148"
     },{
-        "codigo":"014",
+        "id":"014",
         "nombre":"SKAM",
         "anio":"2015",
         "direccion":["Julie Andem"],
@@ -176,6 +189,7 @@
         "genero":["Romance","Drama"],
         "reparto":["Josefine Frida Pettersen","Iman Meskini","Ulrikke Falch"],
         "poster":"./img/posters/EmbeddedImage (1).jpg",
+        "pagina": "",
         "descripcion":"“Skam” (en español “Vergüenza”) es un drama adolescente noruego que gira en torno a los estudiantes de una escuela secundaria de Oslo.",
         "ranking":"8,6",
         "duracion":"43 Episodios"
