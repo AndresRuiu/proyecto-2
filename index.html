@@ -24,7 +24,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto  mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+                    <a class="nav-link active" aria-current="page" href="./index.html">INICIO</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">PELICULAS</a>
@@ -51,13 +51,13 @@
           </svg>
           </div>
 
-            <div class="background--video d-none d-sm-block">
+            <div class="background--video d-none d-md-block">
               <video class="w-100" autoplay muted loop onclick="toggleMute(this)">
                 <source src="./img/video/fondoF&F.mp4" type="video/mp4">
             </video>
         </div>
         
-          <div class="background--img d-sm-none">
+          <div class="background--img d-md-none">
             <img class="w-100" src="./img/fast_x_xlg 1.jpg" alt="">
           </div>
 
@@ -84,36 +84,59 @@
     </aside>
 
       <main>
-        <div class="container my-5">
-          <div class="row">
+        <div class="container my-5 ">
+          <div class="row TituloP">
             <h2 style="color: #ffffff;">Próximamente</h2>
           </div>
           <div class="row mt-3" id="peliculas-container-proximamente"></div>
-          <div class="row mt-3">
+          <div class="row mt-3 TituloP">
             <h2 style="color: #ffffff;">Estrenos 2023</h2>
           </div>
           <div class="d-flex align-items-center">
-            <button id="scroll-left" class="btn btn-secondary me-3">
+            <button id="scroll-left" class="btn scroll-left me-3">
               <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
             </button>
             <div class="row mt-3 flex-nowrap" id="peliculas-container-2023"></div>
-            <button id="scroll-right" class="btn btn-secondary ms-3">
+            <button id="scroll-right" class="btn scroll-right ms-3">
               <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
             </button>
           </div>
-          <div class="row mt-3">
+          <div class="row mt-3 TituloP">
             <h2 style="color: #ffffff;">De la adrenalina al llanto</h2>
           </div>
           <div class="d-flex align-items-center">
-            <button id="scroll-left" class="btn btn-secondary me-3">
+            <button id="scroll-left1" class="btn scroll-left  me-3">
               <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
             </button>
             <div class="row mt-3 flex-nowrap" id="peliculas-container-AD"></div>
-            <button id="scroll-right" class="btn btn-secondary ms-3">
+            <button id="scroll-right1" class="btn scroll-right  ms-3">
               <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
             </button>
           </div>
-        </div>
+          <div class="row mt-3 TituloP">
+            <h2 style="color: #ffffff;">No apto para cardiacos</h2>
+          </div>
+          <div class="d-flex align-items-center">
+            <button id="scroll-left2" class="btn scroll-left  me-3">
+              <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+            </button>
+            <div class="row mt-3 flex-nowrap" id="peliculas-container-Terror"></div>
+            <button id="scroll-right2" class="btn scroll-right  ms-3">
+              <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+            </button>
+          </div>
+          <div class="row mt-3 TituloP">
+            <h2 style="color: #ffffff;">Crimenes por resolver</h2>
+          </div>
+          <div class="d-flex align-items-center">
+            <button id="scroll-left3" class="btn scroll-left  me-3">
+              <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+            </button>
+            <div class="row mt-3 flex-nowrap" id="peliculas-container-Crimen"></div>
+            <button id="scroll-right3" class="btn scroll-right  ms-3">
+              <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+            </button>
+          </div>
         </div>
         
         

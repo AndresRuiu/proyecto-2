@@ -17,6 +17,7 @@ a{
     width: 100%;
     display: flex;
     align-items: center;
+    z-index: 2;
     gap: 5px;
     font-size: 15px;
     position: absolute;
@@ -32,7 +33,7 @@ a{
 .navbar-nav li a:hover {
     cursor: pointer;
     color: #d40f45;
-  }
+}
 
 .navbar a,#play a{
     color: white;
@@ -56,7 +57,7 @@ a{
 }
 
 
-.background--img img{
+.background--img img,.background--img source{
     width: 100%;
     height: 100vh;
     object-fit: cover;
@@ -117,8 +118,8 @@ a{
         flex-wrap: nowrap;
     }
 
-    #scroll-left,
-    #scroll-right {
+    .scroll-left,
+    .scroll-right {
         display: none;
     } 
        
@@ -126,11 +127,11 @@ a{
         flex: 0 0 auto;
     }
 
-    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3{
+    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3{
         width: 50% !important;
     }
 
-    #peliculas-container-2023, #peliculas-container-AD{
+    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror{
         overflow-x: auto !important;
     }
 
@@ -148,6 +149,13 @@ a{
 
 }
 
+@media (max-width: 576px) {
+    #modal iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
 
 .anio, #play{
     display: flex;
@@ -223,7 +231,6 @@ main{
     gap: 32px;
     margin-bottom: 5px;
     margin-left: 10px;
-    margin-right: 10px;
 }
 
 .card-title{
@@ -282,27 +289,18 @@ main{
     border: 2px solid white;
 }
 
-#peliculas-container-2023, #peliculas-container-AD {
-    overflow-x: auto;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-  }
-  
-#peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3{
-    display: inline-block;
-    flex: 0 0 auto;
-    width: 25%;
-    margin: 0px !important;
-}
 
-#scroll-left,
-#scroll-right {
+.scroll-left,
+.scroll-right {
   background-color: transparent;
   border: none;
   width: 160px;
   height: 50px;
 }
+
+.TituloP {
+    text-align: center;
+  }
 
 
   

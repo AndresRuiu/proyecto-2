@@ -42,12 +42,8 @@ fetch('../catalogo.json')
   })
   .catch(error => console.error(error));
 
-  async function loadCatalog() {
-    const response = await fetch('../catalogo.json');
-    return await response.json();
-  }
-  
-  function createYouTubeModal(youTubeUrl, movieId) {
+
+  function createYouTubeModal(youTubeUrl) {
     const modalContainer = document.createElement('div');
     modalContainer.style.display = 'flex';
     modalContainer.style.justifyContent = 'center';
@@ -76,9 +72,10 @@ fetch('../catalogo.json')
     const iframe = document.createElement('iframe');
     iframe.width = '560';
     iframe.height = '315';
-    iframe.src = youTubeUrl;
+    iframe.src = youTubeUrl + "?autoplay=1";
     iframe.frameBorder = '0';
     iframe.allowFullscreen = true;
+
     
     const movieIdElement = document.createElement('div');
     
@@ -90,11 +87,6 @@ fetch('../catalogo.json')
     document.body.appendChild(modalContainer);
   }
   
-
-  
-  
-
-
 
   async function cargarPeliculasProximamente() {
     const response = await fetch('../catalogo.json');
@@ -113,7 +105,7 @@ fetch('../catalogo.json')
       instance.querySelector(".poster").src = pelicula.poster;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio[0];
-      instance.querySelector(".duracion").textContent = pelicula.duracion + " min";
+      instance.querySelector(".duracion").textContent = pelicula.duracion;
       instance.querySelector(".ranking").textContent = pelicula.ranking;
       
       const verMasButton = instance.querySelector('.ver-mas');
@@ -140,13 +132,12 @@ fetch('../catalogo.json')
       instance.querySelector(".poster").src = pelicula.poster;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
-      instance.querySelector(".duracion").textContent = pelicula.duracion + " min";
+      instance.querySelector(".duracion").textContent = pelicula.duracion;
       instance.querySelector(".ranking").textContent = pelicula.ranking;
   
-      // Agregar controlador de eventos al botón ver-mas
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-        createYouTubeModal(pelicula.pagina, pelicula.id);
+        createYouTubeModal(pelicula.pagina);
       });
   
       fragment.appendChild(instance);
@@ -161,7 +152,7 @@ fetch('../catalogo.json')
     const response = await fetch('../catalogo.json');
     const peliculas = await response.json();
     
-    const peliculasAD = peliculas.filter(pelicula => pelicula.genero.includes("Accion") || pelicula.genero.includes("Drama"));
+    const peliculasAD = peliculas.filter(pelicula => (pelicula.genero.includes("Accion") || pelicula.genero.includes("Drama")) && !pelicula.anio.includes("proximamente"));
     
     const template = document.querySelector("#pelicula-card-template");
     const container = document.querySelector("#peliculas-container-AD");
@@ -174,12 +165,12 @@ fetch('../catalogo.json')
       instance.querySelector(".poster").src = pelicula.poster;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
-      instance.querySelector(".duracion").textContent = pelicula.duracion + " min";
+      instance.querySelector(".duracion").textContent = pelicula.duracion;
       instance.querySelector(".ranking").textContent = pelicula.ranking;
 
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-        createYouTubeModal(pelicula.pagina, pelicula.id);
+        createYouTubeModal(pelicula.pagina);
       });
       
       fragment.appendChild(instance);
@@ -187,39 +178,146 @@ fetch('../catalogo.json')
   
     container.appendChild(fragment);
 }
+
+async function cargarPeliculasTerror() {
+  const response = await fetch('../catalogo.json');
+  const peliculas = await response.json();
+  
+  const peliculasTerror = peliculas.filter(pelicula => (pelicula.genero.includes("Terror") || pelicula.genero.includes("Suspenso")) && !pelicula.anio.includes("proximamente"));
+  
+  const template = document.querySelector("#pelicula-card-template");
+  const container = document.querySelector("#peliculas-container-Terror");
+
+  const fragment = document.createDocumentFragment();
+
+  peliculasTerror.forEach(pelicula => {
+    const instance = template.content.cloneNode(true);
+    
+    instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".nombre").textContent = pelicula.nombre;
+    instance.querySelector(".anio").textContent = pelicula.anio;
+    instance.querySelector(".duracion").textContent = pelicula.duracion;
+    instance.querySelector(".ranking").textContent = pelicula.ranking;
+
+    const verMasButton = instance.querySelector('.ver-mas');
+    verMasButton.addEventListener('click', () => {
+      createYouTubeModal(pelicula.pagina);
+    });
+    
+    fragment.appendChild(instance);
+  });
+
+  container.appendChild(fragment);
+}
+
+async function cargarPeliculasCrimen() {
+  const response = await fetch('../catalogo.json');
+  const peliculas = await response.json();
+  
+  const peliculasCrimen = peliculas.filter(pelicula => pelicula.genero.includes("Crimen") && !pelicula.anio.includes("proximamente"));
+  
+  const template = document.querySelector("#pelicula-card-template");
+  const container = document.querySelector("#peliculas-container-Crimen");
+
+  const fragment = document.createDocumentFragment();
+
+  peliculasCrimen.forEach(pelicula => {
+    const instance = template.content.cloneNode(true);
+    
+    instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".nombre").textContent = pelicula.nombre;
+    instance.querySelector(".anio").textContent = pelicula.anio;
+    instance.querySelector(".duracion").textContent = pelicula.duracion;
+    instance.querySelector(".ranking").textContent = pelicula.ranking;
+
+    const verMasButton = instance.querySelector('.ver-mas');
+    verMasButton.addEventListener('click', () => {
+      createYouTubeModal(pelicula.pagina);
+    });
+    
+    fragment.appendChild(instance);
+  });
+
+  container.appendChild(fragment);
+}
+
   
   cargarPeliculasProximamente();
   cargarPeliculas2023()
   cargarPeliculasAD()
-  
-  
-
-  const peliculasContainer2023 = document.querySelector('#peliculas-container-2023');
-  const peliculasContainerAD = document.querySelector('#peliculas-container-AD');
-  const scrollLeftButton = document.querySelector('#scroll-left');
-  const scrollRightButton = document.querySelector('#scroll-right');
-  
-  scrollLeftButton.addEventListener('click', () => {
-    peliculasContainer2023.scroll({
-      left: peliculasContainer2023.scrollLeft - peliculasContainer2023.offsetWidth,
-      behavior: 'smooth'
-    });
-    peliculasContainerAD.scroll({
-      left: peliculasContainerAD.scrollLeft - peliculasContainerAD.offsetWidth,
-      behavior: 'smooth'
-    });
-  });
-  
-  scrollRightButton.addEventListener('click', () => {
-    peliculasContainer2023.scroll({
-      left: peliculasContainer2023.scrollLeft + peliculasContainer2023.offsetWidth,
-      behavior: 'smooth'
-    });
-    peliculasContainerAD.scroll({
-      left: peliculasContainerAD.scrollLeft + peliculasContainerAD.offsetWidth,
-      behavior: 'smooth'
-    });
-  });
+  cargarPeliculasTerror()
+  cargarPeliculasCrimen()
   
 
-  
+const peliculasContainer2023 = document.getElementById("peliculas-container-2023");
+const scrollLeft = document.getElementById("scroll-left");
+const scrollRight = document.getElementById("scroll-right");
+
+const peliculasContainerAD = document.getElementById("peliculas-container-AD");
+const scrollLeft1 = document.getElementById("scroll-left1");
+const scrollRight1 = document.getElementById("scroll-right1");
+
+const peliculasContainerTerror= document.getElementById("peliculas-container-Terror");
+const scrollLeft2 = document.getElementById("scroll-left2");
+const scrollRight2 = document.getElementById("scroll-right2");
+
+const peliculasContainerCrimen= document.getElementById("peliculas-container-Crimen");
+const scrollLeft3 = document.getElementById("scroll-left3");
+const scrollRight3 = document.getElementById("scroll-right3");
+
+
+scrollLeft.addEventListener("click", () => {
+  peliculasContainer2023.scroll({
+    left: peliculasContainer2023.scrollLeft - peliculasContainer2023.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollRight.addEventListener("click", () => {
+  peliculasContainer2023.scroll({
+    left: peliculasContainer2023.scrollLeft + peliculasContainer2023.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollLeft1.addEventListener("click", () => {
+  peliculasContainerAD.scroll({
+    left: peliculasContainerAD.scrollLeft - peliculasContainerAD.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollRight1.addEventListener("click", () => {
+  peliculasContainerAD.scroll({
+    left: peliculasContainerAD.scrollLeft + peliculasContainerAD.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollLeft2.addEventListener("click", () => {
+  peliculasContainerTerror.scroll({
+    left: peliculasContainerTerror.scrollLeft - peliculasContainerTerror.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollRight2.addEventListener("click", () => {
+  peliculasContainerTerror.scroll({
+    left:peliculasContainerTerror.scrollLeft +peliculasContainerTerror.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollLeft3.addEventListener("click", () => {
+  peliculasContainerCrimen.scroll({
+    left: peliculasContainerCrimen.scrollLeft - peliculasContainerCrimen.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollRight3.addEventListener("click", () => {
+  peliculasContainerCrimen.scroll({
+    left:peliculasContainerCrimen.scrollLeft +peliculasContainerCrimen.offsetWidth,
+    behavior: "smooth",
+  });
+});

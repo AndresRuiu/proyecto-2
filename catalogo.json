@@ -8,10 +8,10 @@
         "genero": ["Aventura", "Comedia", "Fantasia"],
         "reparto": ["Margot Robbie", "Ryan Gosling", "Kingsley Ben-Adir"],
         "poster" :"./img/posters/barbie_ver28_xlg.jpg",
-        "pagina": "https://www.youtube.com/embed/gH2mRECr6y4",
+        "pagina": "https://www.youtube.com/embed/zh4KhVSMwtQ",
         "descripcion":"Barbie vive en Barbie Land y luego sucede una historia.",
         "ranking":"-",
-        "duracion":"114"
+        "duracion":"114 min"
     },
     {
         "id": "002",
@@ -25,7 +25,7 @@
         "pagina": "https://www.youtube.com/embed/oBmazlyP220",
         "descripcion":"Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.",
         "ranking":"8,9",
-        "duracion":"140"
+        "duracion":"140 min"
     },
     {
         "id":"003",
@@ -36,25 +36,25 @@
         "genero":["Aventura","Familiar","Fantasia"],
         "reparto":["Halle Bailey", "Jonah Hauer-King","Melissa McCarthy"],
         "poster":"./img/posters/little_mermaid_ver3_xlg.jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/uIvBFUYzeOc",
         "descripcion":"Una joven sirena hace un trato con una bruja marina para cambiar su hermosa voz por piernas humanas para poder descubrir el mundo sobre el agua e impresionar a un príncipe.",
         "ranking":"7,2",
-        "duracion":"135"
+        "duracion":"135 min"
 
     },
     {
         "id":"004",
-        "nombre":"Avatar: El sentido del agua",
+        "nombre":"Avatar: El Camino del Agua",
         "anio" :"2022",
         "direccion":["James Cameron"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Fantasia"],
         "reparto":["Sam Worthington", "Zoe Saldana","Sigourney Weaver"],
         "poster": "./img/posters/avatar_the_way_of_water_ver2_xlg (1).jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/96d3jsVWnOE",
         "descripcion":"Jake Sully vive con su nueva familia en el planeta de Pandora. Cuando una amenaza conocida regresa, Jake debe trabajar con Neytiri y el ejército de la raza na'vi para proteger su planeta.",
         "ranking":"7,6",
-        "duracion":"192"
+        "duracion":"192 min"
     },
     {
         "id":"005",
@@ -65,10 +65,10 @@
         "genero":["Aventura","Drama","Ciencia Ficcion"],
         "reparto":["Matthew McConaughey","Anne Hathaway","Jessica Chastain"],
         "poster":"./img/posters/interstellar_ver2_xlg (1).jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/LYS2O1nl9iM",
         "descripcion":"Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de garantizar la supervivencia de la humanidad.",
         "ranking":"8,7",
-        "duracion":"169"
+        "duracion":"169 min"
     },
     {
         "id":"006",
@@ -79,10 +79,10 @@
         "genero":["Biografia","Crimen","Comedia"],
         "reparto":["Leonardo DiCaprio","Jonah Hill","Margot Robbie"],
         "poster":"./img/posters/wolf_of_wall_street_ver3_xlg (1).jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/DEMZSa0esCU",
         "descripcion":"Basado en la historia real de Jordan Belfort, desde su ascenso a convertirse en un adinerado agente de bolsa viviendo la gran vida hasta su caída, que involucra el crimen, la corrupción y el gobierno federal.",
         "ranking":"8,2",
-        "duracion":"180"
+        "duracion":"180 min"
     },
     {
         "id":"007",
@@ -93,10 +93,10 @@
         "genero":["Accion","Aventura","Ciencia Ficcion"],
         "reparto":["Anthony Ramos","Dominique Fishback","Luna Lauren Velez"],
         "poster":"./img/posters/transformers_rise_of_the_beasts_ver11_xlg.jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/Plv8Hbg7dY8",
         "descripcion":"Sigue durante los 90 a una nueva facción de los Transformers, los Maximals y como se unen a los Autobots como aliados en una batalla por el planeta Tierra.",
         "ranking":"6,5",
-        "duracion":"127 "
+        "duracion":"127 min"
     },
     {
         "id":"008",
@@ -107,10 +107,10 @@
         "genero":["Accion","Aventura","Crimen"],
         "reparto":["Vin Diesel","Michelle Rodriguez","Jason Statham"],
         "poster":"./img/posters/fast_x_ver2_xlg.jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/sdNv9aUf900",
         "descripcion":"Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.",
         "ranking":"5,9",
-        "duracion":"141"
+        "duracion":"141 min"
     },
     {
         "id":"009",
@@ -121,10 +121,10 @@
         "genero":["Animacion","Aventura","Comedia"],
         "reparto":["Chris Pratt","Anya Taylor-Joy","Charlie Day"],
         "poster":"./img/posters/super_mario_bros_the_movie_ver10_xlg.jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/-xDq2iPzTgo",
         "descripcion":"Un fontanero llamado Mario viaja a través de un laberinto subterráneo con su hermano, Luigi, tratando de salvar a una princesa capturada.",
         "ranking":"7,1",
-        "duracion":"92"
+        "duracion":"92 min" 
     },
     {
         "id":"010",
@@ -135,10 +135,10 @@
         "genero":["Terror"],
         "reparto":["Mirabai Pease","Richard Crouchley","Anna-Maree Thomas"],
         "poster":"./img/posters/evil_dead_rise_xlg.jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/keW_fKq187k",
         "descripcion":"Beth visita a su hermana mayor, Ella, que está criando a 3 niños en un pequeño apartamento en Los Ángeles. Su reunión es muy corta cuando encuentran un libro demoníaco, The Necronomicon Ex-Mortis.",
         "ranking":"6,7",
-        "duracion":"96"
+        "duracion":"96 min" 
     },
     {
         "id":"011",
@@ -149,10 +149,10 @@
         "genero":["Aventura","Drama","Ciencia Ficcion"],
         "reparto":["Raffiella Chapman","Eddie Marsan","Rosy McEwen"],
         "poster":"./img/posters/vesper_ver2_xlg.jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/dgXnD_5JSJk",
         "descripcion":"Después del colapso del ecosistema de la Tierra, Vesper, una niña de 13 años que lucha por sobrevivir con su padre, conoce a una mujer con un secreto que la obligará a usar sus habilidades de bio-hackeo para luchar por tener un futuro.",
         "ranking":"5,9",
-        "duracion":"114"
+        "duracion":"114 min"
     },
     {
         "id":"012",
@@ -163,23 +163,23 @@
         "genero":["Terror"],
         "reparto":["Josh Hutcherson","Matthew Lillard","Mary Stuart Masterson"],
         "poster":"./img/posters/five_nights_at_freddys_xlg.jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/y7xXa5aCHEE",
         "descripcion":"Un guardia nocturno tiene que sobrevivir 5 noches en una pizzería. Los animatrónicos intentan comérselo cada noche.",
         "ranking": "-",
         "duracion": "-"
     },{
         "id":"013",
-        "nombre":"Origen",
+        "nombre":"El Origen",
         "anio":"2010",
         "direccion":["Christopher Nolan"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Ciencia Ficcion"],
         "reparto":["Leonardo DiCaprio","Joseph Gordon-Levitt","Elliot Page"],
         "poster":"./img/posters/inception_ver3_xlg (1).jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/jzdT1x_h-K4",
         "descripcion":"A un ladrón que roba secretos corporativos a través del uso de la tecnología de compartir sueños, se le da la tarea de implantar una idea en la mente de un jefe de una gran empresa.",
         "ranking":"8,8",
-        "duracion":"148"
+        "duracion":"148 min"
     },{
         "id":"014",
         "nombre":"SKAM",
@@ -189,9 +189,79 @@
         "genero":["Romance","Drama"],
         "reparto":["Josefine Frida Pettersen","Iman Meskini","Ulrikke Falch"],
         "poster":"./img/posters/EmbeddedImage (1).jpg",
-        "pagina": "",
+        "pagina": "https://www.youtube.com/embed/GiXONSITq_Y",
         "descripcion":"“Skam” (en español “Vergüenza”) es un drama adolescente noruego que gira en torno a los estudiantes de una escuela secundaria de Oslo.",
         "ranking":"8,6",
-        "duracion":"43 Episodios"
+        "duracion":"43 E"
+    },
+    {
+        "id":"015",
+        "nombre":"Insidious",
+        "anio":"2010",
+        "direccion":["James Wan"],
+        "tipo":"Pelicula",
+        "genero":["Terror","Misterio","Suspenso"],
+        "reparto":["Patrick Wilson","Rose Byrne","Ty Simpkins"],
+        "poster":"./img/posters/insidious (1).jpg",
+        "pagina": "https://www.youtube.com/embed/FRW3K0LlsD0",
+        "descripcion":"“Una familia intenta evitar que los espíritus malignos atrapen a su hijo, que se encuentra en estado de coma.",
+        "ranking":"6,8",
+        "duracion":"103 min"
+    },
+    {
+        "id":"016",
+        "nombre":"El Conjuro",
+        "anio":"2013",
+        "direccion":["James Wan"],
+        "tipo":"Pelicula",
+        "genero":["Terror","Misterio","Suspenso"],
+        "reparto":["Patrick Wilson","Vera Farmiga","Ron Livingston"],
+        "poster":"./img/posters/conjuring_ver2_xlg (1).jpg",
+        "pagina": "https://www.youtube.com/embed/oUyHULb7xDI",
+        "descripcion":"“Los investigadores de lo paranormal, Ed y Lorraine Warren, trabajan para ayudar a una familia aterrorizada por una presencia oscura en su granja.",
+        "ranking":"7,5",
+        "duracion":"112 min"
+    },
+    {
+        "id":"017",
+        "nombre":"American Horror Story",
+        "anio":"2011",
+        "direccion":["Brad Falchuk","Ryan Murphy"],
+        "tipo":"Serie",
+        "genero":["Terror","Drama","Ciencia Ficcion"],
+        "reparto":["Lady Gaga","Kathy Bates","Angela Bassett"],
+        "poster":"./img/posters/american_horror_story_xlg (1).jpg",
+        "pagina": "https://www.youtube.com/embed/QoJNXrAl_1c",
+        "descripcion":"“Antología que incluye una casa encantada, un manicomio, un aquelarre de brujas, un circo de fenómenos, un hotel embrujado, una granja poseída, un culto, el apocalipsis y un campamento de verano de slasher.",
+        "ranking":"8,0",
+        "duracion":"123 E"
+    },
+    {
+        "id":"018",
+        "nombre":"El menú",
+        "anio":"2022",
+        "direccion":["Mark Mylod"],
+        "tipo":"Pelicula",
+        "genero":["Terror","Comedia","Suspenso"],
+        "reparto":["Ralph Fiennes","Anya Taylor-Joy","Nicholas Hoult"],
+        "poster":"./img/posters/menu_ver3_xlg (1).jpg",
+        "pagina": "https://www.youtube.com/embed/XgNEZ9CTPHQ",
+        "descripcion":"“Una pareja viaja para tener una experiencia culinaria única en el mundo, cuando el ingrediente secreto del platillo preparado por el chef tendrá un resultado sorprendente para la pareja.",
+        "ranking":"7,2",
+        "duracion":"107 min"
+    },
+    {
+        "id":"019",
+        "nombre":"American Psycho",
+        "anio":"2000",
+        "direccion":["Mary Harron"],
+        "tipo":"Pelicula",
+        "genero":["Terror","Drama","Crimen"],
+        "reparto":["Christian Bale","Justin Theroux","Josh Lucas"],
+        "poster":"./img/posters/american_psycho_ver2_xlg (1).jpg",
+        "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
+        "descripcion":"“Patrick Bateman, un rico ejecutivo de banca de inversión de Nueva York, esconde su ego psicopático alternativo de sus compañeros de trabajo y amigos al tiempo que profundiza en sus violentas fantasías hedonistas.",
+        "ranking":"7,6",
+        "duracion":"102 min"
     }
 ]
