@@ -302,6 +302,19 @@ main{
     text-align: center;
   }
 
+footer{
+    color: white;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover{
+    text-decoration: none;
+    color: #d40f45;
+}
 
   
   
