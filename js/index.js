@@ -377,16 +377,12 @@ scrollRight4.addEventListener("click", () => {
   });
 });
 
-// Función para cambiar el botón a un icono según el tipo de usuario
 function cambiarBoton() {
-  // Obtener los elementos de los botones
   var botonIngresar = document.getElementById("ingresar");
   var botonCerrarSesion = document.getElementById("cerrar-sesion");
 
-  // Obtener el nombre del usuario actual desde el local storage
   var nombreUsuario = localStorage.getItem("usuarioActual");
 
-  // Determinar el tipo de usuario según el nombre
   var tipo;
   if (nombreUsuario == "admin") {
     tipo = "admin";
@@ -396,41 +392,49 @@ function cambiarBoton() {
     tipo = "none";
   }
 
-  // Mostrar u ocultar los botones según el tipo de usuario
   if (tipo == "admin") {
     botonIngresar.style.display = "none";
     botonCerrarSesion.style.display = "inline-block";
 
-    // Agregar el ícono al lado del botón de cerrar sesión
     var icono = document.createElement("i");
     icono.className = "uil uil-user-plus";
     botonCerrarSesion.parentNode.insertBefore(icono, botonCerrarSesion.nextSibling);
+    icono.style.color = "#d40f45";
+    icono.style.border = "1px solid white";
+    icono.style.borderRadius = "50%";
+    icono.style.padding = "6px";
 
-    // Agregar un controlador de eventos para redirigir a una página cuando se hace clic en el ícono
     icono.addEventListener("click", function() {
       window.location.href = "<URL>";
     });
   } else if (tipo == "user") {
     botonIngresar.style.display = "none";
     botonCerrarSesion.style.display = "inline-block";
+
+    var icono = document.createElement("i");
+    icono.className = "uil uil-user";
+    botonCerrarSesion.parentNode.insertBefore(icono, botonCerrarSesion.nextSibling);
+    icono.style.color = "#d40f45";
+    icono.style.border = "1px solid white";
+    icono.style.borderRadius = "50%";
+    icono.style.padding = "6px";
+
   } else {
     botonIngresar.style.display = "inline-block";
     botonCerrarSesion.style.display = "none";
   }
 }
 
-// Agregar un controlador de eventos para ejecutar la función después de que se haya cargado el DOM
 document.addEventListener("DOMContentLoaded", function() {
   cambiarBoton();
 });
 
-// Agregar un controlador de eventos para cerrar la sesión cuando se haga clic en el botón de cerrar sesión
 document.getElementById("cerrar-sesion").addEventListener("click", function() {
    localStorage.removeItem("usuarioActual");
    cambiarBoton();
  });
 
- 
+
 
 
 cargarPeliculasProximamente();

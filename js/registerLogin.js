@@ -39,7 +39,6 @@ var usuarios = [
     }
 ];
 
-// Función para agregar un usuario al arreglo y guardarlo en el local storage
 function registrarUsuario(nombre, email, contraseña) {
     var usuario = {
         nombre: nombre,
@@ -50,7 +49,6 @@ function registrarUsuario(nombre, email, contraseña) {
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 }
 
-// Función para validar las credenciales de un usuario
 function validarUsuario(nombre, contraseña) {
     var usuarioValido = false;
     for (var i = 0; i < usuarios.length; i++) {
@@ -62,7 +60,6 @@ function validarUsuario(nombre, contraseña) {
     return usuarioValido;
 }
 
-// Controlador de eventos para el botón de registro
 document.querySelector(".signup .input-field.button input").addEventListener("click", function() {
     var nombre = document.querySelector(".signup .input-field:nth-child(1) input").value;
     var email = document.querySelector(".signup .input-field:nth-child(2) input").value;
@@ -70,12 +67,10 @@ document.querySelector(".signup .input-field.button input").addEventListener("cl
     registrarUsuario(nombre, email, contraseña);
 });
 
-// Controlador de eventos para el botón de inicio de sesión
 document.querySelector(".login .input-field.button input").addEventListener("click", function() {
     var nombre = document.querySelector(".login .input-field:nth-child(1) input").value;
     var contraseña = document.querySelector(".login .input-field:nth-child(2) input").value;
     if (validarUsuario(nombre, contraseña)) {
-        // El usuario es válido, guardar su nombre en el local storage y redirigir a la página principal
         localStorage.setItem("usuarioActual", nombre);
         window.location.href = "../index.html";
     } else {
@@ -88,11 +83,8 @@ document.querySelector(".login .input-field.button input").addEventListener("cli
 });
 
 
+var usuarios = JSON.parse(localStorage.getItem("usuarios"));
 
-
-//var usuarios = JSON.parse(localStorage.getItem("usuarios"));
-
-// Mostrar la lista de usuarios
-//for (var i = 0; i < usuarios.length; i++) {
-//    console.log(usuarios[i].nombre,usuarios[i].contraseña);
-//}
+for (var i = 0; i < usuarios.length; i++) {
+   console.log(usuarios[i].nombre,usuarios[i].contraseña);
+}
