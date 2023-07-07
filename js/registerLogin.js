@@ -61,11 +61,29 @@ function validarUsuario(nombre, contraseña) {
 }
 
 document.querySelector(".signup .input-field.button input").addEventListener("click", function() {
-    var nombre = document.querySelector(".signup .input-field:nth-child(1) input").value;
-    var email = document.querySelector(".signup .input-field:nth-child(2) input").value;
-    var contraseña = document.querySelector(".signup .input-field:nth-child(3) input").value;
-    registrarUsuario(nombre, email, contraseña);
+    var nombre = document.querySelector(".signup .input-field:nth-of-type(1) input").value;
+    var email = document.querySelector(".signup .input-field:nth-of-type(2) input").value;
+    var contraseña = document.querySelector(".signup .input-field:nth-of-type(3) input").value;
+    var confirmarContraseña = document.querySelector(".signup .input-field:nth-of-type(4) input").value;
+    if (contraseña === confirmarContraseña) {
+        registrarUsuario(nombre, email, contraseña);
+        var successElement = document.createElement("div");
+        successElement.textContent = "Su registro fue exitoso";
+        successElement.style.color = "green";
+        document.querySelector(".signup form").appendChild(successElement);
+        setTimeout(function() {
+            window.location.href = "./registerLogin.html";
+        }, 2000);
+    } else {
+        var errorElement = document.createElement("div");
+        errorElement.textContent = "Las contraseñas no coinciden";
+        errorElement.style.color = "red";
+        document.querySelector(".signup form").appendChild(errorElement);
+    }
 });
+
+
+
 
 document.querySelector(".login .input-field.button input").addEventListener("click", function() {
     var nombre = document.querySelector(".login .input-field:nth-child(1) input").value;

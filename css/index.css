@@ -62,8 +62,8 @@ a{
     padding-right: 15px;
 }
 
-i .util{
-    color: #d40f45;
+i{
+    cursor: pointer;
 }
 
 .textFastx {
