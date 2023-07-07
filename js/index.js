@@ -23,7 +23,6 @@ fetch('../catalogo.json')
     .then(data => {
       
       const tipo = data[7].tipo;
-      const hd = data[7].hd;
       const genero = data[7].genero.join(', ');
       const anio = data[7].anio;
 
@@ -365,8 +364,8 @@ scrollRight3.addEventListener("click", () => {
 });
 
 scrollLeft4.addEventListener("click", () => {
-  peliculasContainerCrimen.scroll({
-    left: peliculasContainerCrimen.scrollLeft - peliculasContainerCrimen.offsetWidth,
+  peliculasContainerCR.scroll({
+    left: peliculasContainerCR.scrollLeft - peliculasContainerCR.offsetWidth,
     behavior: "smooth",
   });
 });
