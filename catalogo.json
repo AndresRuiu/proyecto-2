@@ -319,5 +319,19 @@
         "descripcion":"Una inteligente pero sensata recién graduada consigue un trabajo como asistente de Miranda Priestly, la exigente editora jefe de una revista de alta costura.",
         "ranking":"6,9",
         "duracion":"109 min"
+    },
+    {
+        "id":"024",
+        "nombre":"Clueless",
+        "anio":"1995",
+        "direccion":["Amy Heckerling"],
+        "tipo":"Pelicula",
+        "genero":["Comedia","Moda","Romance"],
+        "reparto":["Alicia Silverstone","Stacey Dash","Brittany Murphy"],
+        "poster":"./img/posters/devil_wears_prada_xlg (1).jpg",
+        "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
+        "descripcion":"La superficial, rica y socialmente exitosa Cher está en lo más alto de la escala de valores de su instituto de Beverly Hills. Viéndose a sí misma como una casamentera, Cher primero convence a dos profesores para que salgan juntos.",
+        "ranking":"6,9",
+        "duracion":"97 min"
     }
 ]
