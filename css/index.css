@@ -47,14 +47,17 @@ a{
     border: none;
 }
 
-.navbar #ingresar{
+.navbar #ingresar, .navbar #cerrar-sesion{
     border-radius: 20px;
     border: 2px solid #d40f45;
     background: rgba(217, 217, 217, 0.00);
     margin-left: 15px;
+    margin-right: 15px;
+    color: white;
 }
 
-.navbar #ingresar a{
+
+.navbar #ingresar a, .navbar #cerrar-sesion{
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -311,7 +314,7 @@ footer a:hover{
     color: #d40f45;
 }
 
-  
+
   
   
 
