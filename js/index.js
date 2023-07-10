@@ -348,6 +348,10 @@ const peliculasContainerCR= document.getElementById("peliculas-container-CR");
 const scrollLeft4 = document.getElementById("scroll-left4");
 const scrollRight4 = document.getElementById("scroll-right4");
 
+const peliculasContainerD= document.getElementById("peliculas-container-destacados");
+const scrollLeft5 = document.getElementById("scroll-left5");
+const scrollRight5 = document.getElementById("scroll-right5");
+
 
 scrollLeft.addEventListener("click", () => {
   peliculasContainer2023.scroll({
@@ -418,6 +422,22 @@ scrollRight4.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+scrollLeft5.addEventListener("click", () => {
+  peliculasContainerD.scroll({
+    left: peliculasContainerD.scrollLeft - peliculasContainerD.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollRight5.addEventListener("click", () => {
+  peliculasContainerD.scroll({
+    left:peliculasContainerD.scrollLeft +peliculasContainerD.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+
 
 function cambiarBoton() {
   var botonIngresar = document.getElementById("ingresar");
