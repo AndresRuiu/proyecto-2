@@ -11,7 +11,8 @@
         "pagina": "https://www.youtube.com/embed/zh4KhVSMwtQ",
         "descripcion":"Barbie vive en Barbie Land y luego sucede una historia.",
         "ranking":"-",
-        "duracion":"114 min"
+        "duracion":"114 min",
+        "publicado": "true"
     },
     {
         "id": "002",
@@ -25,7 +26,8 @@
         "pagina": "https://www.youtube.com/embed/oBmazlyP220",
         "descripcion":"Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.",
         "ranking":"8,9",
-        "duracion":"140 min"
+        "duracion":"140 min",
+        "publicado": "true"
     },
     {
         "id":"003",
@@ -39,7 +41,8 @@
         "pagina": "https://www.youtube.com/embed/uIvBFUYzeOc",
         "descripcion":"Una joven sirena hace un trato con una bruja marina para cambiar su hermosa voz por piernas humanas para poder descubrir el mundo sobre el agua e impresionar a un príncipe.",
         "ranking":"7,2",
-        "duracion":"135 min"
+        "duracion":"135 min",
+        "publicado": "true"
 
     },
     {
@@ -54,7 +57,8 @@
         "pagina": "https://www.youtube.com/embed/96d3jsVWnOE",
         "descripcion":"Jake Sully vive con su nueva familia en el planeta de Pandora. Cuando una amenaza conocida regresa, Jake debe trabajar con Neytiri y el ejército de la raza na'vi para proteger su planeta.",
         "ranking":"7,6",
-        "duracion":"192 min"
+        "duracion":"192 min",
+        "publicado": "true"
     },
     {
         "id":"005",
@@ -68,7 +72,8 @@
         "pagina": "https://www.youtube.com/embed/LYS2O1nl9iM",
         "descripcion":"Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de garantizar la supervivencia de la humanidad.",
         "ranking":"8,7",
-        "duracion":"169 min"
+        "duracion":"169 min",
+        "publicado": "true"
     },
     {
         "id":"006",
@@ -82,7 +87,8 @@
         "pagina": "https://www.youtube.com/embed/DEMZSa0esCU",
         "descripcion":"Basado en la historia real de Jordan Belfort, desde su ascenso a convertirse en un adinerado agente de bolsa viviendo la gran vida hasta su caída, que involucra el crimen, la corrupción y el gobierno federal.",
         "ranking":"8,2",
-        "duracion":"180 min"
+        "duracion":"180 min",
+        "publicado": "true"
     },
     {
         "id":"007",
@@ -96,7 +102,8 @@
         "pagina": "https://www.youtube.com/embed/Plv8Hbg7dY8",
         "descripcion":"Sigue durante los 90 a una nueva facción de los Transformers, los Maximals y como se unen a los Autobots como aliados en una batalla por el planeta Tierra.",
         "ranking":"6,5",
-        "duracion":"127 min"
+        "duracion":"127 min",
+        "publicado": "true"
     },
     {
         "id":"008",
@@ -110,7 +117,8 @@
         "pagina": "https://www.youtube.com/embed/sdNv9aUf900",
         "descripcion":"Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.",
         "ranking":"5,9",
-        "duracion":"141 min"
+        "duracion":"141 min",
+        "publicado": "true"
     },
     {
         "id":"009",
@@ -124,7 +132,8 @@
         "pagina": "https://www.youtube.com/embed/-xDq2iPzTgo",
         "descripcion":"Un fontanero llamado Mario viaja a través de un laberinto subterráneo con su hermano, Luigi, tratando de salvar a una princesa capturada.",
         "ranking":"7,1",
-        "duracion":"92 min" 
+        "duracion":"92 min" ,
+        "publicado": "true"
     },
     {
         "id":"010",
@@ -138,7 +147,8 @@
         "pagina": "https://www.youtube.com/embed/keW_fKq187k",
         "descripcion":"Beth visita a su hermana mayor, Ella, que está criando a 3 niños en un pequeño apartamento en Los Ángeles. Su reunión es muy corta cuando encuentran un libro demoníaco, The Necronomicon Ex-Mortis.",
         "ranking":"6,7",
-        "duracion":"96 min" 
+        "duracion":"96 min" ,
+        "publicado": "true"
     },
     {
         "id":"011",
@@ -152,7 +162,8 @@
         "pagina": "https://www.youtube.com/embed/dgXnD_5JSJk",
         "descripcion":"Después del colapso del ecosistema de la Tierra, Vesper, una niña de 13 años que lucha por sobrevivir con su padre, conoce a una mujer con un secreto que la obligará a usar sus habilidades de bio-hackeo para luchar por tener un futuro.",
         "ranking":"5,9",
-        "duracion":"114 min"
+        "duracion":"114 min",
+        "publicado": "true"
     },
     {
         "id":"012",
@@ -166,8 +177,10 @@
         "pagina": "https://www.youtube.com/embed/y7xXa5aCHEE",
         "descripcion":"Un guardia nocturno tiene que sobrevivir 5 noches en una pizzería. Los animatrónicos intentan comérselo cada noche.",
         "ranking": "-",
-        "duracion": "-"
-    },{
+        "duracion": "-",
+        "publicado":"true"
+    },
+    {
         "id":"013",
         "nombre":"El Origen",
         "anio":"2010",
@@ -179,8 +192,10 @@
         "pagina": "https://www.youtube.com/embed/jzdT1x_h-K4",
         "descripcion":"A un ladrón que roba secretos corporativos a través del uso de la tecnología de compartir sueños, se le da la tarea de implantar una idea en la mente de un jefe de una gran empresa.",
         "ranking":"8,8",
-        "duracion":"148 min"
-    },{
+        "duracion":"148 min",
+        "publicado": "true"
+    },
+    {
         "id":"014",
         "nombre":"SKAM",
         "anio":"2015",
@@ -192,7 +207,8 @@
         "pagina": "https://www.youtube.com/embed/GiXONSITq_Y",
         "descripcion":"Skam” (en español “Vergüenza”) es un drama adolescente noruego que gira en torno a los estudiantes de una escuela secundaria de Oslo.",
         "ranking":"8,6",
-        "duracion":"43 E"
+        "duracion":"43 E",
+        "publicado":"true"
     },
     {
         "id":"015",
@@ -206,7 +222,8 @@
         "pagina": "https://www.youtube.com/embed/FRW3K0LlsD0",
         "descripcion":"Una familia intenta evitar que los espíritus malignos atrapen a su hijo, que se encuentra en estado de coma.",
         "ranking":"6,8",
-        "duracion":"103 min"
+        "duracion":"103 min",
+        "publicado": "true"
     },
     {
         "id":"016",
@@ -220,7 +237,8 @@
         "pagina": "https://www.youtube.com/embed/oUyHULb7xDI",
         "descripcion":"Los investigadores de lo paranormal, Ed y Lorraine Warren, trabajan para ayudar a una familia aterrorizada por una presencia oscura en su granja.",
         "ranking":"7,5",
-        "duracion":"112 min"
+        "duracion":"112 min",
+        "publicado": "true"
     },
     {
         "id":"017",
@@ -234,7 +252,8 @@
         "pagina": "https://www.youtube.com/embed/QoJNXrAl_1c",
         "descripcion":"Antología que incluye una casa encantada, un manicomio, un aquelarre de brujas, un circo de fenómenos, un hotel embrujado, una granja poseída, un culto, el apocalipsis y un campamento de verano de slasher.",
         "ranking":"8,0",
-        "duracion":"123 E"
+        "duracion":"123 E",
+        "publicado":"true"
     },
     {
         "id":"018",
@@ -248,7 +267,8 @@
         "pagina": "https://www.youtube.com/embed/XgNEZ9CTPHQ",
         "descripcion":"Una pareja viaja para tener una experiencia culinaria única en el mundo, cuando el ingrediente secreto del platillo preparado por el chef tendrá un resultado sorprendente para la pareja.",
         "ranking":"7,2",
-        "duracion":"107 min"
+        "duracion":"107 min",
+        "publicado": "true"
     },
     {
         "id":"019",
@@ -262,7 +282,8 @@
         "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
         "descripcion":"Patrick Bateman, un rico ejecutivo de banca de inversión de Nueva York, esconde su ego psicopático alternativo de sus compañeros de trabajo y amigos al tiempo que profundiza en sus violentas fantasías hedonistas.",
         "ranking":"7,6",
-        "duracion":"102 min"
+        "duracion":"102 min",
+        "publicado": "true"
     },
     {
         "id":"020",
@@ -276,7 +297,8 @@
         "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
         "descripcion":"John Wick descubre una forma de derrotar a la Alta Mesa. Pero antes de que pueda ganar su libertad, debe enfrentarse a un nuevo enemigo con poderosas alianzas en todo el mundo y fuerzas que convierten a viejos amigos en enemigos.",
         "ranking":"7,9",
-        "duracion":"169 min"
+        "duracion":"169 min",
+        "publicado": "true"
     },
     {
         "id":"021",
@@ -290,7 +312,8 @@
         "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
         "descripcion":"Una historia de acción centrada en un escuadrón de la CIA con la misión de mantener a los superhéroes a raya a cualquier precio.",
         "ranking":"8,7",
-        "duracion":"24 E"
+        "duracion":"24 E",
+        "publicado":"true"
     },
     {
         "id":"022",
@@ -304,7 +327,8 @@
         "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
         "descripcion":"Cuando un chico desaparece, su madre, el jefe de policía y sus amigos deben enfrentarse a fuerzas terroríficas para traerlo de vuelta.",
         "ranking":"8,7",
-        "duracion":"34 E"
+        "duracion":"34 E",
+        "publicado":"true"
     },
     {
         "id":"023",
@@ -318,7 +342,8 @@
         "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
         "descripcion":"Una inteligente pero sensata recién graduada consigue un trabajo como asistente de Miranda Priestly, la exigente editora jefe de una revista de alta costura.",
         "ranking":"6,9",
-        "duracion":"109 min"
+        "duracion":"109 min",
+        "publicado": "true"
     },
     {
         "id":"024",
@@ -332,6 +357,7 @@
         "pagina":"https://www.youtube.com/embed/d1QmQsRD9_w",
         "descripcion":"La superficial, rica y socialmente exitosa Cher está en lo más alto de la escala de valores de su instituto de Beverly Hills. Viéndose a sí misma como una casamentera, Cher primero convence a dos profesores para que salgan juntos.",
         "ranking":"6,9",
-        "duracion":"97 min"
+        "duracion":"97 min",
+        "publicado":"true"
     }
 ]

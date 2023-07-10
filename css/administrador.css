@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #aaa9a9;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    gap: 5px;
+    font-size: 15px;
+}
+
+.navbar a{
+    color: white;
+}
+
+.collapse{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.navbar .search{
+    background-color: transparent;
+    border: none;
+}
+
+.navbar #administrador, .navbar #cerrar-sesion{
+    border-radius: 20px;
+    border: 2px solid #d40f45;
+    background: rgba(217, 217, 217, 0.00);
+    margin-left: 15px;
+    margin-right: 15px;
+    color: white;
+}
+
+
+.navbar #administrador, .navbar #cerrar-sesion{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+i{
+    cursor: pointer;
+}
+
+.textFastx {
+    position: absolute;
+    top: 300px;
+    margin-left: 30px;
+    z-index: 1;
+    color: white;
+  }
+
+.naranja{
+    color: #d40f45;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #d40f45;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+#modal-title {
+  margin-top: 0;
+}

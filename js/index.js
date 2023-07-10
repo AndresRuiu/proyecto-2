@@ -149,7 +149,49 @@ fetch('../catalogo.json')
     container.appendChild(fragment);
   }
   
-  
+  function cargarPeliculasDestacadas() {
+    const peliculas = JSON.parse(localStorage.getItem('movies')) || [];
+    peliculas.forEach(pelicula => {
+        if (pelicula.file) {
+            const byteString = atob(pelicula.file.split(',')[1]);
+            const mimeString = pelicula.file.split(',')[0].split(':')[1].split(';')[0];
+            const arrayBuffer = new ArrayBuffer(byteString.length);
+            const intArray = new Uint8Array(arrayBuffer);
+            for (let i = 0; i < byteString.length; i++) {
+                intArray[i] = byteString.charCodeAt(i);
+            }
+            pelicula.file = new Blob([arrayBuffer], { type: mimeString });
+        }
+    });
+
+    const peliculasDestacadas = peliculas.filter(pelicula => pelicula.featured && pelicula.published);
+    peliculasDestacadas.sort(() => Math.random() - 0.5);
+
+    const template = document.querySelector("#pelicula-card-template");
+    const container = document.querySelector("#peliculas-container-destacados");
+    const fragment = document.createDocumentFragment();
+
+    peliculasDestacadas.forEach(pelicula => {
+        const instance = template.content.cloneNode(true);
+        if (pelicula.file) {
+            const fileUrl = URL.createObjectURL(pelicula.file);
+            instance.querySelector(".poster").src = fileUrl;
+        }
+        instance.querySelector(".nombre").textContent = pelicula.name;
+        instance.querySelector(".anio").textContent = pelicula.anio;
+        instance.querySelector(".duracion").textContent = pelicula.duracion;
+        instance.querySelector(".ranking").textContent = pelicula.ranking;
+
+        const verMasButton = instance.querySelector('.ver-mas');
+        verMasButton.addEventListener('click', () => {
+            createYouTubeModal(pelicula.pagina);
+        });
+
+        fragment.appendChild(instance);
+    });
+
+    container.appendChild(fragment);
+}
   
   async function cargarPeliculasAD() {
     const response = await fetch('../catalogo.json');
@@ -405,7 +447,7 @@ function cambiarBoton() {
     icono.style.padding = "6px";
 
     icono.addEventListener("click", function() {
-      window.location.href = "<URL>";
+      window.location.href = "./pages/administrador.html";
     });
   } else if (tipo == "user") {
     botonIngresar.style.display = "none";
@@ -443,6 +485,7 @@ cargarPeliculasAD()
 cargarPeliculasTerror()
 cargarPeliculasCrimen()
 cargarPeliculasCR()
+cargarPeliculasDestacadas()
 
 
 
