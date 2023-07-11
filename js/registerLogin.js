@@ -93,7 +93,6 @@ document.querySelector(".login .input-field.button input").addEventListener("cli
         localStorage.setItem("usuarioActual", nombre);
         window.location.href = "../index.html";
     } else {
-        // El usuario no es válido, mostrar un mensaje de error
         var errorElement = document.createElement("div");
         errorElement.textContent = "Usuario o contraseña inválidos";
         errorElement.style.color = "red";
@@ -103,7 +102,16 @@ document.querySelector(".login .input-field.button input").addEventListener("cli
 
 
 var usuarios = JSON.parse(localStorage.getItem("usuarios"));
-
-for (var i = 0; i < usuarios.length; i++) {
-   console.log(usuarios[i].nombre,usuarios[i].contraseña);
+if (usuarios === null) {
+    usuarios = [
+        {
+            nombre: "admin",
+            email: "admin@example.com",
+            contraseña: "admin123"
+        }
+    ];
 }
+for (var i = 0; i < usuarios.length; i++) {
+    console.log(usuarios[i].nombre, usuarios[i].contraseña);
+}
+
