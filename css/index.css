@@ -167,6 +167,10 @@ i{
         top: 60%;
     }
 
+    .card-button .descripcion, .card-button .btn{
+        font-size: 8px;
+    }
+
 }
   
 
