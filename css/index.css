@@ -271,6 +271,7 @@ main{
 
 .card-button {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -291,6 +292,13 @@ main{
     padding-left: 15px;
     padding-right: 15px;
     color: white;
+    font-size: 80%;
+}
+  
+.descripcion{
+    padding: 10px;
+    text-align: center;
+    font-size: 2vh;
 }
   
 .card:hover .card-button {
