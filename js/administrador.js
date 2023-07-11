@@ -20,8 +20,6 @@ function cambiarBoton() {
 
 document.getElementById("cerrar-sesion").addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("El oyente de eventos para el botón cerrar-sesion se ha agregado correctamente");
-  console.log("Cerrando sesión...");
   localStorage.removeItem("usuarioActual");
   window.location.href = '../index.html';
 });
@@ -224,13 +222,14 @@ saveMovieBtn.addEventListener('click', () => {
   }
 });
 
-
 document.querySelector('#cancel-movie-btn').addEventListener('click', () => {
   modal.hide();
 });
 
-
 renderTable();
+
+
+
 
 
  

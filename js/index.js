@@ -18,6 +18,91 @@ aside.addEventListener('click', function () {
     }, 2000);
 });
 
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+});
+
+const searchButton = document.querySelector('.search');
+const searchModal = document.createElement('div');
+searchModal.style.position = 'absolute';
+searchModal.style.top = '50px';
+searchModal.style.right = '50px';
+searchModal.style.border = '1px solid black';
+searchModal.style.padding = '10px';
+searchModal.style.backgroundColor = 'white';
+searchModal.style.zIndex = '9999';
+searchModal.style.border = '2px solid #d40f45';
+searchModal.style.marginTop = '5px';
+
+const searchInput = document.createElement('input');
+const resultsDiv = document.createElement('div');
+
+searchModal.style.display = 'none';
+searchModal.style.borderRadius = '5px';
+searchModal.appendChild(searchInput);
+searchModal.appendChild(resultsDiv);
+document.body.appendChild(searchModal);
+resultsDiv.style.listStyle = 'none';
+resultsDiv.style.paddingLeft = '10px';
+resultsDiv.style.borderRadius = '5px';
+
+resultsDiv.addEventListener('DOMNodeInserted', (event) => {
+  if (event.target.tagName === 'LI') {
+    event.target.style.borderBottom = '1px solid #d40f45';
+  }
+});
+
+searchButton.addEventListener('click', () => {
+  searchModal.style.display = searchModal.style.display === 'none' ? 'block' : 'none';
+});
+
+searchInput.addEventListener('input', async (event) => {
+  let searchValue = event.target.value;
+  let results = await searchMovies(searchValue);
+
+  resultsDiv.innerHTML = '';
+  for (let movie of results.slice(0, 5)) {
+    let movieElement = document.createElement('li');
+    movieElement.textContent = movie.nombre;
+    movieElement.style.marginTop = '3px';
+    resultsDiv.appendChild(movieElement);
+  }  
+});
+
+searchInput.addEventListener('blur', () => {
+  resultsDiv.innerHTML = '';
+});
+
+
+async function searchMovies(searchValue) {
+  console.log('Buscando películas con valor:', searchValue);
+  let response = await fetch('./catalogo.json');
+  let movies = await response.json();
+
+  let storedMovies = JSON.parse(localStorage.getItem('movies'));
+  if (storedMovies) {
+    storedMovies = storedMovies.map(movie => {
+      return {
+        nombre: movie.name,
+        genero: movie.genre
+      };
+    });
+    movies = movies.concat(storedMovies);
+  }
+  console.log('Películas en localStorage:', storedMovies);
+
+  let results = movies.filter(movie => {
+    return movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
+      movie.genero.toString().includes(searchValue.toLowerCase());
+  });
+
+  return results;
+}
+
+
+
+
+
 fetch('../catalogo.json')
 .then(response => response.json())
     .then(data => {
@@ -102,6 +187,7 @@ fetch('../catalogo.json')
       const instance = template.content.cloneNode(true);
       
       instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio[0];
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -133,6 +219,7 @@ fetch('../catalogo.json')
     peliculas2023.forEach(pelicula => {
       const instance = template.content.cloneNode(true);
       instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -178,6 +265,7 @@ fetch('../catalogo.json')
             instance.querySelector(".poster").src = fileUrl;
         }
         instance.querySelector(".nombre").textContent = pelicula.name;
+        instance.querySelector(".descripcion").textContent = pelicula.description;
         instance.querySelector(".anio").textContent = pelicula.anio;
         instance.querySelector(".duracion").textContent = pelicula.duracion;
         instance.querySelector(".ranking").textContent = pelicula.ranking;
@@ -210,6 +298,7 @@ fetch('../catalogo.json')
       const instance = template.content.cloneNode(true);
       
       instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -243,6 +332,7 @@ async function cargarPeliculasTerror() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -276,6 +366,7 @@ async function cargarPeliculasCrimen() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -309,6 +400,7 @@ async function cargarPeliculasCR() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -454,6 +546,12 @@ function cambiarBoton() {
     tipo = "none";
   }
 
+  // Eliminar el icono existente si existe
+  var iconoExistente = document.querySelector(".uil-user-plus, .uil-user");
+  if (iconoExistente) {
+    iconoExistente.remove();
+  }
+
   if (tipo == "admin") {
     botonIngresar.style.display = "none";
     botonCerrarSesion.style.display = "inline-block";
@@ -494,7 +592,10 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById("cerrar-sesion").addEventListener("click", function() {
    localStorage.removeItem("usuarioActual");
    cambiarBoton();
- });
+   location.reload();
+});
+
+
 
 
 
@@ -506,7 +607,6 @@ cargarPeliculasTerror()
 cargarPeliculasCrimen()
 cargarPeliculasCR()
 cargarPeliculasDestacadas()
-
 
 
 

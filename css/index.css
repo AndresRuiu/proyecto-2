@@ -94,7 +94,7 @@ i{
     font-size: 12px;
   }
 
-@media (max-width: 767px) {
+  @media (max-width: 767px) {
     .navbar-brand span {
         display: none;
     }
@@ -104,12 +104,17 @@ i{
         flex-direction: column;
         align-items: center;
         text-align: center;
-        top: 330px;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         margin-left: 10px;
     }
 
+    .textFastx *{
+        font-size: 16px;
+    }
+    
     #informacion, #play {
-      font-size: 10px;
       width: max-content;
     }
 
@@ -130,11 +135,11 @@ i{
         flex: 0 0 auto;
     }
 
-    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3{
+    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3, #peliculas-container-CR .col-lg-3, #peliculas-container-destacados .col-lg-3{
         width: 50% !important;
     }
 
-    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror{
+    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-CR, #peliculas-container-destacados{
         overflow-x: auto !important;
     }
 
@@ -157,7 +162,12 @@ i{
       width: 100%;
       height: 100%;
     }
-  }
+
+    .textFastx {
+        top: 60%;
+    }
+
+}
   
 
 .anio, #play{
@@ -261,6 +271,7 @@ main{
 
 .card-button {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -281,6 +292,13 @@ main{
     padding-left: 15px;
     padding-right: 15px;
     color: white;
+    font-size: 80%;
+}
+  
+.descripcion{
+    padding: 10px;
+    text-align: center;
+    font-size: 2vh;
 }
   
 .card:hover .card-button {
