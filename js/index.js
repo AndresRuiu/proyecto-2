@@ -607,6 +607,3 @@ cargarPeliculasTerror()
 cargarPeliculasCrimen()
 cargarPeliculasCR()
 cargarPeliculasDestacadas()
-
-
-
