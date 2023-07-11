@@ -22,44 +22,96 @@ document.querySelector('form').addEventListener('submit', function(event) {
   event.preventDefault();
 });
 
-document.querySelector('#search-input').addEventListener('input', async function(event) {
+const searchButton = document.querySelector('.search');
+const searchModal = document.createElement('div');
+searchModal.style.position = 'absolute';
+searchModal.style.top = '50px';
+searchModal.style.right = '50px';
+searchModal.style.border = '1px solid black';
+searchModal.style.padding = '10px';
+searchModal.style.backgroundColor = 'white';
+searchModal.style.zIndex = '9999';
+searchModal.style.border = '2px solid #d40f45';
+
+const searchInput = document.createElement('input');
+const resultsDiv = document.createElement('div');
+
+searchModal.style.display = 'none';
+searchModal.appendChild(searchInput);
+searchModal.appendChild(resultsDiv);
+document.body.appendChild(searchModal);
+resultsDiv.style.listStyle = 'none';
+resultsDiv.style.paddingLeft = '10px';
+
+resultsDiv.addEventListener('DOMNodeInserted', (event) => {
+  if (event.target.tagName === 'LI') {
+    event.target.style.borderBottom = '1px solid #d40f45';
+  }
+});
+
+searchButton.addEventListener('click', () => {
+  console.log('Botón de búsqueda clickeado');
+  searchModal.style.display = searchModal.style.display === 'none' ? 'block' : 'none';
+  console.log('searchModal.style.display:', searchModal.style.display);
+});
+
+searchInput.addEventListener('input', async (event) => {
+  console.log('Evento input activado');
   let searchValue = event.target.value;
   let results = await searchMovies(searchValue);
 
-  let resultsContainer = document.querySelector('#results');
-  resultsContainer.innerHTML = '';
+  resultsDiv.innerHTML = '';
   for (let movie of results.slice(0, 5)) {
     let movieElement = document.createElement('li');
     movieElement.textContent = movie.nombre;
-    resultsContainer.appendChild(movieElement);
+    resultsDiv.appendChild(movieElement);
   }
-  resultsContainer.style.display = 'block';
 });
-  
-  
-  
-  async function searchMovies(searchValue) {
-    let response = await fetch('./catalogo.json');
-    let movies = await response.json();
-  
-    let storedMovies = JSON.parse(localStorage.getItem('movies'));
-    if (storedMovies) {
-      storedMovies = storedMovies.map(movie => {
-        return {
-          nombre: movie.name,
-          genero: movie.genre
-        };
-      });
-      movies = movies.concat(storedMovies);
-    }
-  
-    let results = movies.filter(movie => {
-      return movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
-        movie.genero.toString().includes(searchValue.toLowerCase());
-    });
-  
-    return results;
+
+searchInput.addEventListener('blur', () => {
+  resultsDiv.innerHTML = '';
+});
+
+searchInput.addEventListener('focus', async () => {
+  let searchValue = searchInput.value;
+  let results = await searchMovies(searchValue);
+
+  resultsDiv.innerHTML = '';
+  for (let movie of results.slice(0, 5)) {
+    let movieElement = document.createElement('li');
+    movieElement.textContent = movie.nombre;
+    resultsDiv.appendChild(movieElement);
   }
+});
+
+async function searchMovies(searchValue) {
+  console.log('Buscando películas con valor:', searchValue);
+  let response = await fetch('./catalogo.json');
+  let movies = await response.json();
+  console.log('Películas en catalogo.json:', movies);
+
+  let storedMovies = JSON.parse(localStorage.getItem('movies'));
+  if (storedMovies) {
+    storedMovies = storedMovies.map(movie => {
+      return {
+        nombre: movie.name,
+        genero: movie.genre
+      };
+    });
+    movies = movies.concat(storedMovies);
+  }
+  console.log('Películas en localStorage:', storedMovies);
+
+  let results = movies.filter(movie => {
+    return movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
+      movie.genero.toString().includes(searchValue.toLowerCase());
+  });
+  console.log('Resultados de búsqueda:', results);
+
+  return results;
+}
+
+
 
 
 
