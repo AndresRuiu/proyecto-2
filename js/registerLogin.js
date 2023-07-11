@@ -54,12 +54,20 @@ function validarUsuario(nombre, contraseña) {
     var usuarioValido = false;
     for (var i = 0; i < usuarios.length; i++) {
         if (usuarios[i].nombre === nombre && usuarios[i].contraseña === contraseña) {
-            usuarioValido = true;
+            if (usuarios[i].estado === "En espera") {
+                var errorElement = document.createElement("div");
+                errorElement.textContent = "Aun no fue admitido";
+                errorElement.style.color = "red";
+                document.querySelector(".login form").appendChild(errorElement);
+            } else {
+                usuarioValido = true;
+            }
             break;
         }
     }
     return usuarioValido;
 }
+
 
 document.querySelector(".signup .input-field.button input").addEventListener("click", function() {
     var nombre = document.querySelector(".signup .input-field:nth-of-type(1) input").value;
@@ -93,13 +101,22 @@ document.querySelector(".login .input-field.button input").addEventListener("cli
         localStorage.setItem("usuarioActual", nombre);
         window.location.href = "../index.html";
     } else {
-        // El usuario no es válido, mostrar un mensaje de error
-        var errorElement = document.createElement("div");
-        errorElement.textContent = "Usuario o contraseña inválidos";
-        errorElement.style.color = "red";
-        document.querySelector(".login form").appendChild(errorElement);
+        var usuarioEnEspera = false;
+        for (var i = 0; i < usuarios.length; i++) {
+            if (usuarios[i].nombre === nombre && usuarios[i].estado === "En espera") {
+                usuarioEnEspera = true;
+                break;
+            }
+        }
+        if (!usuarioEnEspera) {
+            var errorElement = document.createElement("div");
+            errorElement.textContent = "Usuario o contraseña inválidos";
+            errorElement.style.color = "red";
+            document.querySelector(".login form").appendChild(errorElement);
+        }
     }
 });
+
 
 
 var usuarios = JSON.parse(localStorage.getItem("usuarios"));
