@@ -120,7 +120,16 @@ document.querySelector(".login .input-field.button input").addEventListener("cli
 
 
 var usuarios = JSON.parse(localStorage.getItem("usuarios"));
-
-for (var i = 0; i < usuarios.length; i++) {
-   console.log(usuarios[i].nombre,usuarios[i].contraseña);
+if (usuarios === null) {
+    usuarios = [
+        {
+            nombre: "admin",
+            email: "admin@example.com",
+            contraseña: "admin123"
+        }
+    ];
 }
+for (var i = 0; i < usuarios.length; i++) {
+    console.log(usuarios[i].nombre, usuarios[i].contraseña);
+}
+

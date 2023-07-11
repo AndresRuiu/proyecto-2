@@ -167,6 +167,10 @@ i{
         top: 60%;
     }
 
+    .card-button .descripcion, .card-button .btn{
+        font-size: 8px;
+    }
+
 }
   
 
@@ -243,7 +247,11 @@ main{
     grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
     gap: 32px;
     margin-bottom: 5px;
+}
+
+#peliculas-container-proximamente{
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .card-title{
