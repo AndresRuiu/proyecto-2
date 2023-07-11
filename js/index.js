@@ -18,6 +18,51 @@ aside.addEventListener('click', function () {
     }, 2000);
 });
 
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+});
+
+document.querySelector('#search-input').addEventListener('input', async function(event) {
+  let searchValue = event.target.value;
+  let results = await searchMovies(searchValue);
+
+  let resultsContainer = document.querySelector('#results');
+  resultsContainer.innerHTML = '';
+  for (let movie of results.slice(0, 5)) {
+    let movieElement = document.createElement('li');
+    movieElement.textContent = movie.nombre;
+    resultsContainer.appendChild(movieElement);
+  }
+  resultsContainer.style.display = 'block';
+});
+  
+  
+  
+  async function searchMovies(searchValue) {
+    let response = await fetch('./catalogo.json');
+    let movies = await response.json();
+  
+    let storedMovies = JSON.parse(localStorage.getItem('movies'));
+    if (storedMovies) {
+      storedMovies = storedMovies.map(movie => {
+        return {
+          nombre: movie.name,
+          genero: movie.genre
+        };
+      });
+      movies = movies.concat(storedMovies);
+    }
+  
+    let results = movies.filter(movie => {
+      return movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
+        movie.genero.toString().includes(searchValue.toLowerCase());
+    });
+  
+    return results;
+  }
+
+
+
 fetch('../catalogo.json')
 .then(response => response.json())
     .then(data => {
@@ -102,6 +147,7 @@ fetch('../catalogo.json')
       const instance = template.content.cloneNode(true);
       
       instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio[0];
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -133,6 +179,7 @@ fetch('../catalogo.json')
     peliculas2023.forEach(pelicula => {
       const instance = template.content.cloneNode(true);
       instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -178,6 +225,7 @@ fetch('../catalogo.json')
             instance.querySelector(".poster").src = fileUrl;
         }
         instance.querySelector(".nombre").textContent = pelicula.name;
+        instance.querySelector(".descripcion").textContent = pelicula.description;
         instance.querySelector(".anio").textContent = pelicula.anio;
         instance.querySelector(".duracion").textContent = pelicula.duracion;
         instance.querySelector(".ranking").textContent = pelicula.ranking;
@@ -210,6 +258,7 @@ fetch('../catalogo.json')
       const instance = template.content.cloneNode(true);
       
       instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -243,6 +292,7 @@ async function cargarPeliculasTerror() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -276,6 +326,7 @@ async function cargarPeliculasCrimen() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -309,6 +360,7 @@ async function cargarPeliculasCR() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -347,6 +399,10 @@ const scrollRight3 = document.getElementById("scroll-right3");
 const peliculasContainerCR= document.getElementById("peliculas-container-CR");
 const scrollLeft4 = document.getElementById("scroll-left4");
 const scrollRight4 = document.getElementById("scroll-right4");
+
+const peliculasContainerD= document.getElementById("peliculas-container-destacados");
+const scrollLeft5 = document.getElementById("scroll-left5");
+const scrollRight5 = document.getElementById("scroll-right5");
 
 
 scrollLeft.addEventListener("click", () => {
@@ -419,6 +475,22 @@ scrollRight4.addEventListener("click", () => {
   });
 });
 
+scrollLeft5.addEventListener("click", () => {
+  peliculasContainerD.scroll({
+    left: peliculasContainerD.scrollLeft - peliculasContainerD.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+scrollRight5.addEventListener("click", () => {
+  peliculasContainerD.scroll({
+    left:peliculasContainerD.scrollLeft +peliculasContainerD.offsetWidth,
+    behavior: "smooth",
+  });
+});
+
+
+
 function cambiarBoton() {
   var botonIngresar = document.getElementById("ingresar");
   var botonCerrarSesion = document.getElementById("cerrar-sesion");
@@ -486,7 +558,6 @@ cargarPeliculasTerror()
 cargarPeliculasCrimen()
 cargarPeliculasCR()
 cargarPeliculasDestacadas()
-
 
 
 
