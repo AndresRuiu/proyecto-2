@@ -546,6 +546,12 @@ function cambiarBoton() {
     tipo = "none";
   }
 
+  // Eliminar el icono existente si existe
+  var iconoExistente = document.querySelector(".uil-user-plus, .uil-user");
+  if (iconoExistente) {
+    iconoExistente.remove();
+  }
+
   if (tipo == "admin") {
     botonIngresar.style.display = "none";
     botonCerrarSesion.style.display = "inline-block";
@@ -586,7 +592,10 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById("cerrar-sesion").addEventListener("click", function() {
    localStorage.removeItem("usuarioActual");
    cambiarBoton();
- });
+   location.reload();
+});
+
+
 
 
 

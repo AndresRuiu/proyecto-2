@@ -43,7 +43,8 @@ function registrarUsuario(nombre, email, contraseña) {
     var usuario = {
         nombre: nombre,
         email: email,
-        contraseña: contraseña
+        contraseña: contraseña,
+        estado: "En espera"
     };
     usuarios.push(usuario);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
