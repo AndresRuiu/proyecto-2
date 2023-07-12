@@ -1,3 +1,14 @@
+window.addEventListener('DOMContentLoaded', function() {
+  QueryLoader2(document.querySelector("body"), {
+      barColor: "#efefef",
+      backgroundColor: "#111",
+      percentage: true,
+      barHeight: 1,
+      minimumTime: 200,
+      fadeOutTime: 1000
+  });
+});
+
 let aside = document.querySelector('#videoAside');
 let video = document.querySelector('video');
 let muteIcon = document.querySelector('#muteIcon');
