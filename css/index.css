@@ -110,7 +110,7 @@ i{
         margin-left: 10px;
     }
 
-    .textFastx *{
+    .textFastx *:not(h1):not(samp):not(h2){
         font-size: 16px;
     }
     
@@ -119,8 +119,6 @@ i{
     }
 
     #peliculas-container-proximamente{
-        margin-left: 5px;
-        margin-right: 5px;
         overflow-x: auto;
         display: flex;
         flex-wrap: nowrap;
@@ -135,11 +133,11 @@ i{
         flex: 0 0 auto;
     }
 
-    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3, #peliculas-container-CR .col-lg-3, #peliculas-container-destacados .col-lg-3{
+    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3, #peliculas-container-Crimen .col-lg-3, #peliculas-container-destacados .col-lg-3{
         width: 50% !important;
     }
 
-    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-CR, #peliculas-container-destacados{
+    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-Crimen, #peliculas-container-destacados{
         overflow-x: auto !important;
     }
 
@@ -164,7 +162,8 @@ i{
     }
 
     .textFastx {
-        top: 60%;
+        top: 45%;
+        margin-left: 0px;
     }
 
     .card-button .descripcion, .card-button .btn{
@@ -270,8 +269,8 @@ main{
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0px 0px 30px black;
 }
+
 
 .card-img-top {
     transition: 0.5s;
@@ -279,7 +278,9 @@ main{
   
 .card:hover .card-img-top {
     filter: blur(5px);
+    filter: brightness(40%);
 }
+
 
 .card-button {
     display: flex;
@@ -312,6 +313,7 @@ main{
     text-align: center;
     font-size: 2vh;
 }
+
   
 .card:hover .card-button {
     visibility: visible;
