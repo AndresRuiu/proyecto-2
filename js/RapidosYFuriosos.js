@@ -200,39 +200,23 @@ const data2 = [
     "reparto": ["Vin Diesel","Michelle Rodriguez","Jason Statham"],
     "descripcion":"Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.",
     "ranking":"5,9",
-    "duracion":"141"
+    "duracion":"141 minutos"
   },
 ];
 
-function llenarInformacion(index) {
-  const elemento = data[index];
-  informacionDiv.innerHTML = `
-    <div class="tipo">${elemento.tipo}</div>
-    <div class="hd">${elemento.hd}</div>
-    <p class="genero">${elemento.genero.join(", ")}</p>
-    <div class="anio">
-      <i class="fa-solid fa-calendar-days" style="color: #d40f45;"></i>
-      <p>${Array.isArray(elemento.anio) ? elemento.anio.join(", ") : elemento.anio}</p>
-    </div>
-  `;
-}
 
 function llenarInformacion(index) {
     const elemento = data2[index];
     informacionDiv2.innerHTML = `
-    <div class="nombre">Título: ${elemento.nombre}</div>
-      <div class="tipo">${elemento.tipo}</div>
+    <div class="nombre"><h4>${elemento.nombre}</h4></div>
       <div class="anio">
         <i class="fa-solid fa-calendar-days" style="color: #d40f45;"></i>
-        <p>${Array.isArray(elemento.anio) ? elemento.anio.join(", ") : elemento.anio}</p>
+        <span>${Array.isArray(elemento.anio) ? elemento.anio.join(", ") : elemento.anio}</span>
       </div>
-      <p class="genero">${elemento.genero.join(", ")}</p>
-      <div class="direccion">Dirección: ${elemento.direccion}</div>      
-      <div class="reparto">Reparto: ${elemento.reparto}</div>
-      <div class="ranking">${elemento.ranking}</div>
-      <div class="duracion">${elemento.duracion}'</div>
-
-
+      <div class="direccion"><span>Dirección: ${elemento.direccion.join(', ')}</span></div>      
+      <div class="reparto"><span>Reparto: ${elemento.reparto.join(', ')}</span></div>
+      <div class="ranking"><span>Puntaje: ${elemento.ranking}/10</span></div>
+      <div class="duracion"><span>Duracion: ${elemento.duracion}</span></div>
     `;
   }
 

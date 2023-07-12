@@ -147,11 +147,11 @@ fetch('../catalogo.json')
 .then(response => response.json())
     .then(data => {
       
-      const tipo = data[0].tipo;
-      const genero = data[0].genero.join(', ');
-      const anio = data[0].anio[0];
-      const pagina = data[0].pagina[0]
-      const nombre = data[0].nombre
+      const tipo = data[1].tipo;
+      const genero = data[1].genero.join(', ');
+      const anio = data[1].anio;
+      const pagina = data[1].pagina[0]
+      const nombre = data[1].nombre
 
       const nombreBtn = document.querySelector('#nombre');
       nombreBtn.textContent = nombre;
@@ -160,7 +160,7 @@ fetch('../catalogo.json')
       tipoBtn.textContent = tipo;
 
       const hdBtn = document.querySelector('.hd');
-      hdBtn.textContent = `4K`;
+      hdBtn.textContent = `UHD`;
 
       const generoP = document.querySelector('.genero');
       generoP.textContent = `${genero}`;
@@ -174,28 +174,27 @@ fetch('../catalogo.json')
       });
 
       const posterImage = document.querySelector('#poster-imagen');
-      posterImage.setAttribute('src', data[0].poster);
+      posterImage.setAttribute('src', data[1].poster);
 
       const descriptionElement = document.querySelector('#descripcion');
-      descriptionElement.innerHTML = `<p>${data[0].descripcion[1]}</p><p>${data[0].descripcion[2]}</p>`;
+      descriptionElement.textContent = data[1].descripcion[1];
 
   })
   .catch(error => console.error(error));
 
 
-
 const informacionDiv2 = document.getElementById("informacion2");
 const data2 = [
   {
-    "nombre": "Barbie",
-    "anio": ["2023", "proximamente"],
-    "direccion": ["Greta Gerwig"],
+    "nombre": "Spider-Man: Cruzando el multiverso",
+    "anio": ["2023"],
+    "direccion": ["Joaquim Dos Santos", "Kemp Powers", "Justin K. Thompson"],
     "tipo": "Pelicula",
-    "genero": ["Aventura", "Comedia", "Fantasia"],
-    "reparto": ["Margot Robbie", "Ryan Gosling", "Kingsley Ben-Adir"],
-    "descripcion":"Barbie vive en Barbie Land y luego sucede una historia.",
-    "ranking":"-",
-    "duracion":"114"
+    "genero": ["Animacion","Accion","Aventura"],
+    "reparto": ["Shameik Moore", "Hailee Steinfeld","Brian Tyree Henry"],
+    "descripcion":"Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.",
+    "ranking":"8,9",
+    "duracion":"140"
   },
 ];
 

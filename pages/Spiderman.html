@@ -6,6 +6,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/daa73c26b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="icon" href="../img/logo-zeno.png">
     <link rel="stylesheet" href="../css/pages.css">
     <title>Zeno</title>
 </head>
@@ -14,8 +16,8 @@
         <div class="row">
           <nav class="navbar navbar-expand-md ">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img src="../img/logo-zeno.png" style="height: 8vh;margin-right: 5px;">
+              <a class="navbar-brand" href="../index.html">
+                <img src="../img/logo-zeno.png" style="height: 6vh;margin-right: 5px;">
                 <span>Zeno</span>
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +26,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto  mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+                    <a class="nav-link active" aria-current="page" href="../index.html">INICIO</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">PELICULAS</a>
@@ -36,95 +38,88 @@
                     <a class="nav-link active" aria-current="page" href="#">SERIES</a>
                   </li>
                 </ul>
-                <form class="d-flex right-side">
-                  <button class="search"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
-                  <button id="ingresar"><a href="#">Ingresar</a></button>
+                <form class="d-flex right-side align-items-center">
+                  <button class="search"><svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
+                  <button id="ingresar"><a href="./registerLogin.html">Ingresar</a></button>
+                  <button id="cerrar-sesion" style="display: none;">Cerrar sesión</button>
                 </form>
               </div>
             </div>
           </nav>
+          </nav>
 
-<!-- FONDO -->
           <div class="background--img d-none d-sm-block">
             <img class="w-100" src="../img/fondos/03.webp" alt="">
           </div>
           <div class="background--img d-sm-none">
             <img class="w-100" src="../img/fondos/03.webp" alt="">
           </div>
-<!-- INFO -->
-<div class="row container">
-  <div class="col-lg-5 d-flex align-items-center justify-content-center">
-    <div class="textFastx">
-      <div id="slogan">
-        <h2 class="naranja">Zeno</h2>
-        <h1>Spider-Man: Cruzando el multiverso</h1>
-        <h6>Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.</h6>
-      </div>
-      <div id="informacion">
-        <div class="tipo"></div>
-        <div class="hd"></div>
-        <p class="genero"></p>
-        <div class="anio">
-          <i class="fa-solid fa-calendar-days" style="color: #d40f45;"></i>
-          <p></p>
-        </div>
-      </div>
-      <div class="botones">
-        <button id="play">
-          <i class="fa-solid fa-play" style="color: #d40f45;"></i>
-          <a href="#">Ver Ahora</a>
-        </button>
-        <button class="boton-info">
-          <i class="fa-solid fa-plus" style="color: #d40f45;"></i>
-          <a href="#">Mi lista</a>
-        </button>
-        <button class="boton-info" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <i class="fa-solid fa-circle-info" style="color: #d40f45;"></i>
-          <a href="#">Info</a>
-        </button>
-      </div>
-  
-    </div>
-  </div>
-
-</div>
-
-<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Info</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div id="informacion2">
-          <div class="nombre"></div>
-          <div class="tipo"></div>
-          <div class="anio"></div>
-          <div class="genero"></div>
-          <div class="direccion"></div>
-          <div class="reparto"></div>
-          <div class="ranking"></div>
-          <div class="duracion"></div>
 
 
-            <i class="fa-solid fa-calendar-days" style="color: #d40f45;"></i>
-            <p></p>
+          <div class="container">
+            <div class="row justify-content-center align-items-center min-vh-100"">
+              <div class="col-md-4 col-lg-4 poster  d-flex align-items-center justify-content-center">
+                <img id="poster-imagen" src="" alt="">
+              </div>
+              <div class="col-md-8 col-lg-8 d-flex align-items-center justify-content-lg-start justify-content-sm-center" >
+                <div class="textFastx">
+                  <div id="slogan">
+                    <h1 id="nombre"></h1>
+                    <h6 id="descripcion"></h6>
+                  </div>
+                  <div id="informacion">
+                    <div class="tipo"></div>
+                    <div class="hd"></div>
+                    <p class="genero"></p>
+                    <div class="anio">
+                      <i class="fa-solid fa-calendar-days" style="color: #d40f45;"></i>
+                      <p></p>
+                    </div>
+                  </div>
+                  <div class="botones">
+                    <button id="play">
+                      <i class="fa-solid fa-play" style="color: #d40f45;"></i>
+                      <a href="#">Ver Trailer</a>
+                    </button>
+                    <button class="boton-info d-flex align-items-center">
+                      <i class="fa-solid fa-plus" style="color: #d40f45;"></i>
+                      <a href="#">Mi lista</a>
+                    </button>
+                    <button class="boton-info d-flex align-items-center" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <i class="fa-solid fa-circle-info" style="color: #d40f45;"></i>
+                      <a href="#">Info</a>
+                    </button>
+                  </div>
+              
+                </div>
+              </div>
+            
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
-
-    </aside>
+          
+          <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Info</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div id="informacion2">
+                  </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+</aside>
 
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/03.js"></script>
+    <script src="../js/Spiderman.js"></script>
 </body>
 </html>

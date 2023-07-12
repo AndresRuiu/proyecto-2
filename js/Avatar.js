@@ -147,11 +147,11 @@ fetch('../catalogo.json')
 .then(response => response.json())
     .then(data => {
       
-      const tipo = data[0].tipo;
-      const genero = data[0].genero.join(', ');
-      const anio = data[0].anio[0];
-      const pagina = data[0].pagina[0]
-      const nombre = data[0].nombre
+      const tipo = data[3].tipo;
+      const genero = data[3].genero.join(', ');
+      const anio = data[3].anio;
+      const pagina = data[3].pagina[0]
+      const nombre = data[3].nombre
 
       const nombreBtn = document.querySelector('#nombre');
       nombreBtn.textContent = nombre;
@@ -174,30 +174,29 @@ fetch('../catalogo.json')
       });
 
       const posterImage = document.querySelector('#poster-imagen');
-      posterImage.setAttribute('src', data[0].poster);
+      posterImage.setAttribute('src', data[3].poster);
 
       const descriptionElement = document.querySelector('#descripcion');
-      descriptionElement.innerHTML = `<p>${data[0].descripcion[1]}</p><p>${data[0].descripcion[2]}</p>`;
+      descriptionElement.textContent = data[3].descripcion[1];
 
   })
   .catch(error => console.error(error));
 
-
-
 const informacionDiv2 = document.getElementById("informacion2");
 const data2 = [
   {
-    "nombre": "Barbie",
-    "anio": ["2023", "proximamente"],
-    "direccion": ["Greta Gerwig"],
+    "nombre": "Avatar: El sentido del agua",
+    "anio": ["2023"],
+    "direccion": ["James Cameron"],
     "tipo": "Pelicula",
-    "genero": ["Aventura", "Comedia", "Fantasia"],
-    "reparto": ["Margot Robbie", "Ryan Gosling", "Kingsley Ben-Adir"],
-    "descripcion":"Barbie vive en Barbie Land y luego sucede una historia.",
-    "ranking":"-",
-    "duracion":"114"
+    "genero": ["Accion","Aventura","Fantasia"],
+    "reparto": ["Sam Worthington", "Zoe Saldana","Sigourney Weaver"],
+    "descripcion":"Jake Sully vive con su nueva familia en el planeta de Pandora. Cuando una amenaza conocida regresa, Jake debe trabajar con Neytiri y el ejército de la raza na'vi para proteger su planeta.",
+    "ranking":"7,6",
+    "duracion":"192"
   },
 ];
+
 
 function llenarInformacion(index) {
   const elemento = data2[index];

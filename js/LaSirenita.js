@@ -147,11 +147,11 @@ fetch('../catalogo.json')
 .then(response => response.json())
     .then(data => {
       
-      const tipo = data[0].tipo;
-      const genero = data[0].genero.join(', ');
-      const anio = data[0].anio[0];
-      const pagina = data[0].pagina[0]
-      const nombre = data[0].nombre
+      const tipo = data[2].tipo;
+      const genero = data[2].genero.join(', ');
+      const anio = data[2].anio;
+      const pagina = data[2].pagina[0]
+      const nombre = data[2].nombre
 
       const nombreBtn = document.querySelector('#nombre');
       nombreBtn.textContent = nombre;
@@ -160,7 +160,7 @@ fetch('../catalogo.json')
       tipoBtn.textContent = tipo;
 
       const hdBtn = document.querySelector('.hd');
-      hdBtn.textContent = `4K`;
+      hdBtn.textContent = `UHD`;
 
       const generoP = document.querySelector('.genero');
       generoP.textContent = `${genero}`;
@@ -174,28 +174,27 @@ fetch('../catalogo.json')
       });
 
       const posterImage = document.querySelector('#poster-imagen');
-      posterImage.setAttribute('src', data[0].poster);
+      posterImage.setAttribute('src', data[2].poster);
 
       const descriptionElement = document.querySelector('#descripcion');
-      descriptionElement.innerHTML = `<p>${data[0].descripcion[1]}</p><p>${data[0].descripcion[2]}</p>`;
+      descriptionElement.textContent = data[2].descripcion[1];
 
   })
   .catch(error => console.error(error));
 
 
-
 const informacionDiv2 = document.getElementById("informacion2");
 const data2 = [
   {
-    "nombre": "Barbie",
-    "anio": ["2023", "proximamente"],
-    "direccion": ["Greta Gerwig"],
+    "nombre": "La Sirenita",
+    "anio": ["2023"],
+    "direccion": ["Rob Marshall"],
     "tipo": "Pelicula",
-    "genero": ["Aventura", "Comedia", "Fantasia"],
-    "reparto": ["Margot Robbie", "Ryan Gosling", "Kingsley Ben-Adir"],
-    "descripcion":"Barbie vive en Barbie Land y luego sucede una historia.",
-    "ranking":"-",
-    "duracion":"114"
+    "genero": ["Aventura","Familiar","Fantasia"],
+    "reparto": ["Halle Bailey", "Jonah Hauer-King","Melissa McCarthy"],
+    "descripcion":"Una joven sirena hace un trato con una bruja marina para cambiar su hermosa voz por piernas humanas para poder descubrir el mundo sobre el agua e impresionar a un príncipe.",
+    "ranking":"7,2",
+    "duracion":"135"
   },
 ];
 
