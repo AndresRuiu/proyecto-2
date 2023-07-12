@@ -133,11 +133,11 @@ i{
         flex: 0 0 auto;
     }
 
-    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3, #peliculas-container-Crimen .col-lg-3, #peliculas-container-destacados .col-lg-3{
+    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3, #peliculas-container-Crimen .col-lg-3, #peliculas-container-destacados .col-lg-3, #peliculas-container-CR .col-lg-3{
         width: 50% !important;
     }
 
-    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-Crimen, #peliculas-container-destacados{
+    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-Crimen, #peliculas-container-destacados, #peliculas-container-CR{
         overflow-x: auto !important;
     }
 
@@ -162,7 +162,7 @@ i{
     }
 
     .textFastx {
-        top: 45%;
+        top: 50%;
         margin-left: 0px;
     }
 
