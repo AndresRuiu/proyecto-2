@@ -170,6 +170,10 @@ i{
     .card-button .descripcion, .card-button .btn{
         font-size: 8px;
     }
+    #peliculas-container-proximamente{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 
 }
   

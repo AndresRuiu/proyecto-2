@@ -100,9 +100,6 @@ async function searchMovies(searchValue) {
 }
 
 
-
-
-
 fetch('../catalogo.json')
 .then(response => response.json())
     .then(data => {
@@ -110,6 +107,7 @@ fetch('../catalogo.json')
       const tipo = data[7].tipo;
       const genero = data[7].genero.join(', ');
       const anio = data[7].anio;
+      const pagina = data[7].pagina[1]
 
       const tipoBtn = document.querySelector('.tipo');
       tipoBtn.textContent = tipo;
@@ -122,6 +120,12 @@ fetch('../catalogo.json')
 
       const anioSpan = document.querySelector('.anio p');
       anioSpan.textContent = anio;
+
+      const playButton = document.querySelector('#play');
+      playButton.addEventListener('click', () => {
+      window.open(pagina, '_blank');
+      });
+
 
   })
   .catch(error => console.error(error));
@@ -187,7 +191,7 @@ fetch('../catalogo.json')
       const instance = template.content.cloneNode(true);
       
       instance.querySelector(".poster").src = pelicula.poster;
-      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio[0];
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -195,7 +199,11 @@ fetch('../catalogo.json')
       
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-        createYouTubeModal(pelicula.pagina, pelicula.id);
+      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_blank');
+      } else {
+          createYouTubeModal(pelicula.pagina);
+       }
       });
       
       fragment.appendChild(instance);
@@ -219,7 +227,7 @@ fetch('../catalogo.json')
     peliculas2023.forEach(pelicula => {
       const instance = template.content.cloneNode(true);
       instance.querySelector(".poster").src = pelicula.poster;
-      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -227,8 +235,13 @@ fetch('../catalogo.json')
   
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-        createYouTubeModal(pelicula.pagina);
-      });
+      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_blank');
+      } else {
+          createYouTubeModal(pelicula.pagina);
+       }
+});
+
   
       fragment.appendChild(instance);
     });
@@ -298,7 +311,7 @@ fetch('../catalogo.json')
       const instance = template.content.cloneNode(true);
       
       instance.querySelector(".poster").src = pelicula.poster;
-      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
       instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -306,7 +319,11 @@ fetch('../catalogo.json')
 
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-        createYouTubeModal(pelicula.pagina);
+      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_blank');
+      } else {
+          createYouTubeModal(pelicula.pagina);
+       }
       });
       
       fragment.appendChild(instance);
@@ -332,7 +349,7 @@ async function cargarPeliculasTerror() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
-    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -366,7 +383,7 @@ async function cargarPeliculasCrimen() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
-    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
@@ -400,17 +417,20 @@ async function cargarPeliculasCR() {
     const instance = template.content.cloneNode(true);
     
     instance.querySelector(".poster").src = pelicula.poster;
-    instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+    instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
     instance.querySelector(".ranking").textContent = pelicula.ranking;
 
     const verMasButton = instance.querySelector('.ver-mas');
-    verMasButton.addEventListener('click', () => {
-      createYouTubeModal(pelicula.pagina);
+      verMasButton.addEventListener('click', () => {
+      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_blank');
+      } else {
+          createYouTubeModal(pelicula.pagina);
+       }
     });
-    
     fragment.appendChild(instance);
   });
 
@@ -594,10 +614,6 @@ document.getElementById("cerrar-sesion").addEventListener("click", function() {
    cambiarBoton();
    location.reload();
 });
-
-
-
-
 
 
 cargarPeliculasProximamente();
