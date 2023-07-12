@@ -190,7 +190,7 @@ fetch('../catalogo.json')
     peliculasProximamente.forEach(pelicula => {
       const instance = template.content.cloneNode(true);
       
-      instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".poster").src = pelicula.poster[0];
       instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio[0];
@@ -226,7 +226,7 @@ fetch('../catalogo.json')
   
     peliculas2023.forEach(pelicula => {
       const instance = template.content.cloneNode(true);
-      instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".poster").src = pelicula.poster[0];
       instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
@@ -310,7 +310,7 @@ fetch('../catalogo.json')
     peliculasAD.forEach(pelicula => {
       const instance = template.content.cloneNode(true);
       
-      instance.querySelector(".poster").src = pelicula.poster;
+      instance.querySelector(".poster").src = pelicula.poster[0];
       instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
       instance.querySelector(".nombre").textContent = pelicula.nombre;
       instance.querySelector(".anio").textContent = pelicula.anio;
@@ -348,7 +348,7 @@ async function cargarPeliculasTerror() {
   peliculasTerror.forEach(pelicula => {
     const instance = template.content.cloneNode(true);
     
-    instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".poster").src = pelicula.poster[0];
     instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
@@ -386,7 +386,7 @@ async function cargarPeliculasCrimen() {
   peliculasCrimen.forEach(pelicula => {
     const instance = template.content.cloneNode(true);
     
-    instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".poster").src = pelicula.poster[0];
     instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
@@ -424,7 +424,7 @@ async function cargarPeliculasCR() {
   peliculasCR.forEach(pelicula => {
     const instance = template.content.cloneNode(true);
     
-    instance.querySelector(".poster").src = pelicula.poster;
+    instance.querySelector(".poster").src = pelicula.poster[0];
     instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;

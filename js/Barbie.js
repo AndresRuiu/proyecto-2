@@ -174,7 +174,7 @@ fetch('../catalogo.json')
       });
 
       const posterImage = document.querySelector('#poster-imagen');
-      posterImage.setAttribute('src', data[0].poster);
+      posterImage.setAttribute('src', data[0].poster[1]);
 
       const descriptionElement = document.querySelector('#descripcion');
       descriptionElement.innerHTML = `<p>${data[0].descripcion[1]}</p><p>${data[0].descripcion[2]}</p>`;

@@ -174,7 +174,7 @@ fetch('../catalogo.json')
       });
 
       const posterImage = document.querySelector('#poster-imagen');
-      posterImage.setAttribute('src', data[1].poster);
+      posterImage.setAttribute('src', data[1].poster[1]);
 
       const descriptionElement = document.querySelector('#descripcion');
       descriptionElement.textContent = data[1].descripcion[1];
@@ -186,7 +186,7 @@ fetch('../catalogo.json')
 const informacionDiv2 = document.getElementById("informacion2");
 const data2 = [
   {
-    "nombre": "Spider-Man: Cruzando el multiverso",
+    "nombre": "Spider-Man: A través del Spider-Verso",
     "anio": ["2023"],
     "direccion": ["Joaquim Dos Santos", "Kemp Powers", "Justin K. Thompson"],
     "tipo": "Pelicula",
