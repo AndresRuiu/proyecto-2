@@ -123,7 +123,7 @@ fetch('../catalogo.json')
 
       const playButton = document.querySelector('#play');
       playButton.addEventListener('click', () => {
-      window.open(pagina, '_blank');
+      window.open(pagina, '_self');
       });
 
 
@@ -199,11 +199,11 @@ fetch('../catalogo.json')
       
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_blank');
+        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_self');
       } else {
           createYouTubeModal(pelicula.pagina);
-       }
+      }
       });
       
       fragment.appendChild(instance);
@@ -235,11 +235,11 @@ fetch('../catalogo.json')
   
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_blank');
+        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_self');
       } else {
           createYouTubeModal(pelicula.pagina);
-       }
+      }
 });
 
   
@@ -319,11 +319,11 @@ fetch('../catalogo.json')
 
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_blank');
+        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_self');
       } else {
           createYouTubeModal(pelicula.pagina);
-       }
+      }
       });
       
       fragment.appendChild(instance);
@@ -356,9 +356,13 @@ async function cargarPeliculasTerror() {
     instance.querySelector(".ranking").textContent = pelicula.ranking;
 
     const verMasButton = instance.querySelector('.ver-mas');
-    verMasButton.addEventListener('click', () => {
-      createYouTubeModal(pelicula.pagina);
-    });
+      verMasButton.addEventListener('click', () => {
+        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_self');
+      } else {
+          createYouTubeModal(pelicula.pagina);
+      }
+      });
     
     fragment.appendChild(instance);
   });
@@ -390,9 +394,13 @@ async function cargarPeliculasCrimen() {
     instance.querySelector(".ranking").textContent = pelicula.ranking;
 
     const verMasButton = instance.querySelector('.ver-mas');
-    verMasButton.addEventListener('click', () => {
-      createYouTubeModal(pelicula.pagina);
-    });
+      verMasButton.addEventListener('click', () => {
+        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_self');
+      } else {
+          createYouTubeModal(pelicula.pagina);
+      }
+      });
     
     fragment.appendChild(instance);
   });
@@ -425,12 +433,12 @@ async function cargarPeliculasCR() {
 
     const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_blank');
+        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_self');
       } else {
           createYouTubeModal(pelicula.pagina);
-       }
-    });
+      }
+      });
     fragment.appendChild(instance);
   });
 
