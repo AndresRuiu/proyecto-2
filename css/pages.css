@@ -35,7 +35,7 @@ a {
     color: #d40f45;
   }
 
-.navbar a,#play a{
+.navbar a,.play a{
     color: white;
 }
 
@@ -150,7 +150,7 @@ button {
         font-size: 16px;
     }
     
-    #informacion, #play {
+    #informacion, .play {
       width: max-content;
     }
 
@@ -163,7 +163,7 @@ button {
 }
 
 
-.anio, #play{
+.anio, .play{
     display: flex;
     align-items: center;
 }
@@ -200,7 +200,7 @@ button {
     margin-right: 15px;
 }
 
-#play, .boton-info{
+.play, .boton-info{
     border-radius: 24px;
     border: 2px solid #d40f45;
     background: rgba(36, 36, 36, 0.96);
@@ -208,11 +208,11 @@ button {
     margin-top: 10px;
 }
 
-#play i, .boton-info i{
+.play i, .boton-info i{
     padding-left: 7px;
 }
 
-#play > *, .boton-info > *{
+.play > *, .boton-info > *{
     margin-right: 8px;
 }
 
