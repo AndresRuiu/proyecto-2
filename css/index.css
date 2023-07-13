@@ -141,7 +141,7 @@ i{
 
     #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-Crimen, #peliculas-container-destacados, #peliculas-container-CR{
         overflow-x: auto !important;
-        --bs-gutter-x: 0.5rem !important;
+        --bs-gutter-x: 1rem !important;
     }
 
     .card-title span{
