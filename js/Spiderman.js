@@ -168,7 +168,7 @@ fetch('../catalogo.json')
       const anioSpan = document.querySelector('.anio p');
       anioSpan.textContent = anio;
 
-      const playButton = document.querySelector('#play');
+      const playButton = document.querySelector('#play-trailer');
       playButton.addEventListener('click', () => {
       window.open(pagina, '_blank');
       });
