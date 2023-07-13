@@ -122,6 +122,8 @@ i{
         overflow-x: auto;
         display: flex;
         flex-wrap: nowrap;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .scroll-left,
@@ -169,13 +171,19 @@ i{
     .card-button .descripcion, .card-button .btn{
         font-size: 8px;
     }
-    #peliculas-container-proximamente{
-        margin-left: 0px;
-        margin-right: 0px;
-    }
 
 }
-  
+
+@media (min-width: 577px){
+    #peliculas-container-proximamente{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+#peliculas-container-proximamente{
+    margin: auto;
+}
 
 .anio, #play{
     display: flex;
@@ -252,10 +260,6 @@ main{
     margin-bottom: 5px;
 }
 
-#peliculas-container-proximamente{
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
 .card-title{
     font-size: 1vw;
