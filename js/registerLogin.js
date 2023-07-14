@@ -142,3 +142,5 @@ usuarios = usuariosGuardados;
 for (var i = 0; i < usuarios.length; i++) {
     console.log(usuarios[i].nombre, usuarios[i].contraseña, usuarios[i].tipo);
 }
+
+console.log(usuariosGuardados)
