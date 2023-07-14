@@ -127,14 +127,7 @@ for (var i = 0; i < usuariosGuardados.length; i++) {
         break;
     }
 }
-if (!adminEncontrado) {
-    usuariosGuardados.push({
-        nombre: "admin",
-        email: "admin@example.com",
-        contraseña: "admin123",
-        tipo: "admin"
-    });
-}
+
 localStorage.setItem("usuarios", JSON.stringify(usuariosGuardados));
 usuarios = usuariosGuardados;
 
