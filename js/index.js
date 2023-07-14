@@ -1,3 +1,33 @@
+function updateTopValue() {
+  const width = window.innerWidth;
+  let topValue;
+  if (width <= 576){
+    topValue = '60%'
+  }
+  else if (width <= 768){
+    topValue = '70%'
+  }
+  else if (width <= 992) {
+    topValue = '20vh';
+  } else if (width <= 1200) {
+    topValue = '40vh';
+  } else {
+    topValue = '50vh';
+  }
+  document.querySelector('.textFastx').style.top = topValue;
+}
+  window.addEventListener('resize', updateTopValue); 
+  updateTopValue();
+
+
+  const button = document.querySelector('.navbar-toggler');
+  button.addEventListener('click', () => {
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.toggle('expanded');
+  });
+
+
+
 function cambiarBoton() {
   var botonIngresar = document.getElementById("ingresar");
   var botonCerrarSesion = document.getElementById("cerrar-sesion");
@@ -130,14 +160,35 @@ searchInput.addEventListener('input', async (event) => {
   resultsDiv.innerHTML = '';
   for (let movie of results.slice(0, 5)) {
     let movieElement = document.createElement('li');
-    movieElement.textContent = movie.nombre;
+    let movieLink = document.createElement('a');
+    let youTubeUrl;
+    if (Array.isArray(movie.pagina)) {
+        if (movie.pagina.length === 1) {
+            youTubeUrl = movie.pagina[0];
+        } else if (movie.pagina.length > 1) {
+            movieLink.href = movie.pagina[1];
+        }
+    } else {
+        youTubeUrl = movie.pagina;
+    }
+    if (youTubeUrl) {
+        movieLink.addEventListener('click', event => {
+            event.preventDefault();
+            createYouTubeModal(youTubeUrl);
+        });
+    }
+    movieLink.textContent = movie.nombre;
+    movieElement.appendChild(movieLink);
     movieElement.style.marginTop = '3px';
     resultsDiv.appendChild(movieElement);
-  }  
+}
+
 });
 
 searchInput.addEventListener('blur', () => {
-  resultsDiv.innerHTML = '';
+  setTimeout(() => {
+      resultsDiv.innerHTML = '';
+  }, 100);
 });
 
 
@@ -151,7 +202,8 @@ async function searchMovies(searchValue) {
     storedMovies = storedMovies.map(movie => {
       return {
         nombre: movie.name,
-        genero: movie.genre
+        genero: movie.genre,
+        pagina: movie.pagina
       };
     });
     movies = movies.concat(storedMovies);
@@ -165,6 +217,7 @@ async function searchMovies(searchValue) {
 
   return results;
 }
+
 
 
 fetch('../catalogo.json')

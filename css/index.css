@@ -62,18 +62,23 @@ a{
     padding-right: 15px;
 }
 
-i{
+i, a{
     cursor: pointer;
+    color: black;
 }
 
+
 .textFastx {
+    width: 50vw;
+    height: 50vh;
     width: fit-content;
     position: absolute;
-    top: 300px;
+    top: 40vh;
     margin-left: 30px;
     z-index: 1;
     color: white;
   }
+
 
 .naranja{
     color: #d40f45;
@@ -95,6 +100,10 @@ i{
   }
 
   @media (max-width: 767px) {
+    .navbar.expanded {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
     .navbar-brand span {
         display: none;
     }
@@ -104,14 +113,13 @@ i{
         flex-direction: column;
         align-items: center;
         text-align: center;
-        top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
         margin-left: 10px;
     }
 
     .textFastx *:not(h1):not(samp):not(h2){
-        font-size: 16px;
+        font-size: 20px ;
     }
     
     #informacion, #play {
@@ -165,8 +173,11 @@ i{
     }
 
     .textFastx {
-        top: 50%;
         margin-left: 0px;
+    }
+
+    .textFastx *:not(h1):not(samp):not(h2){
+        font-size: 15px;
     }
 
     .card-button .descripcion, .card-button .btn{
