@@ -2,26 +2,28 @@ function cambiarBoton() {
   var botonIngresar = document.getElementById("ingresar");
   var botonCerrarSesion = document.getElementById("cerrar-sesion");
 
-  var nombreUsuario = localStorage.getItem("usuarioActual");
+  var usuarioActual = JSON.parse(localStorage.getItem("usuarioActual"));
 
   var tipo;
-  if (nombreUsuario == "admin") {
+  if (usuarioActual && usuarioActual.tipo === "admin") {
     tipo = "admin";
+  } else if (usuarioActual && usuarioActual.tipo === "user") {
+    tipo = "user";
   } else {
     tipo = "none";
   }
-
-  if (tipo == "admin") {
-    console.log("Cambiando el estilo de los botones");
-    botonIngresar.style.display = "none";
-    botonCerrarSesion.style.display = "inline-block";
-  } 
-}
-
-document.getElementById("cerrar-sesion").addEventListener("click", function(event) {
-  event.preventDefault();
-  localStorage.removeItem("usuarioActual");
-  window.location.href = '../index.html';
+  
+    if (tipo == "admin") {
+      console.log("Cambiando el estilo de los botones");
+      botonIngresar.style.display = "none";
+      botonCerrarSesion.style.display = "inline-block";
+    } 
+  }
+  
+  document.getElementById("cerrar-sesion").addEventListener("click", function(event) {
+    event.preventDefault();
+    localStorage.removeItem("usuarioActual");
+    window.location.href = '../index.html';
 });
 
 let movies = JSON.parse(localStorage.getItem('movies')) || [];

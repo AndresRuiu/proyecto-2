@@ -35,7 +35,8 @@ var usuarios = [
     {
         nombre: "admin",
         email: "admin@example.com",
-        contraseña: "admin123"
+        contraseña: "admin123",
+        tipo: "admin"
     }
 ];
 
@@ -44,14 +45,15 @@ function registrarUsuario(nombre, email, contraseña) {
         nombre: nombre,
         email: email,
         contraseña: contraseña,
-        estado: "En espera"
+        estado: "En espera",
+        tipo: "user"
     };
     usuarios.push(usuario);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 }
 
 function validarUsuario(nombre, contraseña) {
-    var usuarioValido = false;
+    var usuarioValido = null;
     for (var i = 0; i < usuarios.length; i++) {
         if (usuarios[i].nombre === nombre && usuarios[i].contraseña === contraseña) {
             if (usuarios[i].estado === "En espera") {
@@ -60,14 +62,13 @@ function validarUsuario(nombre, contraseña) {
                 errorElement.style.color = "red";
                 document.querySelector(".login form").appendChild(errorElement);
             } else {
-                usuarioValido = true;
+                usuarioValido = usuarios[i];
             }
             break;
         }
     }
     return usuarioValido;
 }
-
 
 document.querySelector(".signup .input-field.button input").addEventListener("click", function() {
     var nombre = document.querySelector(".signup .input-field:nth-of-type(1) input").value;
@@ -91,14 +92,12 @@ document.querySelector(".signup .input-field.button input").addEventListener("cl
     }
 });
 
-
-
-
 document.querySelector(".login .input-field.button input").addEventListener("click", function() {
     var nombre = document.querySelector(".login .input-field:nth-child(1) input").value;
     var contraseña = document.querySelector(".login .input-field:nth-child(2) input").value;
-    if (validarUsuario(nombre, contraseña)) {
-        localStorage.setItem("usuarioActual", nombre);
+    var usuarioValido = validarUsuario(nombre, contraseña);
+    if (usuarioValido) {
+        localStorage.setItem("usuarioActual", JSON.stringify(usuarioValido));
         window.location.href = "../index.html";
     } else {
         var usuarioEnEspera = false;
@@ -117,19 +116,29 @@ document.querySelector(".login .input-field.button input").addEventListener("cli
     }
 });
 
-
-
-var usuarios = JSON.parse(localStorage.getItem("usuarios"));
-if (usuarios === null) {
-    usuarios = [
-        {
-            nombre: "admin",
-            email: "admin@example.com",
-            contraseña: "admin123"
-        }
-    ];
+var usuariosGuardados = JSON.parse(localStorage.getItem("usuarios"));
+if (usuariosGuardados === null) {
+    usuariosGuardados = [];
 }
+var adminEncontrado = false;
+for (var i = 0; i < usuariosGuardados.length; i++) {
+    if (usuariosGuardados[i].nombre === "admin") {
+        adminEncontrado = true;
+        break;
+    }
+}
+if (!adminEncontrado) {
+    usuariosGuardados.push({
+        nombre: "admin",
+        email: "admin@example.com",
+        contraseña: "admin123",
+        tipo: "admin"
+    });
+}
+localStorage.setItem("usuarios", JSON.stringify(usuariosGuardados));
+usuarios = usuariosGuardados;
+
+
 for (var i = 0; i < usuarios.length; i++) {
-    console.log(usuarios[i].nombre, usuarios[i].contraseña);
+    console.log(usuarios[i].nombre, usuarios[i].contraseña, usuarios[i].tipo);
 }
-

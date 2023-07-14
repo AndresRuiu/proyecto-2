@@ -1,3 +1,69 @@
+function cambiarBoton() {
+  var botonIngresar = document.getElementById("ingresar");
+  var botonCerrarSesion = document.getElementById("cerrar-sesion");
+
+  var usuarioActual = JSON.parse(localStorage.getItem("usuarioActual"));
+
+  var tipo;
+  if (usuarioActual && usuarioActual.tipo === "admin") {
+    tipo = "admin";
+  } else if (usuarioActual && usuarioActual.tipo === "user") {
+    tipo = "user";
+  } else {
+    tipo = "none";
+  }
+
+  var iconoExistente = document.querySelector(".uil-user-plus, .uil-user");
+  if (iconoExistente) {
+    iconoExistente.remove();
+  }
+
+  if (tipo == "admin") {
+    botonIngresar.style.display = "none";
+    botonCerrarSesion.style.display = "inline-block";
+
+    var icono = document.createElement("i");
+    icono.className = "uil uil-user-plus";
+    botonCerrarSesion.parentNode.insertBefore(icono, botonCerrarSesion.nextSibling);
+    icono.style.color = "#d40f45";
+    icono.style.border = "1px solid white";
+    icono.style.borderRadius = "50%";
+    icono.style.padding = "6px";
+
+    icono.addEventListener("click", function() {
+      window.location.href = "./pages/administrador.html";
+    });
+  } else if (tipo == "user") {
+    botonIngresar.style.display = "none";
+    botonCerrarSesion.style.display = "inline-block";
+
+    var icono = document.createElement("i");
+    icono.className = "uil uil-user";
+    botonCerrarSesion.parentNode.insertBefore(icono, botonCerrarSesion.nextSibling);
+    icono.style.color = "#d40f45";
+    icono.style.border = "1px solid white";
+    icono.style.borderRadius = "50%";
+    icono.style.padding = "6px";
+
+  } else {
+    botonIngresar.style.display = "inline-block";
+    botonCerrarSesion.style.display = "none";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  cambiarBoton();
+});
+
+document.getElementById("cerrar-sesion").addEventListener("click", function() {
+   localStorage.removeItem("usuarioActual");
+   cambiarBoton();
+   location.reload();
+});
+
+console.log(JSON.parse(localStorage.getItem("usuarioActual")));
+
+
 
 let aside = document.querySelector('#videoAside');
 let video = document.querySelector('video');
@@ -556,72 +622,6 @@ scrollRight5.addEventListener("click", () => {
     left:peliculasContainerD.scrollLeft +peliculasContainerD.offsetWidth,
     behavior: "smooth",
   });
-});
-
-
-
-function cambiarBoton() {
-  var botonIngresar = document.getElementById("ingresar");
-  var botonCerrarSesion = document.getElementById("cerrar-sesion");
-
-  var nombreUsuario = localStorage.getItem("usuarioActual");
-
-  var tipo;
-  if (nombreUsuario == "admin") {
-    tipo = "admin";
-  } else if (nombreUsuario) {
-    tipo = "user";
-  } else {
-    tipo = "none";
-  }
-
-  // Eliminar el icono existente si existe
-  var iconoExistente = document.querySelector(".uil-user-plus, .uil-user");
-  if (iconoExistente) {
-    iconoExistente.remove();
-  }
-
-  if (tipo == "admin") {
-    botonIngresar.style.display = "none";
-    botonCerrarSesion.style.display = "inline-block";
-
-    var icono = document.createElement("i");
-    icono.className = "uil uil-user-plus";
-    botonCerrarSesion.parentNode.insertBefore(icono, botonCerrarSesion.nextSibling);
-    icono.style.color = "#d40f45";
-    icono.style.border = "1px solid white";
-    icono.style.borderRadius = "50%";
-    icono.style.padding = "6px";
-
-    icono.addEventListener("click", function() {
-      window.location.href = "./pages/administrador.html";
-    });
-  } else if (tipo == "user") {
-    botonIngresar.style.display = "none";
-    botonCerrarSesion.style.display = "inline-block";
-
-    var icono = document.createElement("i");
-    icono.className = "uil uil-user";
-    botonCerrarSesion.parentNode.insertBefore(icono, botonCerrarSesion.nextSibling);
-    icono.style.color = "#d40f45";
-    icono.style.border = "1px solid white";
-    icono.style.borderRadius = "50%";
-    icono.style.padding = "6px";
-
-  } else {
-    botonIngresar.style.display = "inline-block";
-    botonCerrarSesion.style.display = "none";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  cambiarBoton();
-});
-
-document.getElementById("cerrar-sesion").addEventListener("click", function() {
-   localStorage.removeItem("usuarioActual");
-   cambiarBoton();
-   location.reload();
 });
 
 

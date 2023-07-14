@@ -1,24 +1,13 @@
-window.addEventListener('DOMContentLoaded', function() {
-  QueryLoader2(document.querySelector("body"), {
-      barColor: "#efefef",
-      backgroundColor: "#111",
-      percentage: true,
-      barHeight: 1,
-      minimumTime: 200,
-      fadeOutTime: 1000
-  });
-});
-
 function cambiarBoton() {
   var botonIngresar = document.getElementById("ingresar");
   var botonCerrarSesion = document.getElementById("cerrar-sesion");
 
-  var nombreUsuario = localStorage.getItem("usuarioActual");
+  var usuarioActual = JSON.parse(localStorage.getItem("usuarioActual"));
 
   var tipo;
-  if (nombreUsuario == "admin") {
+  if (usuarioActual && usuarioActual.tipo === "admin") {
     tipo = "admin";
-  } else if (nombreUsuario) {
+  } else if (usuarioActual && usuarioActual.tipo === "user") {
     tipo = "user";
   } else {
     tipo = "none";
@@ -70,6 +59,7 @@ document.getElementById("cerrar-sesion").addEventListener("click", function() {
    localStorage.removeItem("usuarioActual");
    cambiarBoton();
    location.reload();
+   window.location.href = '../index.html';
 });
 
 document.querySelector('form').addEventListener('submit', function(event) {

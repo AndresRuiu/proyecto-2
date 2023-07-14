@@ -1,15 +1,17 @@
 function cambiarBoton() {
-    var botonIngresar = document.getElementById("ingresar");
-    var botonCerrarSesion = document.getElementById("cerrar-sesion");
-  
-    var nombreUsuario = localStorage.getItem("usuarioActual");
-  
-    var tipo;
-    if (nombreUsuario == "admin") {
-      tipo = "admin";
-    } else {
-      tipo = "none";
-    }
+  var botonIngresar = document.getElementById("ingresar");
+  var botonCerrarSesion = document.getElementById("cerrar-sesion");
+
+  var usuarioActual = JSON.parse(localStorage.getItem("usuarioActual"));
+
+  var tipo;
+  if (usuarioActual && usuarioActual.tipo === "admin") {
+    tipo = "admin";
+  } else if (usuarioActual && usuarioActual.tipo === "user") {
+    tipo = "user";
+  } else {
+    tipo = "none";
+  }
   
     if (tipo == "admin") {
       console.log("Cambiando el estilo de los botones");
@@ -22,7 +24,7 @@ function cambiarBoton() {
     event.preventDefault();
     localStorage.removeItem("usuarioActual");
     window.location.href = '../index.html';
-  });
+});
   
   
   function cambiarEstadoUsuario(nombre, nuevoEstado) {
@@ -96,13 +98,11 @@ function cambiarBoton() {
   
   document.querySelector('#tabla-usuarios').addEventListener('click', function(event) {
     if (event.target.classList.contains('aprobar')) {
-        // El botón "Aprobar" o "Poner en espera" fue presionado
         let nombre = event.target.getAttribute('data-nombre')
         let nuevoEstado = event.target.textContent === 'Aprobar' ? 'Aprobado' : 'En espera'
         cambiarEstadoUsuario(nombre, nuevoEstado)
         cargarUsuarios()
     } else if (event.target.classList.contains('suspender')) {
-        // El botón "Suspender" fue presionado
         let nombre = event.target.getAttribute('data-nombre')
         cambiarEstadoUsuario(nombre, 'suspendido')
         cargarUsuarios()
