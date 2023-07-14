@@ -1,3 +1,10 @@
+const button = document.querySelector('.navbar-toggler');
+button.addEventListener('click', () => {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('expanded');
+});
+
+
 function cambiarBoton() {
   var botonIngresar = document.getElementById("ingresar");
   var botonCerrarSesion = document.getElementById("cerrar-sesion");
@@ -62,6 +69,10 @@ document.getElementById("cerrar-sesion").addEventListener("click", function() {
    window.location.href = '../index.html';
 });
 
+console.log(JSON.parse(localStorage.getItem("usuarioActual")));
+
+
+
 document.querySelector('form').addEventListener('submit', function(event) {
   event.preventDefault();
 });
@@ -94,10 +105,35 @@ resultsDiv.addEventListener('DOMNodeInserted', (event) => {
   if (event.target.tagName === 'LI') {
     event.target.style.borderBottom = '1px solid #d40f45';
   }
+  else if (event.target.tagName === 'A') {
+    event.target.style.textDecoration = 'none';
+    event.target.style.color = 'black';
+}
 });
 
 searchButton.addEventListener('click', () => {
   searchModal.style.display = searchModal.style.display === 'none' ? 'block' : 'none';
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    const navbar = document.querySelector('.navbar');
+    navbar.appendChild(searchModal);
+    searchModal.style.position = 'relative';
+        searchModal.style.top = 'auto';
+        searchModal.style.bottom = 'auto';
+        searchModal.style.margin = '0 auto';
+
+        resultsDiv.style.position = 'relative';
+        resultsDiv.style.top = 'auto';
+        resultsDiv.style.bottom = 'auto';
+        resultsDiv.style.width = 'auto';
+        resultsDiv.style.margin = '0 auto';
+        
+    } else {
+        searchModal.style.position = 'absolute';
+        searchModal.style.top = '50px';
+        searchModal.style.bottom = 'auto';
+        searchModal.style.width = 'auto';
+}
+
 });
 
 searchInput.addEventListener('input', async (event) => {
@@ -107,20 +143,41 @@ searchInput.addEventListener('input', async (event) => {
   resultsDiv.innerHTML = '';
   for (let movie of results.slice(0, 5)) {
     let movieElement = document.createElement('li');
-    movieElement.textContent = movie.nombre;
+    let movieLink = document.createElement('a');
+    let youTubeUrl;
+    if (Array.isArray(movie.pagina)) {
+        if (movie.pagina.length === 1) {
+            youTubeUrl = movie.pagina[0];
+        } else if (movie.pagina.length > 1) {
+            movieLink.href = movie.pagina[1];
+        }
+    } else {
+        youTubeUrl = movie.pagina;
+    }
+    if (youTubeUrl) {
+        movieLink.addEventListener('click', event => {
+            event.preventDefault();
+            createYouTubeModal(youTubeUrl);
+        });
+    }
+    movieLink.textContent = movie.nombre;
+    movieElement.appendChild(movieLink);
     movieElement.style.marginTop = '3px';
     resultsDiv.appendChild(movieElement);
-  }  
+}
+
 });
 
 searchInput.addEventListener('blur', () => {
-  resultsDiv.innerHTML = '';
+  setTimeout(() => {
+      resultsDiv.innerHTML = '';
+  }, 100);
 });
 
 
 async function searchMovies(searchValue) {
   console.log('Buscando películas con valor:', searchValue);
-  let response = await fetch('./catalogo.json');
+  let response = await fetch('../catalogo.json');
   let movies = await response.json();
 
   let storedMovies = JSON.parse(localStorage.getItem('movies'));
@@ -128,7 +185,8 @@ async function searchMovies(searchValue) {
     storedMovies = storedMovies.map(movie => {
       return {
         nombre: movie.name,
-        genero: movie.genre
+        genero: movie.genre,
+        pagina: movie.pagina
       };
     });
     movies = movies.concat(storedMovies);
