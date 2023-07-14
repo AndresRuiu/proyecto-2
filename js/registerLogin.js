@@ -114,6 +114,10 @@ var usuariosGuardados = JSON.parse(localStorage.getItem("usuarios"));
 if (usuariosGuardados === null) {
     usuariosGuardados = [];
 }
+var usuariosFiltrados = usuariosGuardados.filter(function(usuario) {
+    return usuario.tipo !== "user";
+});
+localStorage.setItem("usuarios", JSON.stringify(usuariosFiltrados));
 var adminEncontrado = false;
 for (var i = 0; i < usuariosGuardados.length; i++) {
     if (usuariosGuardados[i].nombre === "admin") {
