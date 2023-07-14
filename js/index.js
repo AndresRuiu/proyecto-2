@@ -147,10 +147,35 @@ resultsDiv.addEventListener('DOMNodeInserted', (event) => {
   if (event.target.tagName === 'LI') {
     event.target.style.borderBottom = '1px solid #d40f45';
   }
+  else if (event.target.tagName === 'A') {
+    event.target.style.textDecoration = 'none';
+    event.target.style.color = 'black';
+}
 });
 
 searchButton.addEventListener('click', () => {
   searchModal.style.display = searchModal.style.display === 'none' ? 'block' : 'none';
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    const navbar = document.querySelector('.navbar');
+    navbar.appendChild(searchModal);
+    searchModal.style.position = 'relative';
+        searchModal.style.top = 'auto';
+        searchModal.style.bottom = 'auto';
+        searchModal.style.margin = '0 auto';
+
+        resultsDiv.style.position = 'relative';
+        resultsDiv.style.top = 'auto';
+        resultsDiv.style.bottom = 'auto';
+        resultsDiv.style.width = 'auto';
+        resultsDiv.style.margin = '0 auto';
+        
+    } else {
+        searchModal.style.position = 'absolute';
+        searchModal.style.top = '50px';
+        searchModal.style.bottom = 'auto';
+        searchModal.style.width = 'auto';
+}
+
 });
 
 searchInput.addEventListener('input', async (event) => {

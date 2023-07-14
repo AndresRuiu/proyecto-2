@@ -67,6 +67,10 @@ i, a{
     color: black;
 }
 
+a:hover {
+    color: #d40f45;
+}
+
 
 .textFastx {
     width: 50vw;
@@ -107,6 +111,10 @@ i, a{
     .navbar-brand span {
         display: none;
     }
+
+    a:not(.navbar .nav-item a,#play a){
+        color: black !important;
+    }    
 
     .textFastx {
         display: flex;
