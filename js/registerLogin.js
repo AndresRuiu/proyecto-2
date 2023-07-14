@@ -31,14 +31,7 @@ ingresar.addEventListener("click", ()=> {
     container.classList.remove("active");
 })
 
-var usuarios = [
-    {
-        nombre: "admin",
-        email: "admin@example.com",
-        contraseña: "admin123",
-        tipo: "admin"
-    }
-];
+
 
 function registrarUsuario(nombre, email, contraseña) {
     var usuario = {
