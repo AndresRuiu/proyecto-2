@@ -100,6 +100,7 @@ document.querySelector(".login .input-field.button input").addEventListener("cli
         localStorage.setItem("usuarioActual", JSON.stringify(usuarioValido));
         window.location.href = "../index.html";
     } else {
+        localStorage.setItem("usuarioActual", null);
         var usuarioEnEspera = false;
         for (var i = 0; i < usuarios.length; i++) {
             if (usuarios[i].nombre === nombre && usuarios[i].estado === "En espera") {
@@ -127,9 +128,18 @@ for (var i = 0; i < usuariosGuardados.length; i++) {
         break;
     }
 }
-
+if (!adminEncontrado) {
+    usuariosGuardados.push({
+        nombre: "admin",
+        email: "admin@example.com",
+        contraseña: "admin123",
+        tipo: "admin"
+    });
+}
 localStorage.setItem("usuarios", JSON.stringify(usuariosGuardados));
 usuarios = usuariosGuardados;
+
+
 
 
 for (var i = 0; i < usuarios.length; i++) {
