@@ -59,8 +59,9 @@ a {
     padding-right: 15px;
 }
 
-i{
+i, a{
     cursor: pointer;
+    color: black;
 }
 
 
@@ -69,7 +70,7 @@ i{
     height: 100vh;
     object-fit: cover;
     -webkit-filter: brightness(40%);
-    filter: brightness(40%);
+    filter: brightness(30%);
     z-index: 0;
 }
 
@@ -104,7 +105,8 @@ button {
     z-index: 1;
     color: white;
     margin-right: 50px;
-  }
+}
+
 
 .naranja{
     color: #d40f45;
@@ -126,9 +128,17 @@ button {
   }
 
 @media (max-width: 767px) {
+    .navbar.expanded {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
     .navbar-brand span {
         display: none;
     }
+
+    a:not(.navbar .nav-item a,#play a){
+        color: black !important;
+    }   
 
     .poster img{
         width: 50%;
