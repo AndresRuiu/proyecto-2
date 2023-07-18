@@ -112,7 +112,7 @@ a:hover {
         display: none;
     }
 
-    a:not(.navbar .nav-item a,#play a){
+    a:not(.navbar .nav-item a,#play a, footer a){
         color: black !important;
     }    
 
@@ -172,6 +172,7 @@ a:hover {
         font-size: 2vw;
     }
 
+
 }
 
 @media (max-width: 576px) {
@@ -200,6 +201,7 @@ a:hover {
         transform: scale(0.7)
     }
 
+
 }
 
 @media (min-width: 577px){
@@ -207,6 +209,7 @@ a:hover {
         margin-left: 10px;
         margin-right: 10px;
     }
+
 }
 
 .anio, #play{
