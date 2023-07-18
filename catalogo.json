@@ -17,7 +17,7 @@
     {
         "id": "002",
         "nombre": "Spider-Man: A través del Spider-Verso",
-        "anio": "2023",
+        "anio": ["2023"],
         "direccion": ["Joaquim Dos Santos", "Kemp Powers", "Justin K. Thompson"],
         "tipo":"Pelicula",
         "genero":["Animacion","Accion","Aventura"],
@@ -32,7 +32,7 @@
     {
         "id":"003",
         "nombre":"La Sirenita",
-        "anio":"2023",
+        "anio":["2023"],
         "direccion":["Rob Marshall"],
         "tipo":"Pelicula",
         "genero":["Aventura","Familiar","Fantasia"],
@@ -48,7 +48,7 @@
     {
         "id":"004",
         "nombre":"Avatar: El Camino del Agua",
-        "anio" :"2022",
+        "anio" :["2022"],
         "direccion":["James Cameron"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Fantasia"],
@@ -63,7 +63,7 @@
     {
         "id":"005",
         "nombre":"Interestelar",
-        "anio":"2014",
+        "anio":["2014"],
         "direccion":["Christopher Nolan"],
         "tipo":"Pelicula",
         "genero":["Aventura","Drama","Ciencia Ficcion"],
@@ -78,7 +78,7 @@
     {
         "id":"006",
         "nombre":"El lobo de Wall Street",
-        "anio":"2013",
+        "anio":["2013"],
         "direccion":["Martin Scorsese"],
         "tipo":"Pelicula",
         "genero":["Biografia","Crimen","Comedia"],
@@ -93,7 +93,7 @@
     {
         "id":"007",
         "nombre":"Transformers: El despertar de las bestias",
-        "anio":"2023",
+        "anio":["2023"],
         "direccion":["Steven Caple Jr"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Ciencia Ficcion"],
@@ -108,7 +108,7 @@
     {
         "id":"008",
         "nombre":"Rapidos y Furiosos X",
-        "anio":"2023",
+        "anio":["2023"],
         "direccion":["Louis Leterrier"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Crimen"],
@@ -123,7 +123,7 @@
     {
         "id":"009",
         "nombre":"Super Mario Bros.: La película",
-        "anio":"2023",
+        "anio":["2023"],
         "direccion":["Aaron Horvath","Michael Jelenic","Pierre Leduc"],
         "tipo":"Pelicula",
         "genero":["Animacion","Aventura","Comedia"],
@@ -183,7 +183,7 @@
     {
         "id":"013",
         "nombre":"El Origen",
-        "anio":"2010",
+        "anio":["2010"],
         "direccion":["Christopher Nolan"],
         "tipo":"Pelicula",
         "genero":["Accion","Aventura","Ciencia Ficcion"],
@@ -197,7 +197,7 @@
     },
     {
         "id":"014",
-        "nombre":"SKAM",
+        "nombre":["SKAM"],
         "anio":"2015",
         "direccion":["Julie Andem"],
         "tipo":"Serie",
@@ -213,7 +213,7 @@
     {
         "id":"015",
         "nombre":"Insidious",
-        "anio":"2010",
+        "anio":["2010"],
         "direccion":["James Wan"],
         "tipo":"Pelicula",
         "genero":["Terror","Misterio","Suspenso"],
@@ -228,7 +228,7 @@
     {
         "id":"016",
         "nombre":"El Conjuro",
-        "anio":"2013",
+        "anio":["2013"],
         "direccion":["James Wan"],
         "tipo":"Pelicula",
         "genero":["Terror","Misterio","Suspenso"],
@@ -243,7 +243,7 @@
     {
         "id":"017",
         "nombre":"American Horror Story",
-        "anio":"2011",
+        "anio":["2011"],
         "direccion":["Brad Falchuk","Ryan Murphy"],
         "tipo":"Serie",
         "genero":["Terror","Drama","Ciencia Ficcion"],
@@ -258,7 +258,7 @@
     {
         "id":"018",
         "nombre":"El menú",
-        "anio":"2022",
+        "anio":["2022"],
         "direccion":["Mark Mylod"],
         "tipo":"Pelicula",
         "genero":["Terror","Comedia","Suspenso"],
@@ -273,7 +273,7 @@
     {
         "id":"019",
         "nombre":"American Psycho",
-        "anio":"2000",
+        "anio":["2000"],
         "direccion":["Mary Harron"],
         "tipo":"Pelicula",
         "genero":["Terror","Drama","Crimen"],
@@ -288,7 +288,7 @@
     {
         "id":"020",
         "nombre":"John Wick 4",
-        "anio":"2023",
+        "anio":["2023"],
         "direccion":["Chad Stahelski"],
         "tipo":"Pelicula",
         "genero":["Accion","Suspenso","Crimen"],
@@ -303,7 +303,7 @@
     {
         "id":"021",
         "nombre":"The Boys",
-        "anio":"2019",
+        "anio":["2019"],
         "direccion":["Eric Kripke"],
         "tipo":"Serie de TV",
         "genero":["Accion","Comedia","Crimen"],
@@ -318,7 +318,7 @@
     {
         "id":"022",
         "nombre":"Stranger Things",
-        "anio":"2016",
+        "anio":["2016"],
         "direccion":["Matt Duffer","Ross Duffer"],
         "tipo":"Serie",
         "genero":["Drama","Fantasia","Terror"],
@@ -333,7 +333,7 @@
     {
         "id":"023",
         "nombre":"El Diablo Viste a la Moda",
-        "anio":"2006",
+        "anio":["2006"],
         "direccion":["David Frankel"],
         "tipo":"Pelicula",
         "genero":["Drama","Comedia","Moda"],
@@ -348,7 +348,7 @@
     {
         "id":"024",
         "nombre":"Clueless",
-        "anio":"1995",
+        "anio":["1995"],
         "direccion":["Amy Heckerling"],
         "tipo":"Pelicula",
         "genero":["Comedia","Moda","Romance"],
@@ -363,7 +363,7 @@
     {
         "id":"025",
         "nombre":"Juego de Gemelas",
-        "anio":"1998",
+        "anio":["1998"],
         "direccion":["Nancy Meyers"],
         "tipo":"Pelicula",
         "genero":["Aventura","Comedia","Drama"],

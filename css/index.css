@@ -22,15 +22,11 @@ a{
     align-items: center;
     z-index: 2;
     gap: 5px;
-    font-size: 15px;
+    font-size: 2vh;
     position: absolute;
 }
 .nav-item{
     margin-left: 45px;
-}
-
-.nav-item a{
-    font-size: 12px;
 }
 
 .navbar-nav li a:hover {

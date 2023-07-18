@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #313131;
+    background-color: #1a1919;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -22,14 +22,10 @@ a{
     align-items: center;
     z-index: 2;
     gap: 5px;
-    font-size: 15px;
+    font-size: 2vh;
 }
 .nav-item{
     margin-left: 45px;
-}
-
-.nav-item a{
-    font-size: 12px;
 }
 
 .navbar-nav li a:hover {
@@ -71,7 +67,130 @@ a:hover {
 }
 
 
+.hd{
+    background-color: transparent;
+    color: white;
+    border: white solid 1px;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 15px;
+}
 
+.col-3 .hd{
+    font-size: 0.8vw;
+}
+
+
+
+#play{
+    border-radius: 24px;
+    border: 2px solid #d40f45;
+    background: rgba(36, 36, 36, 0.96);
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#play i{
+    padding-left: 7px;
+}
+
+#play > *{
+    margin-right: 8px;
+}
+
+.slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    backdrop-filter: blur(2px);
+}
+
+.card{
+    background-color: transparent;
+    color: white;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+
+.card-title{
+    font-size: 0.8vw;
+}
+
+.card-text{
+    font-size: 0.8vw;
+}
+
+.poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+.card-img-top {
+    transition: 0.5s;
+  }
+  
+.card:hover .card-img-top {
+    filter: blur(5px);
+    filter: brightness(40%);
+}
+
+
+.card-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+.card-button button {
+    border-radius: 24px;
+    border: 2px solid #d40f45;
+    background: transparent;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    font-size: 60%;
+}
+  
+.descripcion{
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5vh;
+}
+
+  
+.card:hover .card-button {
+    visibility: visible;
+    opacity: 1;
+}
+.ver-mas:hover{
+    color: #d40f45;
+    border: 2px solid white;
+}
+
+.TituloP {
+    text-align: center;
+}
 
 footer{
     color: white;
@@ -86,4 +205,75 @@ footer a{
 footer a:hover{
     text-decoration: none;
     color: #d40f45;
+}
+
+@media (max-width: 767px) {
+    .navbar.expanded {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand span {
+        display: none;
+    }
+
+    a:not(.navbar .nav-item a,#play a, footer a){
+        color: black !important;
+    }    
+
+    .textFastx *:not(h1):not(samp):not(h2){
+        font-size: 20px ;
+    }
+    
+    #informacion, #play {
+      width: max-content;
+    }
+       
+    #pelicula-card-template{
+        flex: 0 0 auto;
+    }
+
+    #todo-peliculas .col-lg-2{
+        width: 50% !important;
+    }
+
+    #todo-peliculas{
+        overflow-x: auto !important;
+        --bs-gutter-x: 1rem !important;
+    }
+
+    .card-title span{
+        font-size: 2vw;
+    }
+    
+    .card-text span{
+        font-size: 2vw;
+    }
+
+    .col-3 .hd span{
+        font-size: 2vw;
+    }
+
+
+}
+
+@media (max-width: 576px) {
+    #modal iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .textFastx *:not(h1):not(samp):not(h2){
+        font-size: 15px;
+    }
+
+    .card-button .descripcion, .card-button .btn{
+        font-size: 8px;
+    }
+
+    .card-body svg{
+        transform: scale(0.7)
+    }
+
+
 }

@@ -201,3 +201,42 @@ async function searchMovies(searchValue) {
   return results;
 }
 
+async function cargarTodoPeliculas() {
+    const response = await fetch('../catalogo.json');
+    const peliculas = await response.json();
+    
+    const todoPeliculas = peliculas.filter(pelicula => pelicula.tipo.includes("Pelicula"));
+
+    todoPeliculas.sort(() => Math.random() - 0.5);
+    
+    const template = document.querySelector("#pelicula-card-template");
+    const container = document.querySelector("#todo-peliculas");
+  
+    const fragment = document.createDocumentFragment();
+  
+    todoPeliculas.forEach(pelicula => {
+      const instance = template.content.cloneNode(true);
+      
+      instance.querySelector(".poster").src = pelicula.poster[0];
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+      instance.querySelector(".nombre").textContent = pelicula.nombre;
+      instance.querySelector(".anio").textContent = pelicula.anio[0];
+      instance.querySelector(".duracion").textContent = pelicula.duracion;
+      instance.querySelector(".ranking").textContent = pelicula.ranking;
+      
+      const verMasButton = instance.querySelector('.ver-mas');
+      verMasButton.addEventListener('click', () => {
+        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+          window.open(pelicula.pagina[1], '_self');
+      } else {
+          createYouTubeModal(pelicula.pagina);
+      }
+      });
+      
+      fragment.appendChild(instance);
+    });
+  
+    container.appendChild(fragment);
+  }
+
+  cargarTodoPeliculas()
