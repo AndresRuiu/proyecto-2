@@ -443,15 +443,20 @@ document.addEventListener('DOMContentLoaded', function() {
   const scrollLeftButton = document.querySelector("#scroll-left5");
   const scrollRightButton = document.querySelector("#scroll-right5");
   const peliculasContainer = document.querySelector("#peliculas-container-destacados");
+  const titulo = document.querySelector("#TituloP");
   
   const hasDiv = peliculasContainer.querySelector('div') !== null;
   
-  if (!hasDiv) { // Nota el uso de '!' para verificar si NO hay divs
+  if (!hasDiv) { 
     scrollLeftButton.style.display = "none";
     scrollRightButton.style.display = "none";
+    peliculasContainer.style.display = "none";
+    titulo.style.display = "none";
   } else {
     scrollLeftButton.style.display = "block";
     scrollRightButton.style.display = "block";
+    peliculasContainer.style.display = "block";
+    titulo.style.display = "block";
   }
 });
 
