@@ -106,3 +106,14 @@ th {
 #modal-title {
   margin-top: 0;
 }
+
+#movie-genre-input option.selected::before {
+  content: "✔ ";
+}
+
+#movie-genre-input {
+  width: 200px; /* Ancho del elemento select */
+  height: 240px; /* Alto del elemento select */
+  overflow-y: scroll;
+
+}

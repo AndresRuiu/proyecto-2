@@ -236,10 +236,10 @@ async function searchMovies(searchValue) {
   console.log('Películas en localStorage:', storedMovies);
 
   let results = movies.filter(movie => {
-    return movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
-      movie.genero.toString().includes(searchValue.toLowerCase());
+    return typeof movie.nombre === 'string' && (movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
+      movie.genero.toString().includes(searchValue.toLowerCase()));
   });
-
+  
   return results;
 }
 
@@ -422,7 +422,7 @@ fetch('../catalogo.json')
             const fileUrl = URL.createObjectURL(pelicula.file);
             instance.querySelector(".poster").src = fileUrl;
         }
-        instance.querySelector(".nombre").textContent = pelicula.name;
+        instance.querySelector(".nombre").textContent = pelicula.nombre;
         instance.querySelector(".descripcion").textContent = pelicula.description;
         instance.querySelector(".anio").textContent = pelicula.anio;
         instance.querySelector(".duracion").textContent = pelicula.duracion;

@@ -33,18 +33,20 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <table class="table">
+            <table id="moviesTable">
               <thead>
                 <tr>
                   <th>Código</th>
                   <th>Nombre</th>
                   <th>Género</th>
-                  <th>Descripción</th>
                   <th>Publicado</th>
                   <th>Destacado</th>
+                  <th>Tipo</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
-              <tbody id="table-body">
+              <tbody id="tableBody">
               </tbody>
             </table>
       
@@ -67,8 +69,30 @@
                       <input type="text" id="movie-name" class="form-control"><br><br>
                     </div>
                     <div class="">
+                      <label for="movie-tipo" class="form-label">Tipo:</label><br>
+                      <select id="movie-tipo-select">
+                        <option value="">Selecciona un tipo</option>
+                        <option value="Pelicula">Pelicula</option>
+                        <option value="Serie">Serie</option>
+                        <option value="Programa de TV">Programa de TV</option>
+                      </select>                      
+                    </div>
+                    <div class="">
                       <label for="movie-genre" class="form-label">Género:</label><br>
-                      <input type="text" id="movie-genre" class="form-control"><br><br>
+                      <select id="movie-genre-input" multiple>
+                        <option value="">Selecciona un género</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Accion">Accion</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Moda">Moda</option>
+                        <option value="Suspenso">Suspenso</option>
+                        <option value="Crimen">Crimen</option>
+                        <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                      </select><br><br>
                     </div>
                     <div class="">
                       <label for="movie-description" class="form-label">Descripción:</label><br>

@@ -194,9 +194,10 @@ async function searchMovies(searchValue) {
   console.log('Películas en localStorage:', storedMovies);
 
   let results = movies.filter(movie => {
-    return movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
-      movie.genero.toString().includes(searchValue.toLowerCase());
+    return typeof movie.nombre === 'string' && (movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
+      movie.genero.toString().includes(searchValue.toLowerCase()));
   });
+  
 
   return results;
 }

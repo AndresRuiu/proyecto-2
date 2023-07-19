@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #1a1919;
+    background-color: #161616;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -78,10 +78,8 @@ a:hover {
 }
 
 .col-3 .hd{
-    font-size: 0.8vw;
+    font-size: 0.7vw;
 }
-
-
 
 #play{
     border-radius: 24px;
@@ -110,6 +108,11 @@ main{
     backdrop-filter: blur(2px);
 }
 
+#todo-peliculas{
+    overflow-x: auto !important;
+    --bs-gutter-x: 0.8rem !important;
+}
+
 .card{
     background-color: transparent;
     color: white;
@@ -118,6 +121,7 @@ main{
     grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
     gap: 15px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 
@@ -188,9 +192,24 @@ main{
     border: 2px solid white;
 }
 
-.TituloP {
-    text-align: center;
+
+#TituloP h1 {
+    color: white;
+    text-shadow: 2px 6px 8px black;
 }
+
+
+select {
+    margin-left: 20px;
+    max-width: 160px;
+    height: 35px;
+  }
+  
+.container-fluid {
+    padding-left: 20px;
+ }
+
+
 
 footer{
     color: white;
@@ -232,14 +251,10 @@ footer a:hover{
         flex: 0 0 auto;
     }
 
-    #todo-peliculas .col-lg-2{
+    #todo-peliculas .col-lg-2, #todo-series .col-lg-2{
         width: 50% !important;
     }
 
-    #todo-peliculas{
-        overflow-x: auto !important;
-        --bs-gutter-x: 1rem !important;
-    }
 
     .card-title span{
         font-size: 2vw;
@@ -251,6 +266,17 @@ footer a:hover{
 
     .col-3 .hd span{
         font-size: 2vw;
+    }
+
+    select {
+        margin-left: 20px;
+        max-width: 150px;
+        height: 35px;
+    }
+
+    #ordenar-peliculas, #ordenar-series{
+        font-size: 2.8vh;
+        margin-right: 0.5vh;
     }
 
 
@@ -274,6 +300,18 @@ footer a:hover{
     .card-body svg{
         transform: scale(0.7)
     }
+    
+    #todo-peliculas,#todo-series{
+        --bs-gutter-x: 0.6rem !important;
+    }
 
+    select {
+        max-width: 135px;
+    }
+
+    #ordenar-peliculas,#ordenar-series{
+        font-size: 3.1vw;
+        margin-right: 0.4vh;
+    }
 
 }

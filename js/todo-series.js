@@ -38,7 +38,7 @@ function cambiarBoton() {
     icono.style.padding = "6px";
 
     icono.addEventListener("click", function() {
-      window.location.href = "./pages/administrador.html";
+      window.location.href = "./administrador.html";
     });
   } else if (tipo == "user") {
     botonIngresar.style.display = "none";
@@ -201,83 +201,153 @@ async function searchMovies(searchValue) {
   return results;
 }
 
+function createYouTubeModal(youTubeUrl) {
+  const modalContainer = document.createElement('div');
+  modalContainer.style.display = 'flex';
+  modalContainer.style.justifyContent = 'center';
+  modalContainer.style.alignItems = 'center';
+  modalContainer.style.position = 'fixed';
+  modalContainer.style.top = '0';
+  modalContainer.style.left = '0';
+  modalContainer.style.width = '100%';
+  modalContainer.style.height = '100%';
+  modalContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  modalContainer.style.backdropFilter = 'blur(10px)';
+  modalContainer.style.zIndex = '9999';
 
-fetch('../catalogo.json')
-.then(response => response.json())
-    .then(data => {
-      
-      const tipo = data[7].tipo;
-      const genero = data[7].genero.join(', ');
-      const anio = data[7].anio;
-      const pagina = data[7].pagina[0]
+  const videoContainer = document.createElement('div');
+  videoContainer.id = 'modal';
+  
+  modalContainer.addEventListener('click', event => {
+    if (event.target === modalContainer) {
+      document.body.removeChild(modalContainer);
+      if (pageContainer) {
+        pageContainer.style.filter = '';
+      }
+    }
+  });
 
-      const tipoBtn = document.querySelector('.tipo');
-      tipoBtn.textContent = tipo;
+  const iframe = document.createElement('iframe');
+  iframe.width = '560';
+  iframe.height = '315';
+  iframe.src = youTubeUrl + "?autoplay=1";
+  iframe.frameBorder = '0';
+  iframe.allowFullscreen = true;
 
-      const hdBtn = document.querySelector('.hd');
-      hdBtn.textContent = `4K`;
-
-      const generoP = document.querySelector('.genero');
-      generoP.textContent = `${genero}`;
-
-      const anioSpan = document.querySelector('.anio p');
-      anioSpan.textContent = anio;
-
-      const playButton = document.querySelector('#play-trailer');
-      playButton.addEventListener('click', () => {
-      window.open(pagina, '_blank');
-      });
-
-      const posterImage = document.querySelector('#poster-imagen');
-      posterImage.setAttribute('src', data[7].poster[1]);
-
-      const descriptionElement = document.querySelector('#descripcion');
-      descriptionElement.textContent = data[7].descripcion[1];
-
-  })
-  .catch(error => console.error(error));
-
-
-const informacionDiv = document.getElementById("informacion");
-const data = [
-  {
-    "tipo": "Película",
-    "hd": "4K",
-    "genero": ["Accion","Aventura","Crimen"],
-    "anio": ["2023"],
-  },
-];
-
-const informacionDiv2 = document.getElementById("informacion2");
-const data2 = [
-  {
-    "nombre": "Rapidos y Furiosos X",
-    "anio": ["2023"],
-    "direccion": ["Louis Leterrier"],
-    "tipo": "Pelicula",
-    "genero": ["Accion","Aventura","Crimen"],
-    "reparto": ["Vin Diesel","Michelle Rodriguez","Jason Statham"],
-    "descripcion":"Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.",
-    "ranking":"5,9",
-    "duracion":"141 minutos"
-  },
-];
+  
+  const movieIdElement = document.createElement('div');
+  
+  videoContainer.appendChild(iframe);
+  videoContainer.appendChild(movieIdElement);
+  
+  modalContainer.appendChild(videoContainer);
+  
+  document.body.appendChild(modalContainer);
+}
 
 
-function llenarInformacion(index) {
-    const elemento = data2[index];
-    informacionDiv2.innerHTML = `
-    <div class="nombre"><h4>${elemento.nombre}</h4></div>
-      <div class="anio">
-        <i class="fa-solid fa-calendar-days" style="color: #d40f45;"></i>
-        <span>${Array.isArray(elemento.anio) ? elemento.anio.join(", ") : elemento.anio}</span>
-      </div>
-      <div class="direccion"><span>Dirección: ${elemento.direccion.join(', ')}</span></div>      
-      <div class="reparto"><span>Reparto: ${elemento.reparto.join(', ')}</span></div>
-      <div class="ranking"><span>Puntaje: ${elemento.ranking}/10</span></div>
-      <div class="duracion"><span>Duracion: ${elemento.duracion}</span></div>
-    `;
-  }
+function ordenarSeries(series, orden) {
+  series.sort(function (a, b) {
+    try {
+      const nombreA = a.nombre;
+      const nombreB = b.nombre;
+      const comparacion = nombreA.toLowerCase()
+        .localeCompare(nombreB.toLowerCase());
+      if (orden === "A-Z") {
+        return comparacion;
+      }
+      if (orden === "Z-A") {
+        return -comparacion;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  });  
+  return series;
+}
 
-llenarInformacion(0); 
+function mostrarSeries(series) {
+  const template = document.querySelector("#pelicula-card-template");
+  const container = document.querySelector("#todo-series");
+  container.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+  series.forEach((serie) => {
+    const instance = template.content.cloneNode(true);
+    if (serie.poster) {
+      instance.querySelector(".poster").src = serie.poster[0];
+    } else if (serie.file) {
+      const fileUrl = URL.createObjectURL(serie.file);
+      instance.querySelector(".poster").src = fileUrl;
+    }
+    instance.querySelector(".descripcion").textContent =
+      serie.descripcion ? serie.descripcion[0] : serie.description;
+    instance.querySelector(".nombre").textContent = serie.nombre;
+    if (Array.isArray(serie.anio)) {
+      instance.querySelector(".anio").textContent = serie.anio[0];
+    } else {
+      instance.querySelector(".anio").textContent = serie.anio;
+    }
+    instance.querySelector(".duracion").textContent = serie.duracion;
+    instance.querySelector(".ranking").textContent = serie.ranking;
+
+    const verMasButton = instance.querySelector(".ver-mas");
+    verMasButton.addEventListener("click", () => {
+      if (Array.isArray(serie.pagina) && serie.pagina.length === 2) {
+        window.open(serie.pagina[1], "_self");
+      } else {
+        createYouTubeModal(serie.pagina);
+      }
+    });
+    fragment.appendChild(instance);
+  });
+  container.appendChild(fragment);
+}
+
+async function cargarSeries() {
+  const response = await fetch("../catalogo.json");
+  const seriesJson = await response.json();
+
+  const seriesLocalStorage =
+    JSON.parse(localStorage.getItem("movies")) || [];
+  seriesLocalStorage.forEach((serie) => {
+    if (serie.file) {
+      const byteString = atob(serie.file.split(",")[1]);
+      const mimeString = serie.file.split(",")[0].split(":")[1].split(";")[0];
+      const arrayBuffer = new ArrayBuffer(byteString.length);
+      const intArray = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < byteString.length; i++) {
+        intArray[i] = byteString.charCodeAt(i);
+      }
+      serie.file = new Blob([arrayBuffer], { type: mimeString });
+    }
+  });
+
+  const series = seriesJson.concat(seriesLocalStorage);
+
+  const todoSeries = series.filter((serie) =>
+    serie.tipo.includes("Serie")
+  );
+
+  todoSeries.sort(() => Math.random() - 0.5);
+
+  return todoSeries;
+}
+
+async function mainSeries() {
+  const selectOrdenar = document.querySelector("#ordenar-series");
+  const series = await cargarSeries();
+  mostrarSeries(series);
+  selectOrdenar.addEventListener("change", function () {
+    const orden = selectOrdenar.value;
+    if (orden === "Aleatorio") {
+      series.sort(() => Math.random() - 0.5);
+    } else {
+      ordenarSeries(series, orden);
+    }
+    mostrarSeries(series);
+  });
+}
+
+mainSeries();
+
 

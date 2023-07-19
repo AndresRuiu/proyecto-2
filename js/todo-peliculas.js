@@ -38,7 +38,7 @@ function cambiarBoton() {
     icono.style.padding = "6px";
 
     icono.addEventListener("click", function() {
-      window.location.href = "./pages/administrador.html";
+      window.location.href = "./administrador.html";
     });
   } else if (tipo == "user") {
     botonIngresar.style.display = "none";
@@ -194,49 +194,154 @@ async function searchMovies(searchValue) {
   console.log('Películas en localStorage:', storedMovies);
 
   let results = movies.filter(movie => {
-    return movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
-      movie.genero.toString().includes(searchValue.toLowerCase());
-  });
+    return typeof movie.nombre === 'string' && (movie.nombre.toLowerCase().includes(searchValue.toLowerCase()) ||
+      movie.genero.toString().includes(searchValue.toLowerCase()));
+  });  
 
   return results;
 }
 
-async function cargarTodoPeliculas() {
-    const response = await fetch('../catalogo.json');
-    const peliculas = await response.json();
-    
-    const todoPeliculas = peliculas.filter(pelicula => pelicula.tipo.includes("Pelicula"));
+function createYouTubeModal(youTubeUrl) {
+  const modalContainer = document.createElement('div');
+  modalContainer.style.display = 'flex';
+  modalContainer.style.justifyContent = 'center';
+  modalContainer.style.alignItems = 'center';
+  modalContainer.style.position = 'fixed';
+  modalContainer.style.top = '0';
+  modalContainer.style.left = '0';
+  modalContainer.style.width = '100%';
+  modalContainer.style.height = '100%';
+  modalContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  modalContainer.style.backdropFilter = 'blur(10px)';
+  modalContainer.style.zIndex = '9999';
 
-    todoPeliculas.sort(() => Math.random() - 0.5);
-    
-    const template = document.querySelector("#pelicula-card-template");
-    const container = document.querySelector("#todo-peliculas");
+  const videoContainer = document.createElement('div');
+  videoContainer.id = 'modal';
   
-    const fragment = document.createDocumentFragment();
-  
-    todoPeliculas.forEach(pelicula => {
-      const instance = template.content.cloneNode(true);
-      
-      instance.querySelector(".poster").src = pelicula.poster[0];
-      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
-      instance.querySelector(".nombre").textContent = pelicula.nombre;
-      instance.querySelector(".anio").textContent = pelicula.anio[0];
-      instance.querySelector(".duracion").textContent = pelicula.duracion;
-      instance.querySelector(".ranking").textContent = pelicula.ranking;
-      
-      const verMasButton = instance.querySelector('.ver-mas');
-      verMasButton.addEventListener('click', () => {
-        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_self');
-      } else {
-          createYouTubeModal(pelicula.pagina);
+  modalContainer.addEventListener('click', event => {
+    if (event.target === modalContainer) {
+      document.body.removeChild(modalContainer);
+      if (pageContainer) {
+        pageContainer.style.filter = '';
       }
-      });
-      
-      fragment.appendChild(instance);
-    });
-  
-    container.appendChild(fragment);
-  }
+    }
+  });
 
-  cargarTodoPeliculas()
+  const iframe = document.createElement('iframe');
+  iframe.width = '560';
+  iframe.height = '315';
+  iframe.src = youTubeUrl + "?autoplay=1";
+  iframe.frameBorder = '0';
+  iframe.allowFullscreen = true;
+
+  
+  const movieIdElement = document.createElement('div');
+  
+  videoContainer.appendChild(iframe);
+  videoContainer.appendChild(movieIdElement);
+  
+  modalContainer.appendChild(videoContainer);
+  
+  document.body.appendChild(modalContainer);
+}
+
+
+function ordenarPeliculas(peliculas, orden) {
+  peliculas.sort(function (a, b) {
+    const comparacion = a.nombre
+      .toLowerCase()
+      .localeCompare(b.nombre.toLowerCase());
+    if (orden === "A-Z") {
+      return comparacion;
+    }
+    if (orden === "Z-A") {
+      return -comparacion;
+    }
+  });
+  return peliculas;
+}
+
+function mostrarPeliculas(peliculas) {
+  const template = document.querySelector("#pelicula-card-template");
+  const container = document.querySelector("#todo-peliculas");
+  container.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+  peliculas.forEach((pelicula) => {
+    const instance = template.content.cloneNode(true);
+    if (pelicula.poster) {
+      instance.querySelector(".poster").src = pelicula.poster[0];
+    } else if (pelicula.file) {
+      const fileUrl = URL.createObjectURL(pelicula.file);
+      instance.querySelector(".poster").src = fileUrl;
+    }
+    instance.querySelector(".descripcion").textContent =
+      pelicula.descripcion ? pelicula.descripcion[0] : pelicula.description;
+    instance.querySelector(".nombre").textContent = pelicula.nombre;
+    if (Array.isArray(pelicula.anio)) {
+      instance.querySelector(".anio").textContent = pelicula.anio[0];
+    } else {
+      instance.querySelector(".anio").textContent = pelicula.anio;
+    }
+    instance.querySelector(".duracion").textContent = pelicula.duracion;
+    instance.querySelector(".ranking").textContent = pelicula.ranking;
+
+    const verMasButton = instance.querySelector(".ver-mas");
+    verMasButton.addEventListener("click", () => {
+      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+        window.open(pelicula.pagina[1], "_self");
+      } else {
+        createYouTubeModal(pelicula.pagina);
+      }
+    });
+    fragment.appendChild(instance);
+  });
+  container.appendChild(fragment);
+}
+
+async function cargarPeliculas() {
+  const response = await fetch("../catalogo.json");
+  const peliculasJson = await response.json();
+
+  const peliculasLocalStorage =
+    JSON.parse(localStorage.getItem("movies")) || [];
+  peliculasLocalStorage.forEach((pelicula) => {
+    if (pelicula.file) {
+      const byteString = atob(pelicula.file.split(",")[1]);
+      const mimeString = pelicula.file.split(",")[0].split(":")[1].split(";")[0];
+      const arrayBuffer = new ArrayBuffer(byteString.length);
+      const intArray = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < byteString.length; i++) {
+        intArray[i] = byteString.charCodeAt(i);
+      }
+      pelicula.file = new Blob([arrayBuffer], { type: mimeString });
+    }
+  });
+
+  const peliculas = peliculasJson.concat(peliculasLocalStorage);
+
+  const todoPeliculas = peliculas.filter((pelicula) =>
+    pelicula.tipo.includes("Pelicula")
+  );
+
+  todoPeliculas.sort(() => Math.random() - 0.5);
+
+  return todoPeliculas;
+}
+
+async function mainPeliculas() {
+  const selectOrdenar = document.querySelector("#ordenar-peliculas");
+  const peliculas = await cargarPeliculas();
+  mostrarPeliculas(peliculas);
+  selectOrdenar.addEventListener("change", function () {
+    const orden = selectOrdenar.value;
+    if (orden === "Aleatorio") {
+      peliculas.sort(() => Math.random() - 0.5);
+    } else {
+      ordenarPeliculas(peliculas, orden);
+    }
+    mostrarPeliculas(peliculas);
+  });
+}
+
+mainPeliculas();
+
