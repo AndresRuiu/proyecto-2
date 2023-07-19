@@ -249,8 +249,8 @@ function createYouTubeModal(youTubeUrl) {
 function ordenarSeries(series, orden) {
   series.sort(function (a, b) {
     try {
-      const nombreA = a.nombre;
-      const nombreB = b.nombre;
+      const nombreA = typeof a.nombre === 'string' ? a.nombre.toLowerCase() : '';
+      const nombreB = typeof b.nombre === 'string' ? b.nombre.toLowerCase() : '';
       const comparacion = nombreA.toLowerCase()
         .localeCompare(nombreB.toLowerCase());
       if (orden === "A-Z") {

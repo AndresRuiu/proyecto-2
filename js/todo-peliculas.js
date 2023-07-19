@@ -248,16 +248,21 @@ function createYouTubeModal(youTubeUrl) {
 
 function ordenarPeliculas(peliculas, orden) {
   peliculas.sort(function (a, b) {
-    const comparacion = a.nombre
-      .toLowerCase()
-      .localeCompare(b.nombre.toLowerCase());
-    if (orden === "A-Z") {
-      return comparacion;
+    try {
+      const nombreA = typeof a.nombre === 'string' ? a.nombre.toLowerCase() : '';
+      const nombreB = typeof b.nombre === 'string' ? b.nombre.toLowerCase() : '';
+      const comparacion = nombreA.toLowerCase()
+        .localeCompare(nombreB.toLowerCase());
+      if (orden === "A-Z") {
+        return comparacion;
+      }
+      if (orden === "Z-A") {
+        return -comparacion;
+      }
+    } catch (error) {
+      console.error(error);
     }
-    if (orden === "Z-A") {
-      return -comparacion;
-    }
-  });
+  });  
   return peliculas;
 }
 

@@ -139,8 +139,8 @@ a:hover {
     }
 
     .scroll-left,
-    .scroll-right {
-        display: none;
+    .scroll-right{
+        display: none !important;
     } 
        
     #pelicula-card-template{

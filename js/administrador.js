@@ -117,6 +117,7 @@ function renderTable() {
 
     const editBtn = document.createElement('button');
     editBtn.textContent = 'Editar';
+    editBtn.classList.add('btn', 'btn-primary', 'm-2');
     editBtn.addEventListener('click', () => {
       currentMovie = index;
       openModal('Editar película', movie);
@@ -165,9 +166,9 @@ function openModal(title, movie) {
     movieCodeInput.value = movie.code;
     movieNameInput.value = movie.nombre;
     movie.genre = selectedGenres;
-    var select = document.getElementById("movie-genre-input"); // Obtener el elemento select por su id
-    var options = select.options; // Obtener la colección de opciones
-    var size = options.length; // Obtener el número de opciones
+    var select = document.getElementById("movie-genre-input"); 
+    var options = select.options; 
+    var size = options.length; 
     select.size = size;
     movieDescriptionInput.value = movie.description;
     moviePublishedInput.checked = movie.published;
