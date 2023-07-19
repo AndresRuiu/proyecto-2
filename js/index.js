@@ -450,12 +450,10 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!hasDiv) { 
     scrollLeftButton.style.display = "none";
     scrollRightButton.style.display = "none";
-    peliculasContainer.style.display = "none";
     titulo.style.display = "none";
   } else {
     scrollLeftButton.style.display = "block";
     scrollRightButton.style.display = "block";
-    peliculasContainer.style.display = "block";
     titulo.style.display = "block";
   }
 });
