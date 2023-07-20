@@ -238,6 +238,10 @@ footer a:hover{
     .card-text{
         font-size: 0.8vw;
     }
+
+    #genero{
+        font-size: 1vw;
+    }
 }
 
 @media (max-width: 767px) {
@@ -301,6 +305,10 @@ footer a:hover{
     #ordenar-peliculas, #ordenar-series{
         font-size: 2.8vh;
         margin-right: 0.5vh;
+    }
+
+    #genero{
+        font-size: 2vw;
     }
 
 

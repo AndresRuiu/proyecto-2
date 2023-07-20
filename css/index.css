@@ -118,7 +118,7 @@ a:hover {
     margin-right: 15px;
 }
 
-.col-3 .hd{
+.col-4 .hd{
     font-size: 1vw;
 }
 
@@ -170,7 +170,7 @@ main{
     border: none;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-    gap: 32px;
+    gap: 15px;
     margin-bottom: 5px;
 }
 
@@ -232,6 +232,9 @@ main{
     font-size: 2vh;
 }
 
+#titulo-anio{
+    height: 6.5vh;
+}
   
 .card:hover .card-button {
     visibility: visible;
@@ -279,7 +282,29 @@ footer a:hover{
     .navbar-brand{
         font-size: 1vh;
     }
-}
+
+    #titulo-anio{
+        height: 3vh;
+    }
+
+    .descripcion, .card-button button{
+        font-size: 0.8vh;
+    }
+
+    .card-text{
+        font-size: 0.5vh;
+    }
+
+    #tipo{
+        font-size: 0.6vh;
+    }
+
+    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-Crimen, #peliculas-container-destacados, #peliculas-container-CR{
+        overflow-x: auto !important;
+        --bs-gutter-x: 0.6rem !important;
+    }
+    
+}   
 
 @media (max-width: 767px) {
     .navbar.expanded {
@@ -352,8 +377,8 @@ footer a:hover{
         font-size: 2vw;
     }
     
-    .card-text span{
-        font-size: 2vw;
+    .card-text {
+        font-size: 1.8vw;
     }
 
     .col-4 .hd #tipo{
@@ -387,6 +412,10 @@ footer a:hover{
 
     .card-body svg{
         transform: scale(0.7)
+    }
+
+    .card-text {
+        font-size: 1.5vw;
     }
 
 
