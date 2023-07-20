@@ -172,7 +172,7 @@ main{
     color: white;
     border: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
     gap: 15px;
     margin-bottom: 5px;
 }
