@@ -59,13 +59,16 @@ a {
     padding-right: 6px;
 }
 
+
+
 .background--img img {
-    width: 100%;
+    width: 100vh;
     height: 100vh;
     object-fit: cover;
     -webkit-filter: brightness(40%);
     filter: brightness(40%);
     z-index: 0;
+    position: fixed;
 }
 
 .botones {
@@ -254,7 +257,7 @@ p {
     width: 80%;
     outline: none;
     padding: 15px;
-    border-radius: 20px;
+    border-radius: 50px;
     border: 2px solid #d40f45;
     background: rgba(217, 217, 217, 0.00);
     margin-left: 15px;
