@@ -79,16 +79,20 @@ function cambiarBoton() {
         
         let tr = document.createElement('tr')
         tr.innerHTML = `
-            <td>${usuarios[i].nombre}</td>
-            <td>${usuarios[i].email}</td>
-            <td>${usuarios[i].estado}</td>
+            <td><span class="atributo">Nombre:</span> ${usuarios[i].nombre}</td>
+            <td><span class="atributo">Email:</span> ${usuarios[i].email}</td>
+            <td><span class="atributo">Estado:</span> ${usuarios[i].estado}</td>
             <td>
-                <button class="aprobar" data-nombre="${usuarios[i].nombre}">${usuarios[i].estado === 'Aprobado' ? 'Poner en espera' : 'Aprobar'}</button>
-                <button class="suspender" data-nombre="${usuarios[i].nombre}">Suspender</button>
+                <div class="botones">
+                    <span class="atributo">Acciones:</span>
+                    <button class="aprobar" data-nombre="${usuarios[i].nombre}">${usuarios[i].estado === 'Aprobado' ? 'Poner en espera' : 'Aprobar'}</button>
+                    <button class="suspender" data-nombre="${usuarios[i].nombre}">Suspender</button>
+                </div>
             </td>`
         tbody.appendChild(tr)
     }
 }
+
 
 
   

@@ -131,3 +131,42 @@ th {
   overflow-y: scroll;
 
 }
+
+
+@media (max-width: 768px) {
+  #tabla-usuarios td {
+    display: block;
+    width: 100vw;
+  }
+  #tabla-usuarios th {
+    display: none;
+  }
+  #moviesTable td {
+    display: block;
+    width: 100%;
+  }
+  
+  #moviesTable th {
+    display: none;
+  }
+  
+}
+
+@media (min-width: 769px) {
+  #tabla-usuarios td {
+    display: table-cell;
+  }
+  
+  .botones {
+    display: flex;
+    flex-direction: row;
+  }
+  .atributo {
+    display: none;
+  }
+  #moviesTable td {
+    display: table-cell;
+  }
+  
+}
+

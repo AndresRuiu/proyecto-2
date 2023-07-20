@@ -84,18 +84,19 @@ function renderTable() {
     const tr = document.createElement('tr');
 
     const codeTd = document.createElement('td');
-    codeTd.textContent = movie.code;
+    codeTd.innerHTML = `<span class="atributo">Código:</span> ${movie.code}`;
     tr.appendChild(codeTd);
 
     const nameTd = document.createElement('td');
-    nameTd.textContent = movie.nombre;
+    nameTd.innerHTML = `<span class="atributo">Nombre:</span> ${movie.nombre}`;
     tr.appendChild(nameTd);
 
     const genreTd = document.createElement('td');
-    genreTd.textContent = movie.genre;
+    genreTd.innerHTML = `<span class="atributo">Género:</span> ${movie.genre}`;
     tr.appendChild(genreTd);
 
     const publishedTd = document.createElement('td');
+    publishedTd.innerHTML = `<span class="atributo">Publicado:</span>`;
     const publishedCheckbox = document.createElement('input');
     publishedCheckbox.type = 'checkbox';
     publishedCheckbox.checked = movie.published;
@@ -104,6 +105,7 @@ function renderTable() {
     tr.appendChild(publishedTd);
 
     const featuredTd = document.createElement('td');
+    featuredTd.innerHTML = `<span class="atributo">Destacado:</span>`;
     const featuredCheckbox = document.createElement('input');
     featuredCheckbox.type = 'checkbox';
     featuredCheckbox.checked = movie.featured;
@@ -112,7 +114,7 @@ function renderTable() {
     tr.appendChild(featuredTd);
 
     const typeTd = document.createElement('td');
-    typeTd.textContent = movie.tipo;
+    typeTd.innerHTML = `<span class="atributo">Tipo:</span> ${movie.tipo}`;
     tr.appendChild(typeTd);
 
     const editBtn = document.createElement('button');
@@ -128,14 +130,15 @@ function renderTable() {
     deleteBtn.textContent = 'Eliminar';
     deleteBtn.classList.add('btn', 'btn-danger');
     deleteBtn.addEventListener('click', () => {
-      if (confirm(`¿Estás seguro de que quieres eliminar la película "${movie.nombre}"?`)) {
-        movies.splice(index, 1);
-        saveMovies();
-        renderTable();
-      }
-    });
-    tr.appendChild(deleteBtn);
-    tableBody.appendChild(tr);
+  if (confirm(`¿Estás seguro de que quieres eliminar la película "${movie.nombre}"?`)) {
+    movies.splice(index, 1);
+    saveMovies();
+    renderTable();
+  }
+});
+tr.appendChild(deleteBtn);
+tableBody.appendChild(tr);
+
 
     const descriptionTr = document.createElement('tr');
     const descriptionTd = document.createElement('td'); 
