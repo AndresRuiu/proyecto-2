@@ -62,6 +62,10 @@ i, a{
     color: black;
 }
 
+#logo:hover{
+    color: white;
+}
+
 a:hover {
     color: #d40f45;
 }

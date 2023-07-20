@@ -63,10 +63,13 @@ i, a{
     color: black;
 }
 
+#logo:hover{
+    color: white;
+}
+
 a:hover {
     color: #d40f45;
 }
-
 
 .textFastx {
     width: 50vw;
@@ -280,7 +283,7 @@ footer a:hover{
 
 @media (max-width: 1023px) {
     .navbar{
-        font-size: 1vh;
+        font-size: 0.8vh;
     }
     .navbar-brand img{
         height: 2vh!important;

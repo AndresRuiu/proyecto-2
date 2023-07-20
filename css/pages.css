@@ -57,6 +57,10 @@ i, a{
     text-decoration: none;
 }
 
+#logo:hover{
+    color: white;
+}
+
 a:hover {
     color: #d40f45;
 }

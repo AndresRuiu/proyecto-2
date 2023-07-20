@@ -39,7 +39,7 @@ a{
     border: none;
 }
 
-.navbar #administrador, .navbar #cerrar-sesion{
+.navbar #administrador, .navbar #cerrar-sesion, #peliculas, #usuarios{
     border-radius: 20px;
     border: 2px solid #d40f45;
     background: rgba(217, 217, 217, 0.00);
@@ -60,6 +60,10 @@ i{
 
 a{
   text-decoration: none !important;
+  color: white;
+}
+
+#logo:hover{
   color: white;
 }
 
@@ -130,6 +134,18 @@ th {
   height: 240px; 
   overflow-y: scroll;
 
+}
+
+@media (max-width: 1023px) {
+  .navbar{
+      font-size: 0.8vh;
+  }
+  .navbar-brand img{
+      height: 2vh!important;
+  }
+  .navbar-brand{
+      font-size: 1vh;
+  }
 }
 
 
