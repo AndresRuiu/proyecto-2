@@ -123,6 +123,10 @@ main{
     cursor: pointer;
 }
 
+.card-body svg{
+    transform: scale(0.7)
+}
+
 
 .card-title{
     font-size: 0.8vw;
@@ -181,7 +185,10 @@ main{
     font-size: 1.5vh;
 }
 
-  
+#titulo-anio{
+    height: 5.5vh;
+}
+
 .card:hover .card-button {
     visibility: visible;
     opacity: 1;
@@ -225,6 +232,17 @@ footer a:hover{
     color: #d40f45;
 }
 
+@media (max-width: 1200px) {
+    .card-text{
+        font-size: 0.45vw;
+    }
+
+    .card-title{
+        font-size: 0.8vw;
+    }
+
+}
+
 @media (max-width: 1023px) {
     .navbar{
         font-size: 1vh;
@@ -241,6 +259,13 @@ footer a:hover{
 
     #genero{
         font-size: 1vw;
+    }
+
+    #titulo-anio{
+        height: 3vh;
+    }
+    .descripcion, .card-button button{
+        font-size: 0.8vh;
     }
 }
 
@@ -329,10 +354,7 @@ footer a:hover{
         font-size: 8px;
     }
 
-    .card-body svg{
-        transform: scale(0.7)
-    }
-    
+
     #todo-peliculas,#todo-series{
         --bs-gutter-x: 0.6rem !important;
     }
