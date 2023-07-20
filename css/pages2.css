@@ -19,7 +19,7 @@ a {
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 15px;
+    font-size: 2vh;
     position: absolute;
     z-index: 99999;
 }
@@ -47,18 +47,18 @@ a {
     border: none;
 }
 
-.navbar #ingresar {
+.navbar #ingresar,  .navbar #cerrar-sesion{
     border-radius: 20px;
     border: 2px solid #d40f45;
     background: rgba(217, 217, 217, 0.00);
     margin-left: 15px;
+    color: white;
 }
 
-.navbar #ingresar a {
+.navbar #ingresar a,  .navbar #cerrar-sesion {
     padding-left: 6px;
     padding-right: 6px;
 }
-
 
 
 .background--img img {
@@ -278,4 +278,43 @@ textarea {
 
 hr {
     color: #d40f45;
+}
+
+@media (max-width: 1023px) {
+    .navbar{
+        font-size: 0.6vh;
+    }
+
+    .navbar-brand img{
+        height: 2vh!important;
+    }
+    .navbar-brand{
+        font-size: 1vh;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar{
+        font-size: 2vh;
+    }
+    .navbar-brand img{
+        height: 5vh!important;
+    }
+    .navbar-brand{
+        font-size: 2vh;
+    }
+
+    .navbar.expanded {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand span {
+        display: none;
+    }
+
+
+
+    a:not(.navbar .nav-item a,#botones a){
+        color: black !important;
+    }  
 }

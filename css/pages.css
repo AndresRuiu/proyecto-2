@@ -81,6 +81,10 @@ a:hover {
     display: inline-flex;
 }
 
+#botones a:hover{
+    color: white;
+}
+
 button {
     margin-right: 15px;
 }
