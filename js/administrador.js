@@ -182,7 +182,7 @@ function openModal(title, movie) {
     moviePaginaInput.value = movie.pagina;
     movieTipoSelect.value = movie.tipo;
   } else {
-    movieCodeInput.value = "";
+    movieCodeInput.value = getNextCode();
     movieNameInput.value = "";
     movieDescriptionInput.value = "";
     moviePublishedInput.checked = false;
@@ -193,6 +193,8 @@ function openModal(title, movie) {
     moviePaginaInput.value = "";
     movieTipoSelect.value = "";
   }
+
+  movieCodeInput.disabled = true;
   modal.show();
 }
 
@@ -246,9 +248,9 @@ saveMovieBtn.addEventListener('click', () => {
       const base64File = reader.result;
 
       if (currentMovie !== null) {
-        movies[currentMovie] = { codigo, nombre, genero, descripcion, publicado, destacado, file: base64File, anio, duracion, ranking, pagina, tipo }; // Include tipo in the movie object
+        movies[currentMovie] = { codigo, nombre, genero, descripcion, publicado, destacado, file: base64File, anio, duracion, ranking, pagina, tipo }; 
       } else {
-        movies.push({ codigo, nombre, genero, descripcion, publicado, destacado, file: base64File, anio, duracion, ranking, pagina, tipo }); // Include tipo in the movie object
+        movies.push({ codigo, nombre, genero, descripcion, publicado, destacado, file: base64File, anio, duracion, ranking, pagina, tipo }); 
       }
 
       saveMovies();
@@ -257,9 +259,9 @@ saveMovieBtn.addEventListener('click', () => {
     };
   } else {
     if (currentMovie !== null) {
-      movies[currentMovie] = { codigo, nombre, genero, descripcion, publicado, destacado, file: null, anio, duracion, ranking, pagina, tipo }; // Include tipo in the movie object
+      movies[currentMovie] = { codigo, nombre, genero, descripcion, publicado, destacado, file: null, anio, duracion, ranking, pagina, tipo }; 
     } else {
-      movies.push({ codigo, nombre, genero, descripcion, publicado, destacado, file: null, anio, duracion, ranking, pagina, tipo }); // Include tipo in the movie object
+      movies.push({ codigo, nombre, genero, descripcion, publicado, destacado, file: null, anio, duracion, ranking, pagina, tipo }); 
     }
 
     saveMovies();
@@ -267,6 +269,7 @@ saveMovieBtn.addEventListener('click', () => {
     modal.hide();
   }
 });
+
 
 
 document.querySelector('#cancel-movie-btn').addEventListener('click', () => {
