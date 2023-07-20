@@ -185,7 +185,7 @@ async function searchMovies(searchValue) {
     storedMovies = storedMovies.map(movie => {
       return {
         nombre: movie.name,
-        genero: movie.genre,
+        genero: movie.genero,
         pagina: movie.pagina
       };
     });
@@ -279,16 +279,24 @@ function mostrarPeliculas(peliculas) {
       const fileUrl = URL.createObjectURL(pelicula.file);
       instance.querySelector(".poster").src = fileUrl;
     }
-    instance.querySelector(".descripcion").textContent =
-      pelicula.descripcion ? pelicula.descripcion[0] : pelicula.description;
+    
+    if (Array.isArray(pelicula.descripcion)) {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+    } else {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+    }
+    
     instance.querySelector(".nombre").textContent = pelicula.nombre;
+    
     if (Array.isArray(pelicula.anio)) {
       instance.querySelector(".anio").textContent = pelicula.anio[0];
     } else {
       instance.querySelector(".anio").textContent = pelicula.anio;
     }
+    
     instance.querySelector(".duracion").textContent = pelicula.duracion;
     instance.querySelector(".ranking").textContent = pelicula.ranking;
+    instance.querySelector("#genero").textContent = pelicula.genero[0];
 
     const verMasButton = instance.querySelector(".ver-mas");
     verMasButton.addEventListener("click", () => {

@@ -341,6 +341,7 @@ fetch('../catalogo.json')
       instance.querySelector(".anio").textContent = pelicula.anio[0];
       instance.querySelector(".duracion").textContent = pelicula.duracion;
       instance.querySelector(".ranking").textContent = pelicula.ranking;
+      instance.querySelector("#tipo").textContent = pelicula.tipo;
       
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
@@ -358,10 +359,27 @@ fetch('../catalogo.json')
   }
 
   async function cargarPeliculas2023() {
+    let peliculasLocalStorage = JSON.parse(localStorage.getItem('movies')) || [];
+    peliculasLocalStorage.forEach(pelicula => {
+        if (pelicula.file) {
+            const byteString = atob(pelicula.file.split(',')[1]);
+            const mimeString = pelicula.file.split(',')[0].split(':')[1].split(';')[0];
+            const arrayBuffer = new ArrayBuffer(byteString.length);
+            const intArray = new Uint8Array(arrayBuffer);
+            for (let i = 0; i < byteString.length; i++) {
+                intArray[i] = byteString.charCodeAt(i);
+            }
+            pelicula.file = new Blob([arrayBuffer], { type: mimeString });
+        }
+    });
+
     const response = await fetch('../catalogo.json');
-    const peliculas = await response.json();
+    const peliculasJson = await response.json();
+  
+    const peliculas = [...peliculasLocalStorage, ...peliculasJson];
+
     const peliculas2023 = peliculas.filter(pelicula => pelicula.anio == "2023" && !pelicula.anio.includes("proximamente"));
-   
+
     peliculas2023.sort(() => Math.random() - 0.5);
 
     const template = document.querySelector("#pelicula-card-template");
@@ -370,29 +388,39 @@ fetch('../catalogo.json')
     const fragment = document.createDocumentFragment();
   
     peliculas2023.forEach(pelicula => {
-      const instance = template.content.cloneNode(true);
-      instance.querySelector(".poster").src = pelicula.poster[0];
-      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
-      instance.querySelector(".nombre").textContent = pelicula.nombre;
-      instance.querySelector(".anio").textContent = pelicula.anio;
-      instance.querySelector(".duracion").textContent = pelicula.duracion;
-      instance.querySelector(".ranking").textContent = pelicula.ranking;
-  
-      const verMasButton = instance.querySelector('.ver-mas');
-      verMasButton.addEventListener('click', () => {
-        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_self');
+        const instance = template.content.cloneNode(true);
+        if (pelicula.file) {
+            const fileUrl = URL.createObjectURL(pelicula.file);
+            instance.querySelector(".poster").src = fileUrl;
+        } else {
+            instance.querySelector(".poster").src = pelicula.poster[0];
+        }
+        if (Array.isArray(pelicula.descripcion)) {
+          instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
       } else {
-          createYouTubeModal(pelicula.pagina);
+          instance.querySelector(".descripcion").textContent = pelicula.descripcion;
       }
-});
-
+        instance.querySelector(".nombre").textContent = pelicula.nombre;
+        instance.querySelector(".anio").textContent = pelicula.anio;
+        instance.querySelector(".duracion").textContent = pelicula.duracion;
+        instance.querySelector(".ranking").textContent = pelicula.ranking;
+        instance.querySelector("#tipo").textContent = pelicula.tipo;
   
-      fragment.appendChild(instance);
+        const verMasButton = instance.querySelector('.ver-mas');
+        verMasButton.addEventListener('click', () => {
+            if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+                window.open(pelicula.pagina[1], '_self');
+            } else {
+                createYouTubeModal(pelicula.pagina);
+            }
+        });
+
+        fragment.appendChild(instance);
     });
   
     container.appendChild(fragment);
-  }
+}
+
   
   function cargarPeliculasDestacadas() {
     const peliculas = JSON.parse(localStorage.getItem('movies')) || [];
@@ -409,7 +437,7 @@ fetch('../catalogo.json')
         }
     });
 
-    const peliculasDestacadas = peliculas.filter(pelicula => pelicula.featured && pelicula.published);
+    const peliculasDestacadas = peliculas.filter(pelicula => pelicula.destacado && pelicula.publicado);
     peliculasDestacadas.sort(() => Math.random() - 0.5);
 
     const template = document.querySelector("#pelicula-card-template");
@@ -423,10 +451,11 @@ fetch('../catalogo.json')
             instance.querySelector(".poster").src = fileUrl;
         }
         instance.querySelector(".nombre").textContent = pelicula.nombre;
-        instance.querySelector(".descripcion").textContent = pelicula.description;
+        instance.querySelector(".descripcion").textContent = pelicula.descripcion;
         instance.querySelector(".anio").textContent = pelicula.anio;
         instance.querySelector(".duracion").textContent = pelicula.duracion;
         instance.querySelector(".ranking").textContent = pelicula.ranking;
+        instance.querySelector("#tipo").textContent = pelicula.tipo;
 
         const verMasButton = instance.querySelector('.ver-mas');
         verMasButton.addEventListener('click', () => {
@@ -458,50 +487,90 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+async function cargarPeliculasAD() {
+  let peliculasLocalStorage = JSON.parse(localStorage.getItem('movies')) || [];
+  peliculasLocalStorage.forEach(pelicula => {
+      if (pelicula.file) {
+          const byteString = atob(pelicula.file.split(',')[1]);
+          const mimeString = pelicula.file.split(',')[0].split(':')[1].split(';')[0];
+          const arrayBuffer = new ArrayBuffer(byteString.length);
+          const intArray = new Uint8Array(arrayBuffer);
+          for (let i = 0; i < byteString.length; i++) {
+              intArray[i] = byteString.charCodeAt(i);
+          }
+          pelicula.file = new Blob([arrayBuffer], { type: mimeString });
+      }
+  });
 
-  
-  async function cargarPeliculasAD() {
-    const response = await fetch('../catalogo.json');
-    const peliculas = await response.json();
-    
-    const peliculasAD = peliculas.filter(pelicula => (pelicula.genero.includes("Accion") || pelicula.genero.includes("Drama")) && !pelicula.anio.includes("proximamente"));
-    
-    peliculasAD.sort(() => Math.random() - 0.5);
+  const response = await fetch('../catalogo.json');
+  const peliculasJson = await response.json();
 
-    const template = document.querySelector("#pelicula-card-template");
-    const container = document.querySelector("#peliculas-container-AD");
-  
-    const fragment = document.createDocumentFragment();
-  
-    peliculasAD.forEach(pelicula => {
+  const peliculas = [...peliculasLocalStorage, ...peliculasJson];
+
+  const peliculasAD = peliculas.filter(pelicula => (pelicula.genero.includes("Accion") || pelicula.genero.includes("Drama")) && !pelicula.anio.includes("proximamente"));
+
+  peliculasAD.sort(() => Math.random() - 0.5);
+
+  const template = document.querySelector("#pelicula-card-template");
+  const container = document.querySelector("#peliculas-container-AD");
+  const fragment = document.createDocumentFragment();
+
+  peliculasAD.forEach(pelicula => {
       const instance = template.content.cloneNode(true);
-      
-      instance.querySelector(".poster").src = pelicula.poster[0];
-      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+      if (pelicula.file) {
+          const fileUrl = URL.createObjectURL(pelicula.file);
+          instance.querySelector(".poster").src = fileUrl;
+      } else {
+          instance.querySelector(".poster").src = pelicula.poster[0];
+      }
       instance.querySelector(".nombre").textContent = pelicula.nombre;
+      if (Array.isArray(pelicula.descripcion)) {
+        instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+      } else {
+        instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+     }
       instance.querySelector(".anio").textContent = pelicula.anio;
       instance.querySelector(".duracion").textContent = pelicula.duracion;
       instance.querySelector(".ranking").textContent = pelicula.ranking;
+      instance.querySelector("#tipo").textContent = pelicula.tipo;
 
       const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
-        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_self');
-      } else {
-          createYouTubeModal(pelicula.pagina);
-      }
+          if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+              window.open(pelicula.pagina[1], '_self');
+          } else {
+              createYouTubeModal(pelicula.pagina);
+          }
       });
-      
+
       fragment.appendChild(instance);
-    });
-  
-    container.appendChild(fragment);
+  });
+
+  container.appendChild(fragment);
 }
 
+
+
 async function cargarPeliculasTerror() {
+  let peliculasLocalStorage = JSON.parse(localStorage.getItem('movies')) || [];
+  peliculasLocalStorage.forEach(pelicula => {
+    if (pelicula.file) {
+      const byteString = atob(pelicula.file.split(',')[1]);
+      const mimeString = pelicula.file.split(',')[0].split(':')[1].split(';')[0];
+      const arrayBuffer = new ArrayBuffer(byteString.length);
+      const intArray = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < byteString.length; i++) {
+        intArray[i] = byteString.charCodeAt(i);
+      }
+      pelicula.file = new Blob([arrayBuffer], { type: mimeString });
+    }
+  });
+
   const response = await fetch('../catalogo.json');
-  const peliculas = await response.json();
+  const peliculasJson = await response.json();
   
+  const peliculas = [...peliculasLocalStorage, ...peliculasJson];
+
   const peliculasTerror = peliculas.filter(pelicula => (pelicula.genero.includes("Terror") || pelicula.genero.includes("Suspenso")) && !pelicula.anio.includes("proximamente"));
   
   peliculasTerror.sort(() => Math.random() - 0.5);
@@ -513,22 +582,31 @@ async function cargarPeliculasTerror() {
 
   peliculasTerror.forEach(pelicula => {
     const instance = template.content.cloneNode(true);
-    
-    instance.querySelector(".poster").src = pelicula.poster[0];
-    instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+    if (pelicula.file) {
+      const fileUrl = URL.createObjectURL(pelicula.file);
+      instance.querySelector(".poster").src = fileUrl;
+    } else {
+      instance.querySelector(".poster").src = pelicula.poster[0];
+    }
+    if (Array.isArray(pelicula.descripcion)) {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+    } else {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+    }
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
     instance.querySelector(".ranking").textContent = pelicula.ranking;
+    instance.querySelector("#tipo").textContent = pelicula.tipo;
 
     const verMasButton = instance.querySelector('.ver-mas');
-      verMasButton.addEventListener('click', () => {
-        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_self');
+    verMasButton.addEventListener('click', () => {
+      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+        window.open(pelicula.pagina[1], '_self');
       } else {
-          createYouTubeModal(pelicula.pagina);
+        createYouTubeModal(pelicula.pagina);
       }
-      });
+    });
     
     fragment.appendChild(instance);
   });
@@ -537,9 +615,25 @@ async function cargarPeliculasTerror() {
 }
 
 async function cargarPeliculasCrimen() {
+  let peliculasLocalStorage = JSON.parse(localStorage.getItem('movies')) || [];
+  peliculasLocalStorage.forEach(pelicula => {
+    if (pelicula.file) {
+      const byteString = atob(pelicula.file.split(',')[1]);
+      const mimeString = pelicula.file.split(',')[0].split(':')[1].split(';')[0];
+      const arrayBuffer = new ArrayBuffer(byteString.length);
+      const intArray = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < byteString.length; i++) {
+        intArray[i] = byteString.charCodeAt(i);
+      }
+      pelicula.file = new Blob([arrayBuffer], { type: mimeString });
+    }
+  });
+
   const response = await fetch('../catalogo.json');
-  const peliculas = await response.json();
+  const peliculasJson = await response.json();
   
+  const peliculas = [...peliculasLocalStorage, ...peliculasJson];
+
   const peliculasCrimen = peliculas.filter(pelicula => pelicula.genero.includes("Crimen") && !pelicula.anio.includes("proximamente"));
   
   peliculasCrimen.sort(() => Math.random() - 0.5);
@@ -551,13 +645,22 @@ async function cargarPeliculasCrimen() {
 
   peliculasCrimen.forEach(pelicula => {
     const instance = template.content.cloneNode(true);
-    
-    instance.querySelector(".poster").src = pelicula.poster[0];
-    instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+    if (pelicula.file) {
+      const fileUrl = URL.createObjectURL(pelicula.file);
+      instance.querySelector(".poster").src = fileUrl;
+    } else {
+      instance.querySelector(".poster").src = pelicula.poster[0];
+    }
+    if (Array.isArray(pelicula.descripcion)) {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+    } else {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+    }
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
     instance.querySelector(".ranking").textContent = pelicula.ranking;
+    instance.querySelector("#tipo").textContent = pelicula.tipo;
 
     const verMasButton = instance.querySelector('.ver-mas');
       verMasButton.addEventListener('click', () => {
@@ -575,9 +678,25 @@ async function cargarPeliculasCrimen() {
 }
 
 async function cargarPeliculasCR() {
+  let peliculasLocalStorage = JSON.parse(localStorage.getItem('movies')) || [];
+  peliculasLocalStorage.forEach(pelicula => {
+    if (pelicula.file) {
+      const byteString = atob(pelicula.file.split(',')[1]);
+      const mimeString = pelicula.file.split(',')[0].split(':')[1].split(';')[0];
+      const arrayBuffer = new ArrayBuffer(byteString.length);
+      const intArray = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < byteString.length; i++) {
+        intArray[i] = byteString.charCodeAt(i);
+      }
+      pelicula.file = new Blob([arrayBuffer], { type: mimeString });
+    }
+  });
+
   const response = await fetch('../catalogo.json');
-  const peliculas = await response.json();
+  const peliculasJson = await response.json();
   
+  const peliculas = [...peliculasLocalStorage, ...peliculasJson];
+
   let peliculasCR = peliculas.filter(pelicula => (pelicula.genero.includes("Comedia") || pelicula.genero.includes("Romance")) && !pelicula.anio.includes("proximamente"));
   
   peliculasCR.sort(() => Math.random() - 0.5);
@@ -589,29 +708,36 @@ async function cargarPeliculasCR() {
 
   peliculasCR.forEach(pelicula => {
     const instance = template.content.cloneNode(true);
-    
-    instance.querySelector(".poster").src = pelicula.poster[0];
-    instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+    if (pelicula.file) {
+      const fileUrl = URL.createObjectURL(pelicula.file);
+      instance.querySelector(".poster").src = fileUrl;
+    } else {
+      instance.querySelector(".poster").src = pelicula.poster[0];
+    }
+    if (Array.isArray(pelicula.descripcion)) {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion[0];
+    } else {
+      instance.querySelector(".descripcion").textContent = pelicula.descripcion;
+    }
     instance.querySelector(".nombre").textContent = pelicula.nombre;
     instance.querySelector(".anio").textContent = pelicula.anio;
     instance.querySelector(".duracion").textContent = pelicula.duracion;
     instance.querySelector(".ranking").textContent = pelicula.ranking;
+    instance.querySelector("#tipo").textContent = pelicula.tipo;
 
     const verMasButton = instance.querySelector('.ver-mas');
-      verMasButton.addEventListener('click', () => {
-        if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
-          window.open(pelicula.pagina[1], '_self');
+    verMasButton.addEventListener('click', () => {
+      if (Array.isArray(pelicula.pagina) && pelicula.pagina.length === 2) {
+        window.open(pelicula.pagina[1], '_self');
       } else {
-          createYouTubeModal(pelicula.pagina);
+        createYouTubeModal(pelicula.pagina);
       }
-      });
+    });
     fragment.appendChild(instance);
   });
 
   container.appendChild(fragment);
 }
-
-
   
 
 const peliculasContainer2023 = document.getElementById("peliculas-container-2023");

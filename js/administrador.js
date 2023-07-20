@@ -84,7 +84,7 @@ function renderTable() {
     const tr = document.createElement('tr');
 
     const codeTd = document.createElement('td');
-    codeTd.innerHTML = `<span class="atributo">Código:</span> ${movie.code}`;
+    codeTd.innerHTML = `<span class="atributo">Código:</span> ${movie.codigo}`;
     tr.appendChild(codeTd);
 
     const nameTd = document.createElement('td');
@@ -92,14 +92,14 @@ function renderTable() {
     tr.appendChild(nameTd);
 
     const genreTd = document.createElement('td');
-    genreTd.innerHTML = `<span class="atributo">Género:</span> ${movie.genre}`;
+    genreTd.innerHTML = `<span class="atributo">Género:</span> ${movie.genero}`;
     tr.appendChild(genreTd);
 
     const publishedTd = document.createElement('td');
     publishedTd.innerHTML = `<span class="atributo">Publicado:</span>`;
     const publishedCheckbox = document.createElement('input');
     publishedCheckbox.type = 'checkbox';
-    publishedCheckbox.checked = movie.published;
+    publishedCheckbox.checked = movie.publicado;
     publishedCheckbox.disabled = true;
     publishedTd.appendChild(publishedCheckbox);
     tr.appendChild(publishedTd);
@@ -108,7 +108,7 @@ function renderTable() {
     featuredTd.innerHTML = `<span class="atributo">Destacado:</span>`;
     const featuredCheckbox = document.createElement('input');
     featuredCheckbox.type = 'checkbox';
-    featuredCheckbox.checked = movie.featured;
+    featuredCheckbox.checked = movie.destacado;
     featuredCheckbox.disabled = true;
     featuredTd.appendChild(featuredCheckbox);
     tr.appendChild(featuredTd);
@@ -145,7 +145,7 @@ tableBody.appendChild(tr);
 
     descriptionTd.setAttribute('colspan', '9');
 
-    descriptionTd.textContent = movie.description;
+    descriptionTd.textContent = movie.descripcion;
     descriptionTr.appendChild(descriptionTd); 
     tableBody.appendChild(descriptionTr); 
   });
@@ -154,7 +154,7 @@ tableBody.appendChild(tr);
 function getNextCode() {
   let maxCode = 0;
   movies.forEach(movie => {
-    const code = parseInt(movie.code);
+    const code = parseInt(movie.codigo);
     if (code > maxCode) {
       maxCode = code;
     }
@@ -166,16 +166,16 @@ function openModal(title, movie) {
   modalTitle.textContent = title;
 
   if (movie) {
-    movieCodeInput.value = movie.code;
+    movieCodeInput.value = movie.codigo;
     movieNameInput.value = movie.nombre;
-    movie.genre = selectedGenres;
+    movie.genero = selectedGenres;
     var select = document.getElementById("movie-genre-input"); 
     var options = select.options; 
     var size = options.length; 
     select.size = size;
-    movieDescriptionInput.value = movie.description;
-    moviePublishedInput.checked = movie.published;
-    movieFeaturedInput.checked = movie.featured;
+    movieDescriptionInput.value = movie.descripcion;
+    moviePublishedInput.checked = movie.publicado;
+    movieFeaturedInput.checked = movie.destacado;
     movieAnioInput.value = movie.anio;
     movieDuracionInput.value = movie.duracion;
     movieRankingInput.value = movie.ranking;
@@ -226,12 +226,12 @@ addMovieBtn.addEventListener('click', () => {
 });
 
 saveMovieBtn.addEventListener('click', () => {
-  const code = movieCodeInput.value;
+  const codigo = movieCodeInput.value;
   const nombre = movieNameInput.value;
-  const genre = selectedGenres;
-  const description = movieDescriptionInput.value;
-  const published = moviePublishedInput.checked;
-  const featured = movieFeaturedInput.checked;
+  const genero = selectedGenres;
+  const descripcion = movieDescriptionInput.value;
+  const publicado = moviePublishedInput.checked;
+  const destacado = movieFeaturedInput.checked;
   const file = fileInput.files[0];
   const anio = movieAnioInput.value;
   const duracion = movieDuracionInput.value;
@@ -246,9 +246,9 @@ saveMovieBtn.addEventListener('click', () => {
       const base64File = reader.result;
 
       if (currentMovie !== null) {
-        movies[currentMovie] = { code, nombre, genre, description, published, featured, file: base64File, anio, duracion, ranking, pagina, tipo }; // Include tipo in the movie object
+        movies[currentMovie] = { codigo, nombre, genero, descripcion, publicado, destacado, file: base64File, anio, duracion, ranking, pagina, tipo }; // Include tipo in the movie object
       } else {
-        movies.push({ code, nombre, genre, description, published, featured, file: base64File, anio, duracion, ranking, pagina, tipo }); // Include tipo in the movie object
+        movies.push({ codigo, nombre, genero, descripcion, publicado, destacado, file: base64File, anio, duracion, ranking, pagina, tipo }); // Include tipo in the movie object
       }
 
       saveMovies();
@@ -257,9 +257,9 @@ saveMovieBtn.addEventListener('click', () => {
     };
   } else {
     if (currentMovie !== null) {
-      movies[currentMovie] = { code, nombre, genre, description, published, featured, file: null, anio, duracion, ranking, pagina, tipo }; // Include tipo in the movie object
+      movies[currentMovie] = { codigo, nombre, genero, descripcion, publicado, destacado, file: null, anio, duracion, ranking, pagina, tipo }; // Include tipo in the movie object
     } else {
-      movies.push({ code, nombre, genre, description, published, featured, file: null, anio, duracion, ranking, pagina, tipo }); // Include tipo in the movie object
+      movies.push({ codigo, nombre, genero, descripcion, publicado, destacado, file: null, anio, duracion, ranking, pagina, tipo }); // Include tipo in the movie object
     }
 
     saveMovies();

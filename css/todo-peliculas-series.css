@@ -74,11 +74,10 @@ a:hover {
     border-radius: 5px;
     padding-left: 4px;
     padding-right: 4px;
-    margin-right: 15px;
 }
 
-.col-3 .hd{
-    font-size: 0.7vw;
+.col-4 .hd{
+    font-size: 0.6vw;
 }
 
 #play{
@@ -130,7 +129,7 @@ main{
 }
 
 .card-text{
-    font-size: 0.8vw;
+    font-size: 0.6vw;
 }
 
 .poster {
@@ -236,6 +235,9 @@ footer a:hover{
     .navbar-brand{
         font-size: 1vh;
     }
+    .card-text{
+        font-size: 0.8vw;
+    }
 }
 
 @media (max-width: 767px) {
@@ -283,10 +285,10 @@ footer a:hover{
     }
     
     .card-text span{
-        font-size: 2vw;
+        font-size: 1.7vw;
     }
 
-    .col-3 .hd span{
+    .col-4 .hd span{
         font-size: 2vw;
     }
 

@@ -185,7 +185,7 @@ async function searchMovies(searchValue) {
     storedMovies = storedMovies.map(movie => {
       return {
         nombre: movie.name,
-        genero: movie.genre,
+        genero: movie.genero,
         pagina: movie.pagina
       };
     });
@@ -273,22 +273,31 @@ function mostrarSeries(series) {
   const fragment = document.createDocumentFragment();
   series.forEach((serie) => {
     const instance = template.content.cloneNode(true);
+    
     if (serie.poster) {
       instance.querySelector(".poster").src = serie.poster[0];
     } else if (serie.file) {
       const fileUrl = URL.createObjectURL(serie.file);
       instance.querySelector(".poster").src = fileUrl;
     }
-    instance.querySelector(".descripcion").textContent =
-      serie.descripcion ? serie.descripcion[0] : serie.description;
+    
+    if (Array.isArray(serie.descripcion)) {
+      instance.querySelector(".descripcion").textContent = serie.descripcion[0];
+    }else {
+      instance.querySelector(".descripcion").textContent = serie.descripcion;
+    }
+    
     instance.querySelector(".nombre").textContent = serie.nombre;
+    
     if (Array.isArray(serie.anio)) {
       instance.querySelector(".anio").textContent = serie.anio[0];
     } else {
-      instance.querySelector(".anio").textContent = serie.anio;
+    instance.querySelector(".anio").textContent = serie.anio;
     }
+    
     instance.querySelector(".duracion").textContent = serie.duracion;
     instance.querySelector(".ranking").textContent = serie.ranking;
+    instance.querySelector("#genero").textContent = serie.genero[0];
 
     const verMasButton = instance.querySelector(".ver-mas");
     verMasButton.addEventListener("click", () => {
