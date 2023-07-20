@@ -187,6 +187,7 @@ main{
 
 #titulo-anio{
     height: 5.5vh;
+    align-items: center;
 }
 
 .card:hover .card-button {
@@ -238,7 +239,7 @@ footer a:hover{
     }
 
     .card-title{
-        font-size: 0.8vw;
+        font-size: 0.7vw;
     }
 
 }
