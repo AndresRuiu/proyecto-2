@@ -4,7 +4,7 @@ function updateTopValue() {
   if (width <= 576){
     topValue = '60%'
   }
-  else if (width <= 768){
+  else if (width <= 767){
     topValue = '70%'
   }
   else if (width <= 992) {
@@ -258,7 +258,7 @@ fetch('../catalogo.json')
       tipoBtn.textContent = tipo;
 
       const hdBtn = document.querySelector('.hd');
-      hdBtn.textContent = `HD`;
+      hdBtn.textContent = `4K`;
 
       const generoP = document.querySelector('.genero');
       generoP.textContent = `${genero}`;

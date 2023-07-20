@@ -73,7 +73,7 @@ a:hover {
     z-index: 0;
 }
 
-.botones {
+#botones {
     display: inline-flex;
 }
 
@@ -125,59 +125,6 @@ button {
 #informacion p, #informacion button {
     font-size: 12px;
   }
-
-@media (max-width: 767px) {
-    .navbar.expanded {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .navbar-brand span {
-        display: none;
-    }
-
-
-
-    a:not(.navbar .nav-item a,#botones a){
-        color: black !important;
-    }   
-
-
-    #poster-imagen{
-        width: 35%;
-        margin-top: 30px;
-    }
-
-    .textFastx {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-right: 0px;
-        padding: 10px;
-        margin-bottom: 100px;
-    }
-
-
-    .textFastx *:not(h1):not(.naranja){
-        font-size: 16px;
-    }
-    
-    #informacion, .play {
-      width: max-content;
-    }
-
-}
-
-@media (max-width: 400px){
-    .textFastx *:not(h1):not(.naranja){
-        font-size: 12px;
-    }
-    
-    #poster-imagen{
-        width: 50%;
-        margin-top: 50px;
-    }
-}
 
 
 .anio, .play{
@@ -245,6 +192,84 @@ button {
     justify-content: center;
 }
 
+@media (max-width: 1023px) {
+    .navbar{
+        font-size: 0.9vh;
+    }
+    .navbar-brand img{
+        height: 2vh!important;
+    }
+    .navbar-brand{
+        font-size: 1vh;
+    }
+    
+    #botones a{
+        font-size: 1.1vh;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar{
+        font-size: 2vh;
+    }
+    .navbar-brand img{
+        height: 5vh!important;
+    }
+    .navbar-brand{
+        font-size: 2vh;
+    }
+
+    .navbar.expanded {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand span {
+        display: none;
+    }
+
+
+
+    a:not(.navbar .nav-item a,#botones a){
+        color: black !important;
+    }   
+
+
+    #poster-imagen{
+        width: 35%;
+        margin-top: 30px;
+    }
+
+    .textFastx {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-right: 0px;
+        padding: 10px;
+        margin-bottom: 100px;
+    }
+
+
+    .textFastx *:not(h1):not(.naranja){
+        font-size: 16px;
+    }
+    
+    #informacion, .play {
+      width: max-content;
+    }
+
+}
+
+@media (max-width: 400px){
+    .textFastx *:not(h1):not(.naranja){
+        font-size: 12px;
+    }
+    
+    #poster-imagen{
+        width: 50%;
+        margin-top: 50px;
+    }
+}
 
 
 

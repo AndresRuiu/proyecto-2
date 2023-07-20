@@ -226,7 +226,29 @@ footer a:hover{
     color: #d40f45;
 }
 
+@media (max-width: 1023px) {
+    .navbar{
+        font-size: 1vh;
+    }
+    .navbar-brand img{
+        height: 2vh!important;
+    }
+    .navbar-brand{
+        font-size: 1vh;
+    }
+}
+
 @media (max-width: 767px) {
+    .navbar{
+        font-size: 2vh;
+    }
+    .navbar-brand img{
+        height: 5vh!important;
+    }
+    .navbar-brand{
+        font-size: 2vh;
+    }
+    
     .navbar.expanded {
         background-color: rgba(0, 0, 0, 0.8);
     }

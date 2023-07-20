@@ -97,115 +97,6 @@ a:hover {
 
 #informacion p, #informacion button {
     font-size: 12px;
-  }
-
-  @media (max-width: 767px) {
-    .navbar.expanded {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .navbar-brand span {
-        display: none;
-    }
-
-    a:not(.navbar .nav-item a,#play a, footer a){
-        color: black !important;
-    }    
-
-    .textFastx {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin-left: 10px;
-    }
-
-    .textFastx *:not(h1):not(samp):not(h2){
-        font-size: 20px ;
-    }
-    
-    #informacion, #play {
-      width: max-content;
-    }
-
-    #peliculas-container-proximamente{
-        overflow-x: auto;
-        display: flex;
-        flex-wrap: nowrap;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-
-    .scroll-left,
-    .scroll-right{
-        display: none !important;
-    } 
-       
-    #pelicula-card-template{
-        flex: 0 0 auto;
-    }
-
-    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3, #peliculas-container-Crimen .col-lg-3, #peliculas-container-destacados .col-lg-3, #peliculas-container-CR .col-lg-3{
-        width: 50% !important;
-    }
-
-    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-Crimen, #peliculas-container-destacados, #peliculas-container-CR{
-        overflow-x: auto !important;
-        --bs-gutter-x: 1rem !important;
-    }
-
-    .card-title span{
-        font-size: 2vw;
-    }
-    
-    .card-text span{
-        font-size: 2vw;
-    }
-
-    .col-3 .hd span{
-        font-size: 2vw;
-    }
-
-
-}
-
-@media (max-width: 576px) {
-    #modal iframe {
-      width: 100%;
-      height: 100%;
-    }
-
-    .textFastx {
-        margin-left: 0px;
-    }
-
-    .textFastx *:not(h1):not(samp):not(h2){
-        font-size: 15px;
-    }
-
-    .card-button .descripcion, .card-button .btn{
-        font-size: 8px;
-    }
-
-    #peliculas-container-proximamente{
-        --bs-gutter-x: 0.5rem !important;
-    }
-
-    .card-body svg{
-        transform: scale(0.7)
-    }
-
-
-}
-
-@media (min-width: 577px){
-    #peliculas-container-proximamente{
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
 }
 
 .anio, #play{
@@ -378,6 +269,136 @@ footer a:hover{
     color: #d40f45;
 }
 
+@media (max-width: 1023px) {
+    .navbar{
+        font-size: 1vh;
+    }
+    .navbar-brand img{
+        height: 2vh!important;
+    }
+    .navbar-brand{
+        font-size: 1vh;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar.expanded {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand span {
+        display: none;
+    }
+
+    .navbar{
+        font-size: 2vh;
+    }
+    .navbar-brand img{
+        height: 5vh!important;
+    }
+    .navbar-brand{
+        font-size: 2vh;
+    }
+
+    a:not(.navbar .nav-item a,#play a, footer a){
+        color: black !important;
+    }    
+
+    .textFastx {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-left: 10px;
+    }
+
+    .textFastx *:not(h1):not(samp):not(h2){
+        font-size: 20px ;
+    }
+    
+    #informacion, #play {
+      width: max-content;
+    }
+
+    #peliculas-container-proximamente{
+        overflow-x: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .scroll-left,
+    .scroll-right{
+        display: none !important;
+    } 
+       
+    #pelicula-card-template{
+        flex: 0 0 auto;
+    }
+
+    #peliculas-container-2023 .col-lg-3, #peliculas-container-AD .col-lg-3, #peliculas-container-Terror .col-lg-3, #peliculas-container-Crimen .col-lg-3, #peliculas-container-destacados .col-lg-3, #peliculas-container-CR .col-lg-3{
+        width: 50% !important;
+    }
+
+    #peliculas-container-2023, #peliculas-container-AD, #peliculas-container-Terror, #peliculas-container-Crimen, #peliculas-container-destacados, #peliculas-container-CR{
+        overflow-x: auto !important;
+        --bs-gutter-x: 1rem !important;
+    }
+
+    .card-title span{
+        font-size: 2vw;
+    }
+    
+    .card-text span{
+        font-size: 2vw;
+    }
+
+    .col-3 .hd span{
+        font-size: 2vw;
+    }
+
+
+}
+
+@media (max-width: 576px) {
+    #modal iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    .textFastx {
+        margin-left: 0px;
+    }
+
+    .textFastx *:not(h1):not(samp):not(h2){
+        font-size: 15px;
+    }
+
+    .card-button .descripcion, .card-button .btn{
+        font-size: 8px;
+    }
+
+    #peliculas-container-proximamente{
+        --bs-gutter-x: 0.5rem !important;
+    }
+
+    .card-body svg{
+        transform: scale(0.7)
+    }
+
+
+}
+
+@media (min-width: 577px){
+    #peliculas-container-proximamente{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+}
 
   
   
