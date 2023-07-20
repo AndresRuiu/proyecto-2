@@ -94,8 +94,6 @@ function cambiarBoton() {
 }
 
 
-
-  
   window.addEventListener('load', function() {
     cargarUsuarios()
   })

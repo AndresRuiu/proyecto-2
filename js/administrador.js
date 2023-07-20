@@ -270,8 +270,6 @@ saveMovieBtn.addEventListener('click', () => {
   }
 });
 
-
-
 document.querySelector('#cancel-movie-btn').addEventListener('click', () => {
   modal.hide();
 });
